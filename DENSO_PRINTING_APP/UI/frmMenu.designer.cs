@@ -68,6 +68,8 @@
             this.btnMini = new System.Windows.Forms.Button();
             this.picChangePassword = new System.Windows.Forms.PictureBox();
             this.picLogOut = new System.Windows.Forms.PictureBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cbSelectModel = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tbReport.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -283,13 +285,15 @@
             this.pnlSpoolScanning.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pnlSpoolScanning.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(58)))), ((int)(((byte)(86)))));
             this.pnlSpoolScanning.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlSpoolScanning.Controls.Add(this.cbSelectModel);
+            this.pnlSpoolScanning.Controls.Add(this.label8);
             this.pnlSpoolScanning.Controls.Add(this.lblFront);
             this.pnlSpoolScanning.Controls.Add(this.lblBack);
             this.pnlSpoolScanning.Controls.Add(this.btnBack);
             this.pnlSpoolScanning.Controls.Add(this.btnFront);
             this.pnlSpoolScanning.Location = new System.Drawing.Point(338, 232);
             this.pnlSpoolScanning.Name = "pnlSpoolScanning";
-            this.pnlSpoolScanning.Size = new System.Drawing.Size(389, 151);
+            this.pnlSpoolScanning.Size = new System.Drawing.Size(391, 201);
             this.pnlSpoolScanning.TabIndex = 16;
             this.pnlSpoolScanning.Visible = false;
             // 
@@ -300,7 +304,7 @@
             this.lblFront.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblFront.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFront.ForeColor = System.Drawing.Color.White;
-            this.lblFront.Location = new System.Drawing.Point(65, 60);
+            this.lblFront.Location = new System.Drawing.Point(63, 119);
             this.lblFront.Name = "lblFront";
             this.lblFront.Size = new System.Drawing.Size(82, 29);
             this.lblFront.TabIndex = 18;
@@ -314,7 +318,7 @@
             this.lblBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblBack.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBack.ForeColor = System.Drawing.Color.White;
-            this.lblBack.Location = new System.Drawing.Point(252, 60);
+            this.lblBack.Location = new System.Drawing.Point(250, 119);
             this.lblBack.Name = "lblBack";
             this.lblBack.Size = new System.Drawing.Size(67, 29);
             this.lblBack.TabIndex = 17;
@@ -325,7 +329,7 @@
             // 
             this.btnBack.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBack.Location = new System.Drawing.Point(218, 30);
+            this.btnBack.Location = new System.Drawing.Point(216, 89);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(134, 83);
             this.btnBack.TabIndex = 1;
@@ -336,7 +340,7 @@
             // 
             this.btnFront.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.btnFront.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFront.Location = new System.Drawing.Point(32, 30);
+            this.btnFront.Location = new System.Drawing.Point(30, 89);
             this.btnFront.Name = "btnFront";
             this.btnFront.Size = new System.Drawing.Size(134, 83);
             this.btnFront.TabIndex = 0;
@@ -595,6 +599,26 @@
             this.picLogOut.TabStop = false;
             this.picLogOut.Click += new System.EventHandler(this.picLogOut_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Cambria", 24F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.Color.Snow;
+            this.label8.Location = new System.Drawing.Point(77, -2);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(240, 37);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "SELECT MODEL";
+            // 
+            // cbSelectModel
+            // 
+            this.cbSelectModel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSelectModel.FormattingEnabled = true;
+            this.cbSelectModel.Location = new System.Drawing.Point(84, 44);
+            this.cbSelectModel.Name = "cbSelectModel";
+            this.cbSelectModel.Size = new System.Drawing.Size(219, 34);
+            this.cbSelectModel.TabIndex = 20;
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
@@ -688,5 +712,7 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label lblSpoolingReport;
         private System.Windows.Forms.PictureBox picSpoolingReport;
+        private System.Windows.Forms.ComboBox cbSelectModel;
+        private System.Windows.Forms.Label label8;
     }
 }
