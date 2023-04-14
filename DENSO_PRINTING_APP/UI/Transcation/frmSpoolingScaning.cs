@@ -372,47 +372,7 @@ namespace DENSO_PRINTING_APP
         }
 
 
-        private bool ValidateInput()
-        {
-            try
-            {
-
-                if (txtOldPartNo.Text.Length == 0)
-                {
-                    GlobalVariable.MesseageInfo(lblMessage, "Barcode can't be blank!!!", 2);
-                    this.txtOldPartNo.Focus();
-                    PlayValidationSound();return false;
-                }
-                if (!txtOldPartNo.Text.Contains(";"))
-                {
-                    GlobalVariable.MesseageInfo(lblMessage, "Invalid Barcode!!!", 2);
-                    this.txtOldPartNo.Focus();
-                    PlayValidationSound();return false;
-                }
-                if (txtOldPartNo.Text.Trim().Split(';').Length != 7)
-                {
-                    GlobalVariable.MesseageInfo(lblMessage, "Invalid Barcode!!!", 2);
-                    this.txtOldPartNo.Focus();
-                    PlayValidationSound();return false;
-                }
-                if (char.IsLetter(txtOldPartNo.Text.Trim().Split(';')[txtOldPartNo.Text.Trim().Split(';').Length - 1], 0) == false)
-                {
-                    GlobalVariable.MesseageInfo(lblMessage, "Invalid Barcode!!!", 2);
-                    this.txtOldPartNo.Focus();
-                    PlayValidationSound();return false;
-                }
-                if (dgv.Rows.Count == 2)
-                {
-                    dgv.Rows.Clear();
-                    dtBindGrid.Rows.Clear();
-                    //lblBinCount.Text = "0";
-                }
-
-
-                return true;
-            }
-            catch (Exception ex) { throw ex; }
-        }
+     
 
 
         #endregion
@@ -822,6 +782,7 @@ namespace DENSO_PRINTING_APP
                     _plObj.FinalPartNo = txtFinalPart.Text.Trim();
                     _plObj.CreatedBy = GlobalVariable.UserName;
                     _plObj.SpoolType = GlobalVariable.mSpoolType;
+                    _plObj.Model = GlobalVariable.mModel;
                     DataTable dt = _blObj.BL_ExecuteTask(_plObj);
                     if (dt.Rows.Count > 0)
                     {

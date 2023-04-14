@@ -9,6 +9,7 @@ namespace DENSO_PRINTING_PL
 {
     public class PL_SPOOLING:Common
     {
+        public string Model { get; set; }
         public string OldPartNo { get; set; }
         public string NewPartNo { get; set; }
         public string FeederPartNo { get; set; }

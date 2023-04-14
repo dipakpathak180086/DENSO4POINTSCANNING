@@ -11,6 +11,7 @@ namespace DENSO_PRINTING_PL
     {
         public string FromDate { get; set; }
         public string ToDate { get; set; }
+        public string Model { get; set; }
         public string PartNo { get; set; }
         public string  FeederPartNo { get; set; }
         public string LotNo { get; set; }

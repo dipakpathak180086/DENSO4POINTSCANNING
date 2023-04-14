@@ -178,8 +178,22 @@ namespace DENSO_PRINTING_APP
         }
         private void picLine4Scanning_Click(object sender, EventArgs e)
         {
-            pnlSpoolScanning.Visible = true;
-            lblBack.ForeColor = lblFront.ForeColor = Color.WhiteSmoke;
+            try
+            {
+                Common common = new Common();
+                DataTable dt = common.GetModel();
+                if (dt.Rows.Count > 0)
+                {
+                    GlobalVariable.BindCombo(cbSelectModel, dt);
+                }
+                pnlSpoolScanning.Visible = true;
+                lblBack.ForeColor = lblFront.ForeColor = Color.WhiteSmoke;
+            }
+            catch (Exception ex)
+            {
+                GlobalVariable.mStoCustomFunction.setMessageBox(GlobalVariable.mSatoApps, ex.Message, 3);
+            }
+
         }
         private void picLineMaster_Click(object sender, EventArgs e)
         {
@@ -197,7 +211,15 @@ namespace DENSO_PRINTING_APP
         }
         private void btnFront_Click(object sender, EventArgs e)
         {
+            if (cbSelectModel.SelectedIndex <= 0)
+            {
+
+                GlobalVariable.mStoCustomFunction.setMessageBox("Model Selection Failed!!!", "Select Model First!!!", 2);
+                this.cbSelectModel.Focus();
+                return;
+            }
             GlobalVariable.mSpoolType = "FRONT";
+            GlobalVariable.mModel = cbSelectModel.Text.Trim();
             pnlSpoolScanning.Visible = false;
             frmSpoolingScaning frm = new frmSpoolingScaning();
             frm.Show();
@@ -209,7 +231,15 @@ namespace DENSO_PRINTING_APP
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            if (cbSelectModel.SelectedIndex <= 0)
+            {
+
+                GlobalVariable.mStoCustomFunction.setMessageBox("Model Selection Failed!!!", "Select Model First!!!", 2);
+                this.cbSelectModel.Focus();
+                return;
+            }
             GlobalVariable.mSpoolType = "BACK";
+            GlobalVariable.mModel = cbSelectModel.Text.Trim();
             pnlSpoolScanning.Visible = false;
             frmSpoolingScaning frm = new frmSpoolingScaning();
             frm.Show();
@@ -348,7 +378,7 @@ namespace DENSO_PRINTING_APP
 
         #endregion
 
-        
-       
+
+
     }
 }

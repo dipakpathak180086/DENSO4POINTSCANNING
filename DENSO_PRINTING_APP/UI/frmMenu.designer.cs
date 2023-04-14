@@ -44,6 +44,8 @@
             this.picUserMaster = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pnlSpoolScanning = new System.Windows.Forms.Panel();
+            this.cbSelectModel = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.lblFront = new System.Windows.Forms.Label();
             this.lblBack = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.PictureBox();
@@ -68,8 +70,6 @@
             this.btnMini = new System.Windows.Forms.Button();
             this.picChangePassword = new System.Windows.Forms.PictureBox();
             this.picLogOut = new System.Windows.Forms.PictureBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cbSelectModel = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tbReport.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -297,6 +297,26 @@
             this.pnlSpoolScanning.TabIndex = 16;
             this.pnlSpoolScanning.Visible = false;
             // 
+            // cbSelectModel
+            // 
+            this.cbSelectModel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSelectModel.FormattingEnabled = true;
+            this.cbSelectModel.Location = new System.Drawing.Point(84, 44);
+            this.cbSelectModel.Name = "cbSelectModel";
+            this.cbSelectModel.Size = new System.Drawing.Size(219, 34);
+            this.cbSelectModel.TabIndex = 20;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Cambria", 24F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.Color.Snow;
+            this.label8.Location = new System.Drawing.Point(77, -2);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(240, 37);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "SELECT MODEL";
+            // 
             // lblFront
             // 
             this.lblFront.AutoSize = true;
@@ -304,7 +324,7 @@
             this.lblFront.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblFront.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFront.ForeColor = System.Drawing.Color.White;
-            this.lblFront.Location = new System.Drawing.Point(63, 119);
+            this.lblFront.Location = new System.Drawing.Point(57, 119);
             this.lblFront.Name = "lblFront";
             this.lblFront.Size = new System.Drawing.Size(82, 29);
             this.lblFront.TabIndex = 18;
@@ -318,7 +338,7 @@
             this.lblBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblBack.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBack.ForeColor = System.Drawing.Color.White;
-            this.lblBack.Location = new System.Drawing.Point(250, 119);
+            this.lblBack.Location = new System.Drawing.Point(252, 119);
             this.lblBack.Name = "lblBack";
             this.lblBack.Size = new System.Drawing.Size(67, 29);
             this.lblBack.TabIndex = 17;
@@ -598,26 +618,6 @@
             this.picLogOut.TabIndex = 16;
             this.picLogOut.TabStop = false;
             this.picLogOut.Click += new System.EventHandler(this.picLogOut_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Cambria", 24F, System.Drawing.FontStyle.Bold);
-            this.label8.ForeColor = System.Drawing.Color.Snow;
-            this.label8.Location = new System.Drawing.Point(77, -2);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(240, 37);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "SELECT MODEL";
-            // 
-            // cbSelectModel
-            // 
-            this.cbSelectModel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbSelectModel.FormattingEnabled = true;
-            this.cbSelectModel.Location = new System.Drawing.Point(84, 44);
-            this.cbSelectModel.Name = "cbSelectModel";
-            this.cbSelectModel.Size = new System.Drawing.Size(219, 34);
-            this.cbSelectModel.TabIndex = 20;
             // 
             // frmMenu
             // 

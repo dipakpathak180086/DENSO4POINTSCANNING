@@ -35,6 +35,8 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnMini = new System.Windows.Forms.Button();
             this.gbPrintingParameter = new System.Windows.Forms.GroupBox();
+            this.cbModel = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.cbSpoolType = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cbTMUser = new System.Windows.Forms.ComboBox();
@@ -59,6 +61,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.Line = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OldPartBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NewPartBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PartNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -152,6 +155,8 @@
             // 
             this.gbPrintingParameter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbPrintingParameter.Controls.Add(this.cbModel);
+            this.gbPrintingParameter.Controls.Add(this.label10);
             this.gbPrintingParameter.Controls.Add(this.cbSpoolType);
             this.gbPrintingParameter.Controls.Add(this.label8);
             this.gbPrintingParameter.Controls.Add(this.cbTMUser);
@@ -173,10 +178,33 @@
             this.gbPrintingParameter.ForeColor = System.Drawing.Color.MidnightBlue;
             this.gbPrintingParameter.Location = new System.Drawing.Point(3, 3);
             this.gbPrintingParameter.Name = "gbPrintingParameter";
-            this.gbPrintingParameter.Size = new System.Drawing.Size(1184, 198);
-            this.gbPrintingParameter.TabIndex = 193;
+            this.gbPrintingParameter.Size = new System.Drawing.Size(1184, 227);
+            this.gbPrintingParameter.TabIndex = 0;
             this.gbPrintingParameter.TabStop = false;
             this.gbPrintingParameter.Text = "Report";
+            // 
+            // cbModel
+            // 
+            this.cbModel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cbModel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbModel.Font = new System.Drawing.Font("Calibri", 12F);
+            this.cbModel.FormattingEnabled = true;
+            this.cbModel.Location = new System.Drawing.Point(470, 67);
+            this.cbModel.Name = "cbModel";
+            this.cbModel.Size = new System.Drawing.Size(243, 27);
+            this.cbModel.TabIndex = 3;
+            this.cbModel.SelectedIndexChanged += new System.EventHandler(this.cbModel_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            this.label10.Location = new System.Drawing.Point(402, 67);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(61, 19);
+            this.label10.TabIndex = 219;
+            this.label10.Text = "Model :";
             // 
             // cbSpoolType
             // 
@@ -188,17 +216,17 @@
             "--Select--",
             "FRONT",
             "BACK"});
-            this.cbSpoolType.Location = new System.Drawing.Point(470, 156);
+            this.cbSpoolType.Location = new System.Drawing.Point(115, 190);
             this.cbSpoolType.Name = "cbSpoolType";
             this.cbSpoolType.Size = new System.Drawing.Size(243, 27);
-            this.cbSpoolType.TabIndex = 216;
+            this.cbSpoolType.TabIndex = 8;
             // 
             // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(361, 159);
+            this.label8.Location = new System.Drawing.Point(6, 193);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(103, 19);
             this.label8.TabIndex = 217;
@@ -210,10 +238,10 @@
             this.cbTMUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTMUser.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbTMUser.FormattingEnabled = true;
-            this.cbTMUser.Location = new System.Drawing.Point(115, 156);
+            this.cbTMUser.Location = new System.Drawing.Point(470, 150);
             this.cbTMUser.Name = "cbTMUser";
             this.cbTMUser.Size = new System.Drawing.Size(243, 27);
-            this.cbTMUser.TabIndex = 214;
+            this.cbTMUser.TabIndex = 7;
             this.cbTMUser.SelectedIndexChanged += new System.EventHandler(this.cbTMUser_SelectedIndexChanged);
             // 
             // label7
@@ -221,7 +249,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(37, 156);
+            this.label7.Location = new System.Drawing.Point(392, 150);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(73, 19);
             this.label7.TabIndex = 215;
@@ -233,10 +261,10 @@
             this.cbLotNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLotNo.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbLotNo.FormattingEnabled = true;
-            this.cbLotNo.Location = new System.Drawing.Point(470, 114);
+            this.cbLotNo.Location = new System.Drawing.Point(115, 150);
             this.cbLotNo.Name = "cbLotNo";
             this.cbLotNo.Size = new System.Drawing.Size(243, 27);
-            this.cbLotNo.TabIndex = 212;
+            this.cbLotNo.TabIndex = 6;
             this.cbLotNo.SelectedIndexChanged += new System.EventHandler(this.cbLotNo_SelectedIndexChanged);
             // 
             // label6
@@ -244,7 +272,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(397, 117);
+            this.label6.Location = new System.Drawing.Point(42, 153);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 19);
             this.label6.TabIndex = 213;
@@ -256,10 +284,10 @@
             this.cbFeeder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFeeder.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbFeeder.FormattingEnabled = true;
-            this.cbFeeder.Location = new System.Drawing.Point(115, 114);
+            this.cbFeeder.Location = new System.Drawing.Point(470, 108);
             this.cbFeeder.Name = "cbFeeder";
             this.cbFeeder.Size = new System.Drawing.Size(243, 27);
-            this.cbFeeder.TabIndex = 210;
+            this.cbFeeder.TabIndex = 5;
             this.cbFeeder.SelectedIndexChanged += new System.EventHandler(this.cbFeeder_SelectedIndexChanged);
             // 
             // label4
@@ -267,7 +295,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(47, 114);
+            this.label4.Location = new System.Drawing.Point(402, 108);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 19);
             this.label4.TabIndex = 211;
@@ -279,10 +307,10 @@
             this.cbPartNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPartNo.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbPartNo.FormattingEnabled = true;
-            this.cbPartNo.Location = new System.Drawing.Point(470, 70);
+            this.cbPartNo.Location = new System.Drawing.Point(115, 109);
             this.cbPartNo.Name = "cbPartNo";
             this.cbPartNo.Size = new System.Drawing.Size(243, 27);
-            this.cbPartNo.TabIndex = 208;
+            this.cbPartNo.TabIndex = 4;
             this.cbPartNo.SelectedIndexChanged += new System.EventHandler(this.cbPartNo_SelectedIndexChanged_1);
             // 
             // label2
@@ -290,7 +318,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(390, 72);
+            this.label2.Location = new System.Drawing.Point(35, 111);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 19);
             this.label2.TabIndex = 209;
@@ -305,7 +333,7 @@
             this.cbLine.Location = new System.Drawing.Point(115, 70);
             this.cbLine.Name = "cbLine";
             this.cbLine.Size = new System.Drawing.Size(243, 27);
-            this.cbLine.TabIndex = 206;
+            this.cbLine.TabIndex = 2;
             this.cbLine.SelectedIndexChanged += new System.EventHandler(this.cbLine_SelectedIndexChanged);
             // 
             // label9
@@ -327,7 +355,7 @@
             this.dpToDate.Location = new System.Drawing.Point(470, 26);
             this.dpToDate.Name = "dpToDate";
             this.dpToDate.Size = new System.Drawing.Size(243, 27);
-            this.dpToDate.TabIndex = 204;
+            this.dpToDate.TabIndex = 1;
             this.dpToDate.CloseUp += new System.EventHandler(this.dpToDate_CloseUp);
             this.dpToDate.ValueChanged += new System.EventHandler(this.dpToDate_ValueChanged);
             this.dpToDate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dpToDate_KeyPress);
@@ -340,7 +368,7 @@
             this.dpFromDate.Location = new System.Drawing.Point(115, 26);
             this.dpFromDate.Name = "dpFromDate";
             this.dpFromDate.Size = new System.Drawing.Size(243, 27);
-            this.dpFromDate.TabIndex = 204;
+            this.dpFromDate.TabIndex = 0;
             this.dpFromDate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dpFromDate_KeyPress);
             // 
             // label1
@@ -374,9 +402,9 @@
             this.panel2.Controls.Add(this.btnSearch);
             this.panel2.Controls.Add(this.btnReset);
             this.panel2.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.panel2.Location = new System.Drawing.Point(781, 40);
+            this.panel2.Location = new System.Drawing.Point(809, 40);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(370, 80);
+            this.panel2.Size = new System.Drawing.Size(366, 80);
             this.panel2.TabIndex = 195;
             // 
             // btnExport
@@ -397,7 +425,7 @@
             this.btnExport.Location = new System.Drawing.Point(102, 18);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(76, 47);
-            this.btnExport.TabIndex = 207;
+            this.btnExport.TabIndex = 1;
             this.btnExport.Text = "&Download";
             this.btnExport.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnExport.UseVisualStyleBackColor = false;
@@ -421,7 +449,7 @@
             this.btnSearch.Location = new System.Drawing.Point(12, 18);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(76, 47);
-            this.btnSearch.TabIndex = 206;
+            this.btnSearch.TabIndex = 0;
             this.btnSearch.Text = "&Search";
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -497,6 +525,7 @@
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Line,
+            this.Model,
             this.OldPartBarcode,
             this.NewPartBarcode,
             this.PartNo,
@@ -509,7 +538,7 @@
             this.dgv.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.dgv.EnableHeadersVisualStyles = false;
             this.dgv.GridColor = System.Drawing.Color.AliceBlue;
-            this.dgv.Location = new System.Drawing.Point(5, 200);
+            this.dgv.Location = new System.Drawing.Point(5, 236);
             this.dgv.MultiSelect = false;
             this.dgv.Name = "dgv";
             this.dgv.RowHeadersVisible = false;
@@ -518,7 +547,7 @@
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(1194, 305);
+            this.dgv.Size = new System.Drawing.Size(1194, 269);
             this.dgv.StandardTab = true;
             this.dgv.TabIndex = 194;
             this.dgv.TabStop = false;
@@ -530,6 +559,13 @@
             this.Line.HeaderText = "Line";
             this.Line.Name = "Line";
             this.Line.Width = 149;
+            // 
+            // Model
+            // 
+            this.Model.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Model.DataPropertyName = "Model";
+            this.Model.HeaderText = "Model";
+            this.Model.Name = "Model";
             // 
             // OldPartBarcode
             // 
@@ -686,6 +722,7 @@
         private System.Windows.Forms.ComboBox cbSpoolType;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Line;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Model;
         private System.Windows.Forms.DataGridViewTextBoxColumn OldPartBarcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn NewPartBarcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn PartNo;
@@ -695,5 +732,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Time;
         private System.Windows.Forms.DataGridViewTextBoxColumn SpoolerType;
+        private System.Windows.Forms.ComboBox cbModel;
+        private System.Windows.Forms.Label label10;
     }
 }

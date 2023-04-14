@@ -91,6 +91,7 @@ namespace DENSO_PRINTING_APP
                 _plObj.FromDate = dpFromDate.Value.ToString("yyyy-MM-dd");
                 _plObj.ToDate = dpToDate.Value.ToString("yyyy-MM-dd");
                 _plObj.Line = cbLine.Text.Trim();
+                _plObj.Model = cbModel.Text.Trim();
                 _plObj.PartNo = cbPartNo.Text.Trim();
                 _plObj.FeederPartNo = cbFeeder.Text.Trim();
                 _plObj.LotNo = cbLotNo.Text.Trim();
@@ -145,6 +146,10 @@ namespace DENSO_PRINTING_APP
                 {
                     cbLine.SelectedIndex = 0;
                 }
+                if (cbModel.SelectedIndex > 0)
+                {
+                    cbModel.SelectedIndex = 0;
+                }
                 if (cbPartNo.SelectedIndex > 0)
                 {
                     cbPartNo.SelectedIndex = 0;
@@ -191,6 +196,26 @@ namespace DENSO_PRINTING_APP
                 GlobalVariable.mStoCustomFunction.setMessageBox(GlobalVariable.mSatoApps, ex.Message, 3);
             }
         }
+        private void BindModel()
+        {
+            try
+            {
+                _plObj = new PL_SPOOLING_REPORT();
+                _blObj = new BL_SPOOLING_REPORT();
+                _plObj.DbType = "BIND_MODEL";
+                _plObj.Line = cbLine.Text.Trim();
+                DataTable dt = _blObj.BL_ExecuteTask(_plObj);
+                if (dt.Rows.Count > 0)
+                {
+                    GlobalVariable.BindCombo(cbModel, dt);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                GlobalVariable.mStoCustomFunction.setMessageBox(GlobalVariable.mSatoApps, ex.Message, 3);
+            }
+        }
         private void BindPartNo()
         {
             try
@@ -199,6 +224,7 @@ namespace DENSO_PRINTING_APP
                 _blObj = new BL_SPOOLING_REPORT();
                 _plObj.DbType = "BIND_PART";
                 _plObj.Line = cbLine.Text.Trim();
+                _plObj.Model = cbModel.Text.Trim();
                 DataTable dt = _blObj.BL_ExecuteTask(_plObj);
                 if (dt.Rows.Count > 0)
                 {
@@ -219,6 +245,8 @@ namespace DENSO_PRINTING_APP
                 _blObj = new BL_SPOOLING_REPORT();
                 _plObj.DbType = "BIND_FEEDER";
                 _plObj.Line = cbLine.Text.Trim();
+                _plObj.Model = cbModel.Text.Trim();
+                _plObj.Model = cbModel.Text.Trim();
                 _plObj.PartNo = cbPartNo.Text.Trim();
                 DataTable dt = _blObj.BL_ExecuteTask(_plObj);
                 if (dt.Rows.Count > 0)
@@ -240,6 +268,7 @@ namespace DENSO_PRINTING_APP
                 _blObj = new BL_SPOOLING_REPORT();
                 _plObj.DbType = "BIND_LOT";
                 _plObj.Line = cbLine.Text.Trim();
+                _plObj.Model = cbModel.Text.Trim();
                 _plObj.PartNo = cbPartNo.Text.Trim();
                 _plObj.FeederPartNo = cbFeeder.Text.Trim();
                 DataTable dt = _blObj.BL_ExecuteTask(_plObj);
@@ -263,6 +292,7 @@ namespace DENSO_PRINTING_APP
                 _blObj = new BL_SPOOLING_REPORT();
                 _plObj.DbType = "BIND_USER";
                 _plObj.Line = cbLine.Text.Trim();
+                _plObj.Model = cbModel.Text.Trim();
                 _plObj.PartNo = cbPartNo.Text.Trim();
                 _plObj.FeederPartNo = cbFeeder.Text.Trim();
                 _plObj.LotNo = cbLotNo.Text.Trim();
@@ -356,6 +386,22 @@ namespace DENSO_PRINTING_APP
             {
                 if (cbLine.SelectedIndex > 0)
                 {
+                    BindModel();
+                  
+                }
+
+            }
+            catch (Exception ex)
+            {
+                GlobalVariable.mStoCustomFunction.setMessageBox(GlobalVariable.mSatoApps, ex.Message, 3);
+            }
+        }
+        private void cbModel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbModel.SelectedIndex > 0)
+                {
                     BindPartNo();
                 }
 
@@ -365,7 +411,6 @@ namespace DENSO_PRINTING_APP
                 GlobalVariable.mStoCustomFunction.setMessageBox(GlobalVariable.mSatoApps, ex.Message, 3);
             }
         }
-
         private void cbPartNo_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             try
@@ -419,6 +464,7 @@ namespace DENSO_PRINTING_APP
         {
 
         }
+
 
 
 

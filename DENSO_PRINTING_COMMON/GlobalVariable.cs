@@ -30,8 +30,7 @@ namespace DENSO_PRINTING_COMMON
         public static string mLine = "";
         public static string mLineName = "";
         public static string mPrinterName = "";
-        public static string mBoxPrnFileName = "BOX_LABEL.PRN";
-        public static string mPalletPrnFileName = "PALLET_LABEL.PRN";
+        public static string mModel = "";
         public static string mSpoolType = string.Empty;
         public static  void MesseageInfo(Label label,string sMessage, int icnt)
         {
