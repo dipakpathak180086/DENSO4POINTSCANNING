@@ -17,5 +17,6 @@ namespace DENSO_PRINTING_PL
         public string  TMBarcode { get; set; }
         public string FinalPartNo { get; set; }
         public string  SpoolType { get; set; }
+        public string PartNo { get; set; }
     }
 }

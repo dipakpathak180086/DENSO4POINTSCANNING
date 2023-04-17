@@ -31,6 +31,7 @@ namespace DENSO_PRINTING_COMMON
         public static string mLineName = "";
         public static string mPrinterName = "";
         public static string mModel = "";
+        public static string mPart = "";
         public static string mSpoolType = string.Empty;
         public static  void MesseageInfo(Label label,string sMessage, int icnt)
         {

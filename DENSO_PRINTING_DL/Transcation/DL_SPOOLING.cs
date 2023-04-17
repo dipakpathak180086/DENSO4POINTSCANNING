@@ -28,7 +28,7 @@ namespace DENSO_PRINTING_DL
             _SqlHelper = new SqlHelper();
             try
             {
-                SqlParameter[] param = new SqlParameter[11];
+                SqlParameter[] param = new SqlParameter[20];
 
                 param[0] = new SqlParameter("@TYPE", SqlDbType.VarChar, 100);
                 param[0].Value = obj.DbType;
@@ -50,8 +50,10 @@ namespace DENSO_PRINTING_DL
                 param[8].Value = obj.SpoolType;
                 param[9] = new SqlParameter("@MODEL", SqlDbType.VarChar, 500);
                 param[9].Value = obj.Model;
-                param[10] = new SqlParameter("@CREATED_BY", SqlDbType.VarChar, 50);
-                param[10].Value = obj.CreatedBy;
+                param[10] = new SqlParameter("@PART", SqlDbType.VarChar, 500);
+                param[10].Value = obj.PartNo;
+                param[11] = new SqlParameter("@CREATED_BY", SqlDbType.VarChar, 50);
+                param[11].Value = obj.CreatedBy;
                 return _SqlHelper.ExecuteDataset(GlobalVariable.mMainSqlConString, CommandType.StoredProcedure, "[PRC_SPOOLING]", param).Tables[0];
             }
             catch (Exception ex)

@@ -98,6 +98,11 @@ namespace DENSO_PRINTING_APP
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            DialogResult dre = MessageBox.Show("Are you sure want to exit???", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            if (dre == DialogResult.No)
+            {
+                return;
+            }
             this.Close();
         }
 
@@ -389,6 +394,11 @@ namespace DENSO_PRINTING_APP
         #region TextBox Event
         private void txtBarcode_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Control && (e.KeyCode == Keys.C | e.KeyCode == Keys.V))
+            {
+                e.SuppressKeyPress = true;
+                return;
+            }
             if (e.KeyCode == Keys.Enter)
             {
                 try
@@ -434,6 +444,11 @@ namespace DENSO_PRINTING_APP
 
         private void txtNewPartNo_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Control && (e.KeyCode == Keys.C | e.KeyCode == Keys.V))
+            {
+                e.SuppressKeyPress = true;
+                return;
+            }
             if (e.KeyCode == Keys.Enter)
             {
                 try
@@ -487,6 +502,11 @@ namespace DENSO_PRINTING_APP
 
         private void txtFeederPartNo_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Control && (e.KeyCode == Keys.C | e.KeyCode == Keys.V))
+            {
+                e.SuppressKeyPress = true;
+                return;
+            }
             if (e.KeyCode == Keys.Enter)
             {
                 try
@@ -701,6 +721,11 @@ namespace DENSO_PRINTING_APP
 
         private void txtFinalPart_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Control && (e.KeyCode == Keys.C | e.KeyCode == Keys.V))
+            {
+                e.SuppressKeyPress = true;
+                return;
+            }
             if (e.KeyCode == Keys.Enter)
             {
                 try
@@ -783,6 +808,7 @@ namespace DENSO_PRINTING_APP
                     _plObj.CreatedBy = GlobalVariable.UserName;
                     _plObj.SpoolType = GlobalVariable.mSpoolType;
                     _plObj.Model = GlobalVariable.mModel;
+                    _plObj.PartNo = GlobalVariable.mPart;
                     DataTable dt = _blObj.BL_ExecuteTask(_plObj);
                     if (dt.Rows.Count > 0)
                     {
@@ -862,6 +888,11 @@ namespace DENSO_PRINTING_APP
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

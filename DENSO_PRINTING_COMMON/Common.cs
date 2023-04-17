@@ -67,7 +67,7 @@ namespace DENSO_PRINTING_COMMON
                 param[0] = new SqlParameter("@TYPE", SqlDbType.VarChar, 100);
                 param[0].Value = "BIND_MODEL";
 
-                return _SqlHelper.ExecuteDataset(GlobalVariable.mMainSqlConString, CommandType.StoredProcedure, "[PRC_BIND_COMBO]", param).Tables[0];
+                return _SqlHelper.ExecuteDataset(GlobalVariable.mMainSqlConString, CommandType.StoredProcedure, "[PRC_BIND_MODEL_AND_PART_MAIN_MENU]", param).Tables[0];
             }
             catch (Exception ex)
             {
@@ -75,7 +75,7 @@ namespace DENSO_PRINTING_COMMON
             }
 
         }
-        public DataTable GetPart()
+        public DataTable GetPart(string model)
         {
 
             _SqlHelper = new SqlHelper();
@@ -85,8 +85,9 @@ namespace DENSO_PRINTING_COMMON
 
                 param[0] = new SqlParameter("@TYPE", SqlDbType.VarChar, 100);
                 param[0].Value = "BIND_PART";
-
-                return _SqlHelper.ExecuteDataset(GlobalVariable.mMainSqlConString, CommandType.StoredProcedure, "[PRC_BIND_COMBO]", param).Tables[0];
+                param[1] = new SqlParameter("@MODEL", SqlDbType.VarChar, 100);
+                param[1].Value = model;
+                return _SqlHelper.ExecuteDataset(GlobalVariable.mMainSqlConString, CommandType.StoredProcedure, "[PRC_BIND_MODEL_AND_PART_MAIN_MENU]", param).Tables[0];
             }
             catch (Exception ex)
             {

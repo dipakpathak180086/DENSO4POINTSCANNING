@@ -60,19 +60,19 @@
             this.btnMinimize = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgv = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Line = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OldPartBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NewPartBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PartNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Feeder = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lot = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TMUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SpoolerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbPrintingParameter.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -526,9 +526,9 @@
             this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Line,
             this.Model,
+            this.PartNo,
             this.OldPartBarcode,
             this.NewPartBarcode,
-            this.PartNo,
             this.Feeder,
             this.Lot,
             this.TMUser,
@@ -552,6 +552,28 @@
             this.dgv.TabIndex = 194;
             this.dgv.TabStop = false;
             // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(1146, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 13);
+            this.label5.TabIndex = 214;
+            this.label5.Text = "Minimize";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(6, 1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(109, 38);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 262;
+            this.pictureBox1.TabStop = false;
+            // 
             // Line
             // 
             this.Line.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -566,6 +588,14 @@
             this.Model.DataPropertyName = "Model";
             this.Model.HeaderText = "Model";
             this.Model.Name = "Model";
+            // 
+            // PartNo
+            // 
+            this.PartNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.PartNo.DataPropertyName = "PartNo";
+            this.PartNo.HeaderText = "Part No.";
+            this.PartNo.Name = "PartNo";
+            this.PartNo.Width = 149;
             // 
             // OldPartBarcode
             // 
@@ -582,14 +612,6 @@
             this.NewPartBarcode.HeaderText = "New Part Barcode";
             this.NewPartBarcode.Name = "NewPartBarcode";
             this.NewPartBarcode.Width = 200;
-            // 
-            // PartNo
-            // 
-            this.PartNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.PartNo.DataPropertyName = "PartNo";
-            this.PartNo.HeaderText = "Part No.";
-            this.PartNo.Name = "PartNo";
-            this.PartNo.Width = 149;
             // 
             // Feeder
             // 
@@ -638,28 +660,6 @@
             this.SpoolerType.HeaderText = "Spooler Type";
             this.SpoolerType.Name = "SpoolerType";
             this.SpoolerType.Width = 180;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(1146, 26);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 13);
-            this.label5.TabIndex = 214;
-            this.label5.Text = "Minimize";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(109, 38);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 262;
-            this.pictureBox1.TabStop = false;
             // 
             // frmSpoolingReport
             // 
@@ -721,18 +721,18 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbSpoolType;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cbModel;
+        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Line;
         private System.Windows.Forms.DataGridViewTextBoxColumn Model;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn OldPartBarcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn NewPartBarcode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PartNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Feeder;
         private System.Windows.Forms.DataGridViewTextBoxColumn Lot;
         private System.Windows.Forms.DataGridViewTextBoxColumn TMUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Time;
         private System.Windows.Forms.DataGridViewTextBoxColumn SpoolerType;
-        private System.Windows.Forms.ComboBox cbModel;
-        private System.Windows.Forms.Label label10;
     }
 }

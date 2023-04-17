@@ -214,12 +214,20 @@ namespace DENSO_PRINTING_APP
             if (cbSelectModel.SelectedIndex <= 0)
             {
 
-                GlobalVariable.mStoCustomFunction.setMessageBox("Model Selection Failed!!!", "Select Model First!!!", 2);
+                GlobalVariable.mStoCustomFunction.setMessageBox("Model Selection Failed!!!", "Select Model!!!", 2);
                 this.cbSelectModel.Focus();
+                return;
+            }
+            if (cbPartNo.SelectedIndex <= 0)
+            {
+
+                GlobalVariable.mStoCustomFunction.setMessageBox("Part Selection Failed!!!", "Select Part!!!", 2);
+                this.cbPartNo.Focus();
                 return;
             }
             GlobalVariable.mSpoolType = "FRONT";
             GlobalVariable.mModel = cbSelectModel.Text.Trim();
+            GlobalVariable.mPart = cbPartNo.Text.Trim();
             pnlSpoolScanning.Visible = false;
             frmSpoolingScaning frm = new frmSpoolingScaning();
             frm.Show();
@@ -234,12 +242,20 @@ namespace DENSO_PRINTING_APP
             if (cbSelectModel.SelectedIndex <= 0)
             {
 
-                GlobalVariable.mStoCustomFunction.setMessageBox("Model Selection Failed!!!", "Select Model First!!!", 2);
+                GlobalVariable.mStoCustomFunction.setMessageBox("Model Selection Failed!!!", "Select Model!!!", 2);
                 this.cbSelectModel.Focus();
+                return;
+            }
+            if (cbPartNo.SelectedIndex <= 0)
+            {
+
+                GlobalVariable.mStoCustomFunction.setMessageBox("Part Selection Failed!!!", "Select Part!!!", 2);
+                this.cbPartNo.Focus();
                 return;
             }
             GlobalVariable.mSpoolType = "BACK";
             GlobalVariable.mModel = cbSelectModel.Text.Trim();
+            GlobalVariable.mPart = cbPartNo.Text.Trim();
             pnlSpoolScanning.Visible = false;
             frmSpoolingScaning frm = new frmSpoolingScaning();
             frm.Show();
@@ -376,9 +392,35 @@ namespace DENSO_PRINTING_APP
 
 
 
+
+
         #endregion
 
+        private void cbSelectModel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbSelectModel.SelectedIndex > 0)
+                {
+                    Common common = new Common();
+                    DataTable dt = common.GetPart(cbSelectModel.SelectedValue.ToString());
+                    if (dt.Rows.Count > 0)
+                    {
+                        GlobalVariable.BindCombo(cbPartNo, dt);
+                    }
 
+                }
 
+            }
+            catch (Exception ex)
+            {
+                GlobalVariable.mStoCustomFunction.setMessageBox(GlobalVariable.mSatoApps, ex.Message, 3);
+            }
+        }
+
+        private void cbPartNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            GlobalVariable.mStoCustomFunction.AutoCompleteCombo(cbPartNo, e);
+        }
     }
 }
