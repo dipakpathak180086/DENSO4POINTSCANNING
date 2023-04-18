@@ -37,7 +37,7 @@ namespace DENSO_PRINTING_APP
             _obj.LogDays = 30;
             _obj.LogFilesExt = "log";
             _obj.LogFilesPath = Application.StartupPath;
-            _obj.LogFilesPrefix = "SATO_ASTI";
+            _obj.LogFilesPrefix = "SATO_DESNO";
             _obj.StartLogging();
             _obj.LogMessage(SatoLib.EventNotice.EventTypes.evtInfo, "SatoAppsInitialize" + "  ::  Main", "Initializing Application.......");
             GlobalVariable.AppLog = _obj;
