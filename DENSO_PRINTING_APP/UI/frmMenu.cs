@@ -186,6 +186,8 @@ namespace DENSO_PRINTING_APP
                 {
                     GlobalVariable.BindCombo(cbSelectModel, dt);
                 }
+                if (cbSelectModel.SelectedIndex > 0) { cbSelectModel.SelectedIndex = 0; }
+                if (cbPartNo.SelectedIndex > 0) { cbPartNo.SelectedIndex = 0; }
                 pnlSpoolScanning.Visible = true;
                 lblBack.ForeColor = lblFront.ForeColor = Color.WhiteSmoke;
             }
@@ -229,6 +231,8 @@ namespace DENSO_PRINTING_APP
             GlobalVariable.mModel = cbSelectModel.Text.Trim();
             GlobalVariable.mPart = cbPartNo.Text.Trim();
             pnlSpoolScanning.Visible = false;
+            if (cbSelectModel.SelectedIndex > 0) { cbSelectModel.SelectedIndex = 0; }
+            if (cbPartNo.SelectedIndex > 0) { cbPartNo.SelectedIndex = 0; }
             frmSpoolingScaning frm = new frmSpoolingScaning();
             frm.Show();
             frm.FormClosing += OFrm_FormClosing;
@@ -257,6 +261,8 @@ namespace DENSO_PRINTING_APP
             GlobalVariable.mModel = cbSelectModel.Text.Trim();
             GlobalVariable.mPart = cbPartNo.Text.Trim();
             pnlSpoolScanning.Visible = false;
+            if (cbSelectModel.SelectedIndex > 0) { cbSelectModel.SelectedIndex = 0; }
+            if (cbPartNo.SelectedIndex > 0) { cbPartNo.SelectedIndex = 0; }
             frmSpoolingScaning frm = new frmSpoolingScaning();
             frm.Show();
             frm.FormClosing += OFrm_FormClosing;
@@ -421,6 +427,16 @@ namespace DENSO_PRINTING_APP
         private void cbPartNo_KeyPress(object sender, KeyPressEventArgs e)
         {
             GlobalVariable.mStoCustomFunction.AutoCompleteCombo(cbPartNo, e);
+        }
+
+        private void pnlSpoolScanning_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            pnlSpoolScanning.Visible = false;
         }
     }
 }

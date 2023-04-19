@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DENSO_PRINTING_COMMON;
@@ -11,13 +12,22 @@ namespace DENSO_PRINTING_APP
 {
     static class AppsGetUp
     {
+        
+
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
-           
+            bool createdNew;
+            System.Threading.Mutex m = new System.Threading.Mutex(true, "DENSO_PRINTING_APP", out createdNew);
+            if (!createdNew)
+            {
+                MessageBox.Show("Application already running", "DENSO_PRINTING_APP", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
+                return;
+            }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             DirectoryInfo _dir = new DirectoryInfo(Application.StartupPath + "\\" + "SatoAppResource");
@@ -53,7 +63,7 @@ namespace DENSO_PRINTING_APP
             {
                 Application.Run(new frmLogin());
             }
-          
+
         }
         static bool ConnectToDatabase()
         {

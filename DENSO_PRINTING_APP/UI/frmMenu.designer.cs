@@ -44,6 +44,8 @@
             this.picUserMaster = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pnlSpoolScanning = new System.Windows.Forms.Panel();
+            this.cbPartNo = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.cbSelectModel = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.lblFront = new System.Windows.Forms.Label();
@@ -70,8 +72,7 @@
             this.btnMini = new System.Windows.Forms.Button();
             this.picChangePassword = new System.Windows.Forms.PictureBox();
             this.picLogOut = new System.Windows.Forms.PictureBox();
-            this.cbPartNo = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.btnExit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tbReport.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -287,6 +288,7 @@
             this.pnlSpoolScanning.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pnlSpoolScanning.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(58)))), ((int)(((byte)(86)))));
             this.pnlSpoolScanning.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlSpoolScanning.Controls.Add(this.btnExit);
             this.pnlSpoolScanning.Controls.Add(this.cbPartNo);
             this.pnlSpoolScanning.Controls.Add(this.label9);
             this.pnlSpoolScanning.Controls.Add(this.cbSelectModel);
@@ -300,12 +302,34 @@
             this.pnlSpoolScanning.Size = new System.Drawing.Size(375, 239);
             this.pnlSpoolScanning.TabIndex = 16;
             this.pnlSpoolScanning.Visible = false;
+            this.pnlSpoolScanning.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlSpoolScanning_Paint);
+            // 
+            // cbPartNo
+            // 
+            this.cbPartNo.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.cbPartNo.FormattingEnabled = true;
+            this.cbPartNo.Location = new System.Drawing.Point(98, 82);
+            this.cbPartNo.Name = "cbPartNo";
+            this.cbPartNo.Size = new System.Drawing.Size(219, 37);
+            this.cbPartNo.TabIndex = 22;
+            this.cbPartNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbPartNo_KeyPress);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.label9.ForeColor = System.Drawing.Color.Snow;
+            this.label9.Location = new System.Drawing.Point(23, 86);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(71, 29);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "PART:";
             // 
             // cbSelectModel
             // 
             this.cbSelectModel.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.cbSelectModel.FormattingEnabled = true;
-            this.cbSelectModel.Location = new System.Drawing.Point(98, 14);
+            this.cbSelectModel.Location = new System.Drawing.Point(98, 22);
             this.cbSelectModel.Name = "cbSelectModel";
             this.cbSelectModel.Size = new System.Drawing.Size(219, 37);
             this.cbSelectModel.TabIndex = 20;
@@ -316,7 +340,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.Snow;
-            this.label8.Location = new System.Drawing.Point(0, 18);
+            this.label8.Location = new System.Drawing.Point(0, 26);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(94, 29);
             this.label8.TabIndex = 19;
@@ -624,26 +648,25 @@
             this.picLogOut.TabStop = false;
             this.picLogOut.Click += new System.EventHandler(this.picLogOut_Click);
             // 
-            // cbPartNo
+            // btnExit
             // 
-            this.cbPartNo.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
-            this.cbPartNo.FormattingEnabled = true;
-            this.cbPartNo.Location = new System.Drawing.Point(98, 74);
-            this.cbPartNo.Name = "cbPartNo";
-            this.cbPartNo.Size = new System.Drawing.Size(219, 37);
-            this.cbPartNo.TabIndex = 22;
-            this.cbPartNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbPartNo_KeyPress);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
-            this.label9.ForeColor = System.Drawing.Color.Snow;
-            this.label9.Location = new System.Drawing.Point(23, 78);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(71, 29);
-            this.label9.TabIndex = 21;
-            this.label9.Text = "PART:";
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.BackColor = System.Drawing.Color.Tomato;
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Location = new System.Drawing.Point(323, 1);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(46, 27);
+            this.btnExit.TabIndex = 23;
+            this.btnExit.Text = "X";
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // frmMenu
             // 
@@ -742,5 +765,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbPartNo;
         private System.Windows.Forms.Label label9;
+        public System.Windows.Forms.Button btnExit;
     }
 }
