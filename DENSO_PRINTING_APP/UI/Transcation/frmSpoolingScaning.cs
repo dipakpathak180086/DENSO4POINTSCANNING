@@ -23,7 +23,8 @@ namespace DENSO_PRINTING_APP
         private BL_SPOOLING _blObj = null;
         private PL_SPOOLING _plObj = null;
         private Common _comObj = null;
-        private string _runningPartNo = string.Empty;
+        private string _runningOldPartNo = string.Empty;
+        private string _runningNewPartNo = string.Empty;
         private DataTable dtBindGrid = new DataTable();
         #endregion
 
@@ -114,7 +115,7 @@ namespace DENSO_PRINTING_APP
         {
             try
             {
-                _runningPartNo = "";
+                _runningOldPartNo = "";
                 lblMessage.BackColor = Color.Transparent;
                 lblMessage.Text = "";
                 //for (int i = dgv.Rows.Count-1; i >= 0; i--)
@@ -179,7 +180,7 @@ namespace DENSO_PRINTING_APP
                 lblMessage.Text = msg;
             }
         }
-        bool ValidatePartNo(string partNo)
+        bool ValidateOldPartNo(string partNo)
         {
             bool bReturn = false;
             try
@@ -200,9 +201,55 @@ namespace DENSO_PRINTING_APP
                     }
                     else
                     {
-                        _runningPartNo = dt.Rows[0]["RUNNING_PART"].ToString();
+                        _runningOldPartNo = dt.Rows[0]["RUNNING_PART"].ToString();
 
                         bReturn = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblShowMessage(ex.Message, 2);
+            }
+
+            return bReturn;
+
+        }
+        bool ValidateNewPartNo(string partNo)
+        {
+            bool bReturn = false;
+            try
+            {
+                _blObj = new BL_SPOOLING();
+                _plObj = new PL_SPOOLING();
+                _plObj.DbType = "VALIDATE_PART";
+                _plObj.OldPartNo = partNo;
+                DataTable dt = _blObj.BL_ExecuteTask(_plObj);
+                if (dt.Rows.Count > 0)
+                {
+                    if (dt.Columns[0].ColumnName == "RESULT")
+                    {
+                        lblShowMessage(dt.Rows[0]["RESULT"].ToString(), 2);
+                        PlayValidationSound();
+                        ShowAccessScreen();
+                        bReturn = false;
+                    }
+                    else
+                    {
+                        _runningNewPartNo = dt.Rows[0]["RUNNING_PART"].ToString();
+                        if (_runningOldPartNo == _runningNewPartNo)
+                        {
+                            bReturn = true;
+                        }
+                        else
+                        {
+                            lblShowMessage("WRONG PART PICKUP!!!", 2);
+                            PlayValidationSound();
+                            ShowAccessScreen();
+                            bReturn = false;
+                        }
+
+                        
                     }
                 }
             }
@@ -288,7 +335,7 @@ namespace DENSO_PRINTING_APP
                 _blObj = new BL_SPOOLING();
                 _plObj = new PL_SPOOLING();
                 _plObj.DbType = "BIND_LOC_VIEW";
-                _plObj.OldPartNo = _runningPartNo;
+                _plObj.OldPartNo = _runningOldPartNo;
                 DataTable dt = _blObj.BL_ExecuteTask(_plObj);
                 if (dt.Rows.Count > 0)
                 {
@@ -403,7 +450,7 @@ namespace DENSO_PRINTING_APP
             {
                 try
                 {
-                    _runningPartNo = "";
+                    _runningOldPartNo = "";
                     lblShowMessage();
                     if (txtOldPartNo.Text.Length == 0)
                     {
@@ -414,7 +461,7 @@ namespace DENSO_PRINTING_APP
                         ShowAccessScreen();
                         return;
                     }
-                    if (ValidatePartNo(txtOldPartNo.Text.Trim()))
+                    if (ValidateOldPartNo(txtOldPartNo.Text.Trim()))
                     {
                         BindLocationView(txtOldPartNo.Text.Trim());
 
@@ -472,7 +519,7 @@ namespace DENSO_PRINTING_APP
                         ShowAccessScreen();
                         return;
                     }
-                    if (ValidatePartNo(txtNewPartNo.Text.Trim()))
+                    if (ValidateNewPartNo(txtNewPartNo.Text.Trim()))
                     {
                         txtNewPartNo.Enabled = false;
                         chkSoolSelection.Checked = true;
@@ -553,7 +600,7 @@ namespace DENSO_PRINTING_APP
                     {
                         sfeeder = sfeeder + "-";
                     }
-                    if (sfeeder == _runningPartNo)
+                    if (sfeeder == _runningOldPartNo)
                     {
                         txtFeederPartNo.Enabled = false;
                         chkSpoolLoading.Checked = true;
