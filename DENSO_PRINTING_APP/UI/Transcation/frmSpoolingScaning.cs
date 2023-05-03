@@ -340,64 +340,64 @@ namespace DENSO_PRINTING_APP
                 if (dt.Rows.Count > 0)
                 {
 
-                    //dgvLoc.DataSource = dt.DefaultView;
-                    for (int i = 0; i < 6; i++)
-                    {
-                        DataRow dr = dtFinal.NewRow();
-                        if (i == 0)
-                        {
-                            dr["LocationName"] = "Line 2 Back"; //Location1
-                        }
-                        if (i == 1)
-                        {
-                            dr["LocationName"] = "Line 2-3 Mid";//Location2
-                        }
-                        if (i == 2)
-                        {
-                            dr["LocationName"] = "Line 3-4 Mid";//Location3
-                        }
-                        if (i == 3)
-                        {
-                            dr["LocationName"] = "Line 4 Front";//Location4
-                        }
-                        if (i == 4)
-                        {
-                            dr["LocationName"] = "Line 5 Back";//Location5
-                        }
-                        if (i == 5)
-                        {
-                            dr["LocationName"] = "Line 5 Front";//Location6
-                        }
-                        dtFinal.Rows.Add(dr);
-                    }
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        if (dt.Rows[i]["Location1"].ToString() != "")
-                        {
-                            dtFinal.Rows[0][1] = dt.Rows[i]["Location1"].ToString(); //Location1
-                        }
-                        if (dt.Rows[i]["Location2"].ToString() != "")
-                        {
-                            dtFinal.Rows[1][1] = dt.Rows[i]["Location2"].ToString(); //Location2
-                        }
-                        if (dt.Rows[i]["Location3"].ToString() != "")
-                        {
-                            dtFinal.Rows[2][1] = dt.Rows[i]["Location3"].ToString(); //Location3
-                        }
-                        if (dt.Rows[i]["Location4"].ToString() != "")
-                        {
-                            dtFinal.Rows[3][1] = dt.Rows[i]["Location4"].ToString(); //Location4
-                        }
-                        if (dt.Rows[i]["Location5"].ToString() != "")
-                        {
-                            dtFinal.Rows[4][1] = dt.Rows[i]["Location5"].ToString(); //Location5
-                        }
-                        if (dt.Rows[i]["Location6"].ToString() != "")
-                        {
-                            dtFinal.Rows[5][1] = dt.Rows[i]["Location6"].ToString(); //Location6
-                        }
-                    }
-                    dgvLoc.DataSource = dtFinal.DefaultView;
+                    dgvLoc.DataSource = dt.DefaultView;
+                    //for (int i = 0; i < 6; i++)
+                    //{
+                    //    DataRow dr = dtFinal.NewRow();
+                    //    if (i == 0)
+                    //    {
+                    //        dr["LocationName"] = "Line 2 Back"; //Location1
+                    //    }
+                    //    if (i == 1)
+                    //    {
+                    //        dr["LocationName"] = "Line 2-3 Mid";//Location2
+                    //    }
+                    //    if (i == 2)
+                    //    {
+                    //        dr["LocationName"] = "Line 3-4 Mid";//Location3
+                    //    }
+                    //    if (i == 3)
+                    //    {
+                    //        dr["LocationName"] = "Line 4 Front";//Location4
+                    //    }
+                    //    if (i == 4)
+                    //    {
+                    //        dr["LocationName"] = "Line 5 Back";//Location5
+                    //    }
+                    //    if (i == 5)
+                    //    {
+                    //        dr["LocationName"] = "Line 5 Front";//Location6
+                    //    }
+                    //    dtFinal.Rows.Add(dr);
+                    //}
+                    //for (int i = 0; i < dt.Rows.Count; i++)
+                    //{
+                    //    if (dt.Rows[i]["Location1"].ToString() != "")
+                    //    {
+                    //        dtFinal.Rows[0][1] = dt.Rows[i]["Location1"].ToString(); //Location1
+                    //    }
+                    //    if (dt.Rows[i]["Location2"].ToString() != "")
+                    //    {
+                    //        dtFinal.Rows[1][1] = dt.Rows[i]["Location2"].ToString(); //Location2
+                    //    }
+                    //    if (dt.Rows[i]["Location3"].ToString() != "")
+                    //    {
+                    //        dtFinal.Rows[2][1] = dt.Rows[i]["Location3"].ToString(); //Location3
+                    //    }
+                    //    if (dt.Rows[i]["Location4"].ToString() != "")
+                    //    {
+                    //        dtFinal.Rows[3][1] = dt.Rows[i]["Location4"].ToString(); //Location4
+                    //    }
+                    //    if (dt.Rows[i]["Location5"].ToString() != "")
+                    //    {
+                    //        dtFinal.Rows[4][1] = dt.Rows[i]["Location5"].ToString(); //Location5
+                    //    }
+                    //    if (dt.Rows[i]["Location6"].ToString() != "")
+                    //    {
+                    //        dtFinal.Rows[5][1] = dt.Rows[i]["Location6"].ToString(); //Location6
+                    //    }
+                    //}
+                   
                     for (int i = 0; i < dgvLoc.ColumnCount; i++)
                     {
                         this.dgvLoc.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;

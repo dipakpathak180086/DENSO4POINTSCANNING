@@ -83,13 +83,15 @@ namespace DENSO_PRINTING_APP
                         _plObj = new PL_MAP_PATH_MASTER();
                         _plObj.CreatedBy = GlobalVariable.mSatoAppsLoginUser;
                         _plObj.DbType = "IMPORT";
-                        _plObj.PartNo = dgv.Rows[i].Cells[0].Value.ToString();
-                        _plObj.Loc1 = dgv.Rows[i].Cells[1].Value.ToString();
+                        _plObj.PartNo = dgv.Rows[i].Cells[1].Value.ToString();
+                        
+                        _plObj.Loc1 = dgv.Rows[i].Cells[0].Value.ToString();
+                       
                         _plObj.Loc2 = dgv.Rows[i].Cells[2].Value.ToString();
-                        _plObj.Loc3 = dgv.Rows[i].Cells[3].Value.ToString();
-                        _plObj.Loc4 = dgv.Rows[i].Cells[4].Value.ToString();
-                        _plObj.Loc5 = dgv.Rows[i].Cells[5].Value.ToString();
-                        _plObj.Loc6 = dgv.Rows[i].Cells[6].Value.ToString();
+                        //_plObj.Loc3 = dgv.Rows[i].Cells[3].Value.ToString();
+                        //_plObj.Loc4 = dgv.Rows[i].Cells[4].Value.ToString();
+                        //_plObj.Loc5 = dgv.Rows[i].Cells[5].Value.ToString();
+                        //_plObj.Loc6 = dgv.Rows[i].Cells[6].Value.ToString();
                         dataTable = _blObj.BL_ExecuteTask(_plObj);
                     }
                     if (dataTable.Rows.Count > 0)
