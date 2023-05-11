@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace DENSO_PRINTING_DL
 {
 
-    public class DL_MAP_PATH_MASTER
+    public class DL_IMPORT_SPOOL_MASTER
     {
         SqlHelper _SqlHelper = new SqlHelper();
         #region MyFuncation
@@ -21,7 +21,7 @@ namespace DENSO_PRINTING_DL
         /// Execute Operation 
         /// </summary>
         /// <returns></returns>
-        public DataTable DL_ExecuteTask(PL_MAP_PATH_MASTER obj)
+        public DataTable DL_ExecuteTask(PL_IMPORT_SPOOL_MASTER obj)
         {
             _SqlHelper = new SqlHelper();
             try

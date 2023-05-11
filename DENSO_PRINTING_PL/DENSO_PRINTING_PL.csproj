@@ -46,8 +46,9 @@
   <ItemGroup>
     <Compile Include="Master\PL_GROUP_MASTER.cs" />
     <Compile Include="Master\PL_GROUP_RIGHTS.cs" />
+    <Compile Include="Master\PL_IMPORT_TRAY_MASTER.cs" />
     <Compile Include="Master\PL_LINE_MASTER.cs" />
-    <Compile Include="Master\PL_MAP_PATH_MASTER.cs" />
+    <Compile Include="Master\PL_IMPORT_SPOOL_MASTER.cs" />
     <Compile Include="Master\PL_NG_MASTER.cs" />
     <Compile Include="Master\PL_PART_MASTER.cs" />
     <Compile Include="Master\PL_USER_MASTER.cs" />

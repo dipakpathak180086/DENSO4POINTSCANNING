@@ -44,6 +44,7 @@
             this.picUserMaster = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pnlSpoolScanning = new System.Windows.Forms.Panel();
+            this.btnExit = new System.Windows.Forms.Button();
             this.cbPartNo = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.cbSelectModel = new System.Windows.Forms.ComboBox();
@@ -72,7 +73,8 @@
             this.btnMini = new System.Windows.Forms.Button();
             this.picChangePassword = new System.Windows.Forms.PictureBox();
             this.picLogOut = new System.Windows.Forms.PictureBox();
-            this.btnExit = new System.Windows.Forms.Button();
+            this.lblImportTrayMaster = new System.Windows.Forms.Label();
+            this.picImportTrayMaster = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.tbReport.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -94,6 +96,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picChangePassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogOut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImportTrayMaster)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -125,6 +128,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.lblImportTrayMaster);
+            this.tabPage1.Controls.Add(this.picImportTrayMaster);
             this.tabPage1.Controls.Add(this.lblNGMaster);
             this.tabPage1.Controls.Add(this.picNGMaster);
             this.tabPage1.Controls.Add(this.lblLineMaster);
@@ -147,7 +152,7 @@
             // 
             this.lblNGMaster.AutoSize = true;
             this.lblNGMaster.Enabled = false;
-            this.lblNGMaster.Location = new System.Drawing.Point(225, 222);
+            this.lblNGMaster.Location = new System.Drawing.Point(604, 82);
             this.lblNGMaster.Name = "lblNGMaster";
             this.lblNGMaster.Size = new System.Drawing.Size(79, 19);
             this.lblNGMaster.TabIndex = 11;
@@ -158,7 +163,7 @@
             this.picNGMaster.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picNGMaster.Enabled = false;
             this.picNGMaster.Image = ((System.Drawing.Image)(resources.GetObject("picNGMaster.Image")));
-            this.picNGMaster.Location = new System.Drawing.Point(214, 146);
+            this.picNGMaster.Location = new System.Drawing.Point(593, 6);
             this.picNGMaster.Name = "picNGMaster";
             this.picNGMaster.Size = new System.Drawing.Size(100, 73);
             this.picNGMaster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -195,11 +200,11 @@
             // 
             this.lblImportMaster.AutoSize = true;
             this.lblImportMaster.Enabled = false;
-            this.lblImportMaster.Location = new System.Drawing.Point(24, 222);
+            this.lblImportMaster.Location = new System.Drawing.Point(11, 222);
             this.lblImportMaster.Name = "lblImportMaster";
-            this.lblImportMaster.Size = new System.Drawing.Size(101, 19);
+            this.lblImportMaster.Size = new System.Drawing.Size(140, 19);
             this.lblImportMaster.TabIndex = 7;
-            this.lblImportMaster.Text = "Import Master";
+            this.lblImportMaster.Text = "Import Spool Master";
             // 
             // picImportMaster
             // 
@@ -297,12 +302,32 @@
             this.pnlSpoolScanning.Controls.Add(this.lblBack);
             this.pnlSpoolScanning.Controls.Add(this.btnBack);
             this.pnlSpoolScanning.Controls.Add(this.btnFront);
-            this.pnlSpoolScanning.Location = new System.Drawing.Point(338, 169);
+            this.pnlSpoolScanning.Location = new System.Drawing.Point(336, 201);
             this.pnlSpoolScanning.Name = "pnlSpoolScanning";
             this.pnlSpoolScanning.Size = new System.Drawing.Size(375, 239);
             this.pnlSpoolScanning.TabIndex = 16;
             this.pnlSpoolScanning.Visible = false;
             this.pnlSpoolScanning.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlSpoolScanning_Paint);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.BackColor = System.Drawing.Color.Tomato;
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Location = new System.Drawing.Point(323, 1);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(46, 27);
+            this.btnExit.TabIndex = 23;
+            this.btnExit.Text = "X";
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // cbPartNo
             // 
@@ -401,7 +426,7 @@
             this.label7.AutoSize = true;
             this.label7.Enabled = false;
             this.label7.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(878, 169);
+            this.label7.Location = new System.Drawing.Point(866, 160);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(160, 29);
             this.label7.TabIndex = 14;
@@ -412,7 +437,7 @@
             this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox4.Enabled = false;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(863, 24);
+            this.pictureBox4.Location = new System.Drawing.Point(851, 15);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(179, 132);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -425,7 +450,7 @@
             this.label6.AutoSize = true;
             this.label6.Enabled = false;
             this.label6.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(601, 160);
+            this.label6.Location = new System.Drawing.Point(296, 160);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(149, 29);
             this.label6.TabIndex = 12;
@@ -436,7 +461,7 @@
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Enabled = false;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(586, 15);
+            this.pictureBox3.Location = new System.Drawing.Point(281, 15);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(179, 132);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -449,7 +474,7 @@
             this.label5.AutoSize = true;
             this.label5.Enabled = false;
             this.label5.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(316, 160);
+            this.label5.Location = new System.Drawing.Point(580, 160);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(146, 29);
             this.label5.TabIndex = 10;
@@ -460,7 +485,7 @@
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Enabled = false;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(291, 15);
+            this.pictureBox2.Location = new System.Drawing.Point(555, 15);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(179, 132);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -648,25 +673,29 @@
             this.picLogOut.TabStop = false;
             this.picLogOut.Click += new System.EventHandler(this.picLogOut_Click);
             // 
-            // btnExit
+            // lblImportTrayMaster
             // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.BackColor = System.Drawing.Color.Tomato;
-            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(323, 1);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(46, 27);
-            this.btnExit.TabIndex = 23;
-            this.btnExit.Text = "X";
-            this.btnExit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.lblImportTrayMaster.AutoSize = true;
+            this.lblImportTrayMaster.Enabled = false;
+            this.lblImportTrayMaster.Location = new System.Drawing.Point(197, 222);
+            this.lblImportTrayMaster.Name = "lblImportTrayMaster";
+            this.lblImportTrayMaster.Size = new System.Drawing.Size(132, 19);
+            this.lblImportTrayMaster.TabIndex = 13;
+            this.lblImportTrayMaster.Text = "Import Tray Master";
+            // 
+            // picImportTrayMaster
+            // 
+            this.picImportTrayMaster.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picImportTrayMaster.Enabled = false;
+            this.picImportTrayMaster.Image = ((System.Drawing.Image)(resources.GetObject("picImportTrayMaster.Image")));
+            this.picImportTrayMaster.Location = new System.Drawing.Point(214, 146);
+            this.picImportTrayMaster.Name = "picImportTrayMaster";
+            this.picImportTrayMaster.Size = new System.Drawing.Size(100, 73);
+            this.picImportTrayMaster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picImportTrayMaster.TabIndex = 12;
+            this.picImportTrayMaster.TabStop = false;
+            this.picImportTrayMaster.Tag = "101";
+            this.picImportTrayMaster.Click += new System.EventHandler(this.picImportTrayMaster_Click);
             // 
             // frmMenu
             // 
@@ -716,6 +745,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picChangePassword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogOut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImportTrayMaster)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -766,5 +796,7 @@
         private System.Windows.Forms.ComboBox cbPartNo;
         private System.Windows.Forms.Label label9;
         public System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Label lblImportTrayMaster;
+        private System.Windows.Forms.PictureBox picImportTrayMaster;
     }
 }

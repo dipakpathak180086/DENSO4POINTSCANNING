@@ -9,11 +9,11 @@ using DENSO_PRINTING_PL;
 
 namespace DENSO_PRINTING_BL
 {
-    public class BL_MAP_PATH_MASTER
+    public class BL_IMPORT_SPOOL_MASTER
     {
-        public DataTable BL_ExecuteTask(PL_MAP_PATH_MASTER objPl)
+        public DataTable BL_ExecuteTask(PL_IMPORT_SPOOL_MASTER objPl)
         {
-            DL_MAP_PATH_MASTER objDl = new DL_MAP_PATH_MASTER();
+            DL_IMPORT_SPOOL_MASTER objDl = new DL_IMPORT_SPOOL_MASTER();
             return objDl.DL_ExecuteTask(objPl);
         }
 

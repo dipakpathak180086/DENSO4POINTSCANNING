@@ -51,8 +51,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Master\DL_GROUP_MASTER.cs" />
+    <Compile Include="Master\DL_IMPORT_TRAY_MASTER.cs" />
     <Compile Include="Master\DL_LINE_MASTER.cs" />
-    <Compile Include="Master\DL_MAP_PATH_MASTER.cs" />
+    <Compile Include="Master\DL_IMPORT_SPOOL_MASTER.cs" />
     <Compile Include="Master\DL_NG_MASTER.cs" />
     <Compile Include="Master\DL_PART_MASTER.cs" />
     <Compile Include="Master\DL_USER_MASTER.cs" />

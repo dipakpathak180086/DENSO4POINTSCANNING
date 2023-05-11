@@ -1,6 +1,6 @@
 ﻿namespace DENSO_PRINTING_APP
 {
-    partial class frmImportDataMaster
+    partial class frmImportTrayDataMaster
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmImportDataMaster));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmImportTrayDataMaster));
             this.dgv = new System.Windows.Forms.DataGridView();
             this.lblCount = new System.Windows.Forms.Label();
             this.lblHeader = new System.Windows.Forms.Label();
@@ -112,7 +112,7 @@
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(1208, 41);
             this.lblHeader.TabIndex = 212;
-            this.lblHeader.Text = "IMPORT SPOOL MASTER DATA";
+            this.lblHeader.Text = "IMPORT TRAY MASTER DATA";
             this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
@@ -353,7 +353,7 @@
             this.pictureBox1.TabIndex = 215;
             this.pictureBox1.TabStop = false;
             // 
-            // frmImportDataMaster
+            // frmImportTrayDataMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -368,7 +368,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.Name = "frmImportDataMaster";
+            this.Name = "frmImportTrayDataMaster";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmModelMaster_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();

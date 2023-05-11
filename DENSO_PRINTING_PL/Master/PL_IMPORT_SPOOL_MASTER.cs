@@ -3,7 +3,7 @@
 
 namespace DENSO_PRINTING_PL
 {
-    public class PL_MAP_PATH_MASTER : Common
+    public class PL_IMPORT_SPOOL_MASTER : Common
     {
       
         public string PartNo { get; set; }

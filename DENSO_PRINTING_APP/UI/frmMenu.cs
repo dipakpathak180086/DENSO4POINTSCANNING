@@ -284,6 +284,13 @@ namespace DENSO_PRINTING_APP
         {
             btnBack_Click(sender, e);
         }
+        private void picImportTrayMaster_Click(object sender, EventArgs e)
+        {
+            frmImportTrayDataMaster frm = new frmImportTrayDataMaster();
+            frm.Show();
+            frm.FormClosing += OFrm_FormClosing;
+            this.Hide();
+        }
         #endregion
 
         #region Method
@@ -328,6 +335,11 @@ namespace DENSO_PRINTING_APP
                         case "105":
                             picNGMaster.Enabled = true;
                             lblNGMaster.Enabled = true;
+                            break;
+
+                        case "106":
+                            picImportTrayMaster.Enabled = true;
+                            lblImportTrayMaster.Enabled = true;
                             break;
                         case "201":
 
@@ -438,5 +450,7 @@ namespace DENSO_PRINTING_APP
         {
             pnlSpoolScanning.Visible = false;
         }
+
+       
     }
 }

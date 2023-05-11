@@ -249,7 +249,7 @@ namespace DENSO_PRINTING_APP
                             bReturn = false;
                         }
 
-                        
+
                     }
                 }
             }
@@ -261,7 +261,7 @@ namespace DENSO_PRINTING_APP
             return bReturn;
 
         }
-        bool ValidatePartNoAndLot(string partNo,string lotNo)
+        bool ValidatePartNoAndLot(string partNo, string lotNo)
         {
             bool bReturn = false;
             try
@@ -284,7 +284,7 @@ namespace DENSO_PRINTING_APP
                     }
                     else
                     {
-                       // _runningPartNo = dt.Rows[0]["RUNNING_PART"].ToString();
+                        // _runningPartNo = dt.Rows[0]["RUNNING_PART"].ToString();
 
                         bReturn = true;
                     }
@@ -397,7 +397,7 @@ namespace DENSO_PRINTING_APP
                     //        dtFinal.Rows[5][1] = dt.Rows[i]["Location6"].ToString(); //Location6
                     //    }
                     //}
-                   
+
                     for (int i = 0; i < dgvLoc.ColumnCount; i++)
                     {
                         this.dgvLoc.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -424,7 +424,7 @@ namespace DENSO_PRINTING_APP
         }
 
 
-     
+
 
 
         #endregion
@@ -596,11 +596,13 @@ namespace DENSO_PRINTING_APP
                         return;
                     }
                     string sfeeder = txtFeederPartNo.Text.Substring(1);
+                    string sfeederNew = sfeeder.Replace("-", "");
+                    sfeederNew = sfeederNew + " -";
                     if (!sfeeder.EndsWith("-"))
                     {
                         sfeeder = sfeeder + "-";
                     }
-                    if (sfeeder == _runningOldPartNo)
+                    if (sfeeder == _runningOldPartNo || sfeederNew == _runningOldPartNo)
                     {
                         txtFeederPartNo.Enabled = false;
                         chkSpoolLoading.Checked = true;
@@ -665,8 +667,8 @@ namespace DENSO_PRINTING_APP
                         ShowAccessScreen();
                         return;
                     }
-                    
-                    if (!ValidatePartNoAndLot(txtNewPartNo.Text.Trim(),txtLotNo.Text.Trim()))
+
+                    if (!ValidatePartNoAndLot(txtNewPartNo.Text.Trim(), txtLotNo.Text.Trim()))
                     {
                         this.txtLotNo.SelectAll();
                         this.txtLotNo.Focus();
@@ -939,7 +941,7 @@ namespace DENSO_PRINTING_APP
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
         }
     }
 }

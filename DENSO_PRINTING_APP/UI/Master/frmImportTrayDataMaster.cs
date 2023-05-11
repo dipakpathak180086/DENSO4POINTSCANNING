@@ -12,26 +12,26 @@ using System.Windows.Forms;
 
 namespace DENSO_PRINTING_APP
 {
-    public partial class frmImportDataMaster : Form
+    public partial class frmImportTrayDataMaster : Form
     {
 
 
         #region Variables
 
-        private BL_IMPORT_SPOOL_MASTER _blObj = null;
-        private PL_IMPORT_SPOOL_MASTER _plObj = null;
+        private BL_IMPORT_TRAY_MASTER _blObj = null;
+        private PL_IMPORT_TRAY_MASTER _plObj = null;
         private bool _IsUpdate = false;
 
         #endregion
 
         #region Form Methods
 
-        public frmImportDataMaster()
+        public frmImportTrayDataMaster()
         {
             try
             {
                 InitializeComponent();
-                _blObj = new BL_IMPORT_SPOOL_MASTER();
+                _blObj = new BL_IMPORT_TRAY_MASTER();
             }
             catch (Exception ex)
             {
@@ -80,18 +80,14 @@ namespace DENSO_PRINTING_APP
                     DataTable dataTable = null;
                     for (int i = 0; i < dgv.Rows.Count; i++)
                     {
-                        _plObj = new PL_IMPORT_SPOOL_MASTER();
+                        _plObj = new PL_IMPORT_TRAY_MASTER();
                         _plObj.CreatedBy = GlobalVariable.mSatoAppsLoginUser;
                         _plObj.DbType = "IMPORT";
-                        _plObj.PartNo = dgv.Rows[i].Cells[1].Value.ToString();
-                        
-                        _plObj.Loc1 = dgv.Rows[i].Cells[0].Value.ToString();
-                       
-                        _plObj.Loc2 = dgv.Rows[i].Cells[2].Value.ToString();
-                        //_plObj.Loc3 = dgv.Rows[i].Cells[3].Value.ToString();
-                        //_plObj.Loc4 = dgv.Rows[i].Cells[4].Value.ToString();
-                        //_plObj.Loc5 = dgv.Rows[i].Cells[5].Value.ToString();
-                        //_plObj.Loc6 = dgv.Rows[i].Cells[6].Value.ToString();
+                        _plObj.PartNo = dgv.Rows[i].Cells[0].Value.ToString();
+                        _plObj.Tray = dgv.Rows[i].Cells[1].Value.ToString();
+                        _plObj.ComponentMarking = dgv.Rows[i].Cells[2].Value.ToString();
+                        _plObj.PacketQRCode = dgv.Rows[i].Cells[3].Value.ToString();
+
                         dataTable = _blObj.BL_ExecuteTask(_plObj);
                     }
                     if (dataTable.Rows.Count > 0)
@@ -210,7 +206,7 @@ namespace DENSO_PRINTING_APP
                     {
                         GlobalVariable.ExportExcel(dt, saveFileDialog1.FileName);
                     }
-                    
+
                 }
             }
             catch (Exception ex)
@@ -340,8 +336,8 @@ namespace DENSO_PRINTING_APP
         {
             try
             {
-                _plObj = new PL_IMPORT_SPOOL_MASTER();
-                _blObj = new BL_IMPORT_SPOOL_MASTER();
+                _plObj = new PL_IMPORT_TRAY_MASTER();
+                _blObj = new BL_IMPORT_TRAY_MASTER();
                 _plObj.DbType = "SELECT";
                 DataTable dt = _blObj.BL_ExecuteTask(_plObj);
                 dgv.DataSource = dt;
