@@ -59,6 +59,7 @@
     <Compile Include="Master\DL_USER_MASTER.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Report\DL_SPOOLING_REPORT.cs" />
+    <Compile Include="Transcation\DL_TRAY_LAODING.cs" />
     <Compile Include="Transcation\DL_SPOOLING.cs" />
   </ItemGroup>
   <ItemGroup />
