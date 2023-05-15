@@ -291,6 +291,21 @@ namespace DENSO_PRINTING_APP
             frm.FormClosing += OFrm_FormClosing;
             this.Hide();
         }
+        private void picTrayLoading_Click(object sender, EventArgs e)
+        {
+            frmTrayScaning frm = new frmTrayScaning();
+            frm.Show();
+            frm.FormClosing += OFrm_FormClosing;
+            this.Hide();
+        }
+        private void picTrayLoadingReport_Click(object sender, EventArgs e)
+        {
+            frmTrayLoadingReport frm = new frmTrayLoadingReport();
+            frm.Show();
+            frm.FormClosing += OFrm_FormClosing;
+            this.Hide();
+
+        }
         #endregion
 
         #region Method
@@ -346,10 +361,20 @@ namespace DENSO_PRINTING_APP
                             picScanning.Enabled = true;
                             lblScanning.Enabled = true;
                             break;
+                        case "202":
+
+                            picTrayLoading.Enabled = true;
+                            lblTrayLoading.Enabled = true;
+                            break;
                         case "301":
 
                             picSpoolingReport.Enabled = true;
                             lblSpoolingReport.Enabled = true;
+                            break;
+                        case "302":
+
+                            picTrayLoadingReport.Enabled = true;
+                            lblTrayLoadingReport.Enabled = true;
                             break;
                         default:
                             break;
@@ -451,6 +476,6 @@ namespace DENSO_PRINTING_APP
             pnlSpoolScanning.Visible = false;
         }
 
-       
+        
     }
 }

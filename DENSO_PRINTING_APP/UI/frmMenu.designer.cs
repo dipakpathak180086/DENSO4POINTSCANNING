@@ -32,6 +32,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tbReport = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.lblImportTrayMaster = new System.Windows.Forms.Label();
+            this.picImportTrayMaster = new System.Windows.Forms.PictureBox();
             this.lblNGMaster = new System.Windows.Forms.Label();
             this.picNGMaster = new System.Windows.Forms.PictureBox();
             this.lblLineMaster = new System.Windows.Forms.Label();
@@ -55,8 +57,8 @@
             this.btnFront = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.lblTrayLoading = new System.Windows.Forms.Label();
+            this.picTrayLoading = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblScanning = new System.Windows.Forms.Label();
@@ -73,11 +75,12 @@
             this.btnMini = new System.Windows.Forms.Button();
             this.picChangePassword = new System.Windows.Forms.PictureBox();
             this.picLogOut = new System.Windows.Forms.PictureBox();
-            this.lblImportTrayMaster = new System.Windows.Forms.Label();
-            this.picImportTrayMaster = new System.Windows.Forms.PictureBox();
+            this.lblTrayLoadingReport = new System.Windows.Forms.Label();
+            this.picTrayLoadingReport = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.tbReport.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picImportTrayMaster)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picNGMaster)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLineMaster)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picImportMaster)).BeginInit();
@@ -88,7 +91,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFront)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picTrayLoading)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picScanning)).BeginInit();
             this.tabPage3.SuspendLayout();
@@ -96,7 +99,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picChangePassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogOut)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picImportTrayMaster)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picTrayLoadingReport)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -147,6 +150,30 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Master";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // lblImportTrayMaster
+            // 
+            this.lblImportTrayMaster.AutoSize = true;
+            this.lblImportTrayMaster.Enabled = false;
+            this.lblImportTrayMaster.Location = new System.Drawing.Point(197, 222);
+            this.lblImportTrayMaster.Name = "lblImportTrayMaster";
+            this.lblImportTrayMaster.Size = new System.Drawing.Size(132, 19);
+            this.lblImportTrayMaster.TabIndex = 13;
+            this.lblImportTrayMaster.Text = "Import Tray Master";
+            // 
+            // picImportTrayMaster
+            // 
+            this.picImportTrayMaster.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picImportTrayMaster.Enabled = false;
+            this.picImportTrayMaster.Image = ((System.Drawing.Image)(resources.GetObject("picImportTrayMaster.Image")));
+            this.picImportTrayMaster.Location = new System.Drawing.Point(214, 146);
+            this.picImportTrayMaster.Name = "picImportTrayMaster";
+            this.picImportTrayMaster.Size = new System.Drawing.Size(100, 73);
+            this.picImportTrayMaster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picImportTrayMaster.TabIndex = 12;
+            this.picImportTrayMaster.TabStop = false;
+            this.picImportTrayMaster.Tag = "101";
+            this.picImportTrayMaster.Click += new System.EventHandler(this.picImportTrayMaster_Click);
             // 
             // lblNGMaster
             // 
@@ -274,8 +301,8 @@
             this.tabPage2.Controls.Add(this.pnlSpoolScanning);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.pictureBox4);
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.pictureBox3);
+            this.tabPage2.Controls.Add(this.lblTrayLoading);
+            this.tabPage2.Controls.Add(this.picTrayLoading);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.pictureBox2);
             this.tabPage2.Controls.Add(this.lblScanning);
@@ -445,29 +472,30 @@
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Tag = "101";
             // 
-            // label6
+            // lblTrayLoading
             // 
-            this.label6.AutoSize = true;
-            this.label6.Enabled = false;
-            this.label6.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(296, 160);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(149, 29);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Tray Scanning";
+            this.lblTrayLoading.AutoSize = true;
+            this.lblTrayLoading.Enabled = false;
+            this.lblTrayLoading.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTrayLoading.Location = new System.Drawing.Point(296, 160);
+            this.lblTrayLoading.Name = "lblTrayLoading";
+            this.lblTrayLoading.Size = new System.Drawing.Size(149, 29);
+            this.lblTrayLoading.TabIndex = 12;
+            this.lblTrayLoading.Text = "Tray Scanning";
             // 
-            // pictureBox3
+            // picTrayLoading
             // 
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Enabled = false;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(281, 15);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(179, 132);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 11;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Tag = "101";
+            this.picTrayLoading.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picTrayLoading.Enabled = false;
+            this.picTrayLoading.Image = ((System.Drawing.Image)(resources.GetObject("picTrayLoading.Image")));
+            this.picTrayLoading.Location = new System.Drawing.Point(281, 15);
+            this.picTrayLoading.Name = "picTrayLoading";
+            this.picTrayLoading.Size = new System.Drawing.Size(179, 132);
+            this.picTrayLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picTrayLoading.TabIndex = 11;
+            this.picTrayLoading.TabStop = false;
+            this.picTrayLoading.Tag = "101";
+            this.picTrayLoading.Click += new System.EventHandler(this.picTrayLoading_Click);
             // 
             // label5
             // 
@@ -520,6 +548,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.lblTrayLoadingReport);
+            this.tabPage3.Controls.Add(this.picTrayLoadingReport);
             this.tabPage3.Controls.Add(this.lblSpoolingReport);
             this.tabPage3.Controls.Add(this.picSpoolingReport);
             this.tabPage3.Location = new System.Drawing.Point(4, 28);
@@ -673,29 +703,29 @@
             this.picLogOut.TabStop = false;
             this.picLogOut.Click += new System.EventHandler(this.picLogOut_Click);
             // 
-            // lblImportTrayMaster
+            // lblTrayLoadingReport
             // 
-            this.lblImportTrayMaster.AutoSize = true;
-            this.lblImportTrayMaster.Enabled = false;
-            this.lblImportTrayMaster.Location = new System.Drawing.Point(197, 222);
-            this.lblImportTrayMaster.Name = "lblImportTrayMaster";
-            this.lblImportTrayMaster.Size = new System.Drawing.Size(132, 19);
-            this.lblImportTrayMaster.TabIndex = 13;
-            this.lblImportTrayMaster.Text = "Import Tray Master";
+            this.lblTrayLoadingReport.AutoSize = true;
+            this.lblTrayLoadingReport.Enabled = false;
+            this.lblTrayLoadingReport.Location = new System.Drawing.Point(204, 100);
+            this.lblTrayLoadingReport.Name = "lblTrayLoadingReport";
+            this.lblTrayLoadingReport.Size = new System.Drawing.Size(91, 19);
+            this.lblTrayLoadingReport.TabIndex = 15;
+            this.lblTrayLoadingReport.Text = "Tray Loading";
             // 
-            // picImportTrayMaster
+            // picTrayLoadingReport
             // 
-            this.picImportTrayMaster.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picImportTrayMaster.Enabled = false;
-            this.picImportTrayMaster.Image = ((System.Drawing.Image)(resources.GetObject("picImportTrayMaster.Image")));
-            this.picImportTrayMaster.Location = new System.Drawing.Point(214, 146);
-            this.picImportTrayMaster.Name = "picImportTrayMaster";
-            this.picImportTrayMaster.Size = new System.Drawing.Size(100, 73);
-            this.picImportTrayMaster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picImportTrayMaster.TabIndex = 12;
-            this.picImportTrayMaster.TabStop = false;
-            this.picImportTrayMaster.Tag = "101";
-            this.picImportTrayMaster.Click += new System.EventHandler(this.picImportTrayMaster_Click);
+            this.picTrayLoadingReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picTrayLoadingReport.Enabled = false;
+            this.picTrayLoadingReport.Image = ((System.Drawing.Image)(resources.GetObject("picTrayLoadingReport.Image")));
+            this.picTrayLoadingReport.Location = new System.Drawing.Point(200, 24);
+            this.picTrayLoadingReport.Name = "picTrayLoadingReport";
+            this.picTrayLoadingReport.Size = new System.Drawing.Size(100, 73);
+            this.picTrayLoadingReport.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picTrayLoadingReport.TabIndex = 14;
+            this.picTrayLoadingReport.TabStop = false;
+            this.picTrayLoadingReport.Tag = "101";
+            this.picTrayLoadingReport.Click += new System.EventHandler(this.picTrayLoadingReport_Click);
             // 
             // frmMenu
             // 
@@ -724,6 +754,7 @@
             this.tbReport.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picImportTrayMaster)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picNGMaster)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLineMaster)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picImportMaster)).EndInit();
@@ -736,7 +767,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFront)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picTrayLoading)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picScanning)).EndInit();
             this.tabPage3.ResumeLayout(false);
@@ -745,7 +776,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picChangePassword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogOut)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picImportTrayMaster)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picTrayLoadingReport)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -779,8 +810,8 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label lblTrayLoading;
+        private System.Windows.Forms.PictureBox picTrayLoading;
         private System.Windows.Forms.Panel pnlSpoolScanning;
         private System.Windows.Forms.Label lblFront;
         private System.Windows.Forms.Label lblBack;
@@ -798,5 +829,7 @@
         public System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label lblImportTrayMaster;
         private System.Windows.Forms.PictureBox picImportTrayMaster;
+        private System.Windows.Forms.Label lblTrayLoadingReport;
+        private System.Windows.Forms.PictureBox picTrayLoadingReport;
     }
 }

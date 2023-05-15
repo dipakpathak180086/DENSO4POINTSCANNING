@@ -148,6 +148,7 @@ namespace DENSO_PRINTING_APP
                     for (int i = 0; i < dgv.ColumnCount; i++)
                     {
                         this.dgv.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                        
                     }
                 }
             }
@@ -196,7 +197,7 @@ namespace DENSO_PRINTING_APP
                     }
                     else
                     {
-                        _runingPart = dt.Rows[0]["RESULT"].ToString();
+                        _runingPart = dt.Rows[0]["RUNNING_PART"].ToString();
                         lblRunningPart.Text = _runingPart;
                         bReturn = true;
                     }
@@ -233,7 +234,7 @@ namespace DENSO_PRINTING_APP
                     else
                     {
                         _runningNewPartNo = dt.Rows[0]["RUNNING_PART"].ToString();
-                        if (_runningOldPartNo == _runningNewPartNo)
+                        if (_runingPart == _runningNewPartNo)
                         {
                             bReturn = true;
                         }
@@ -257,18 +258,17 @@ namespace DENSO_PRINTING_APP
             return bReturn;
 
         }
-        bool ValidatePartNoAndLot(string fullTray)
+        bool ValidatePartNoAndLot(string lotNo)
         {
             bool bReturn = false;
             try
             {
                 _blObj = new BL_TRAY_LOADING();
                 _plObj = new PL_TRAY_LOADING();
-                _plObj.DbType = "VALIDATE_TRAY";
+                _plObj.DbType = "VALIDATE_LOT";
                 _plObj.Line = GlobalVariable.mLine;
-                _plObj.TrayEmp = txtEmptyTray.Text.Trim();
-                _plObj.PacketQrCode = txtPacketQR.Text.Trim();
-                _plObj.TrayFull = fullTray;
+                _plObj.PartNo = txtPartNo.Text.Trim();
+                _plObj.LotNo = lotNo;
                 DataTable dt = _blObj.BL_ExecuteTask(_plObj);
                 if (dt.Rows.Count > 0)
                 {
@@ -346,11 +346,11 @@ namespace DENSO_PRINTING_APP
         #region TextBox Event
         private void txtEmptyTray_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Control && (e.KeyCode == Keys.C | e.KeyCode == Keys.V))
-            {
-                e.SuppressKeyPress = true;
-                return;
-            }
+            //if (e.Control && (e.KeyCode == Keys.C | e.KeyCode == Keys.V))
+            //{
+            //    e.SuppressKeyPress = true;
+            //    return;
+            //}
             if (e.KeyCode == Keys.Enter)
             {
                 try
@@ -396,11 +396,11 @@ namespace DENSO_PRINTING_APP
 
         private void txtPacketQR_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Control && (e.KeyCode == Keys.C | e.KeyCode == Keys.V))
-            {
-                e.SuppressKeyPress = true;
-                return;
-            }
+            //if (e.Control && (e.KeyCode == Keys.C | e.KeyCode == Keys.V))
+            //{
+            //    e.SuppressKeyPress = true;
+            //    return;
+            //}
             if (e.KeyCode == Keys.Enter)
             {
                 try
@@ -427,7 +427,7 @@ namespace DENSO_PRINTING_APP
                     if (ValidatePacketQRCode(txtPacketQR.Text.Trim()))
                     {
                         txtPacketQR.Enabled = false;
-                        // chkSoolSelection.Checked = true;
+                        chkFirstTrayStaus.Checked = true;
                         txtFullTray.Enabled = true;
                         txtFullTray.Focus();
                     }
@@ -494,7 +494,7 @@ namespace DENSO_PRINTING_APP
                         ShowAccessScreen();
                         return;
                     }
-                   
+
                     txtFullTray.Enabled = false;
                     txtPartNo.Enabled = true;
                     txtPartNo.Focus();
@@ -548,6 +548,15 @@ namespace DENSO_PRINTING_APP
                         ShowAccessScreen();
                         return;
                     }
+                    if (txtPartNo.Text.Length == 0)
+                    {
+                        GlobalVariable.MesseageInfo(lblMessage, "IC/BGA Part No can't be blank!!!", 2);
+                        this.txtPartNo.SelectAll();
+                        this.txtPartNo.Focus();
+                        PlayValidationSound();
+                        ShowAccessScreen();
+                        return;
+                    }
                     if (!txtPartNo.Text.Trim().Equals(lblRunningPart.Text.Trim()))
                     {
                         GlobalVariable.MesseageInfo(lblMessage, "Enter IC/BGA Part and Running Part should be same!!!", 2);
@@ -579,13 +588,8 @@ namespace DENSO_PRINTING_APP
             }
 
         }
-        private void txtFeederPartNo_KeyDown(object sender, KeyEventArgs e)
+        private void txtCompMarking_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Control && (e.KeyCode == Keys.C | e.KeyCode == Keys.V))
-            {
-                e.SuppressKeyPress = true;
-                return;
-            }
             if (e.KeyCode == Keys.Enter)
             {
                 try
@@ -593,7 +597,7 @@ namespace DENSO_PRINTING_APP
                     lblShowMessage();
                     if (txtEmptyTray.Text.Length == 0)
                     {
-                        GlobalVariable.MesseageInfo(lblMessage, "Old Part No can't be blank!!!", 2);
+                        GlobalVariable.MesseageInfo(lblMessage, "Empaty Tray can't be blank!!!", 2);
                         this.txtEmptyTray.SelectAll();
                         this.txtEmptyTray.Focus();
                         PlayValidationSound();
@@ -602,7 +606,7 @@ namespace DENSO_PRINTING_APP
                     }
                     if (txtPacketQR.Text.Length == 0)
                     {
-                        GlobalVariable.MesseageInfo(lblMessage, "New Part No can't be blank!!!", 2);
+                        GlobalVariable.MesseageInfo(lblMessage, "Packet QR Code can't be blank!!!", 2);
                         this.txtPacketQR.SelectAll();
                         this.txtPacketQR.Focus();
                         PlayValidationSound();
@@ -611,45 +615,154 @@ namespace DENSO_PRINTING_APP
                     }
                     if (txtFullTray.Text.Length == 0)
                     {
-                        GlobalVariable.MesseageInfo(lblMessage, "Lot No can't be blank!!!", 2);
+                        GlobalVariable.MesseageInfo(lblMessage, "Full Tray can't be blank!!!", 2);
                         this.txtFullTray.SelectAll();
                         this.txtFullTray.Focus();
                         PlayValidationSound();
                         ShowAccessScreen();
                         return;
                     }
-                    if (txtLotNo.Text.Length == 0)
+                    if (txtPartNo.Text.Length == 0)
                     {
-                        GlobalVariable.MesseageInfo(lblMessage, "Feeder Part No can't be blank!!!", 2);
-                        this.txtLotNo.SelectAll();
-                        this.txtLotNo.Focus();
+                        GlobalVariable.MesseageInfo(lblMessage, "IC/BGA Part No can't be blank!!!", 2);
+                        this.txtPartNo.SelectAll();
+                        this.txtPartNo.Focus();
                         PlayValidationSound();
                         ShowAccessScreen();
                         return;
                     }
-                    string sfeeder = txtLotNo.Text.Substring(1);
-                    string sfeederNew = sfeeder.Replace("-", "");
-                    sfeederNew = sfeederNew + " -";
-                    if (!sfeeder.EndsWith("-"))
+                    if (!txtPartNo.Text.Trim().Equals(lblRunningPart.Text.Trim()))
                     {
-                        sfeeder = sfeeder + "-";
+                        GlobalVariable.MesseageInfo(lblMessage, "Enter IC/BGA Part and Running Part should be same!!!", 2);
+                        this.txtPartNo.SelectAll();
+                        this.txtPartNo.Focus();
+                        PlayValidationSound();
+                        ShowAccessScreen();
+                        return;
                     }
-                    if (sfeeder == _runningOldPartNo || sfeederNew == _runningOldPartNo)
+                    if (txtCompMarking.Text.Length == 0)
                     {
-                        txtLotNo.Enabled = false;
-                        //chkSpoolLoading.Checked = true;
-                        txtTMName.Enabled = true;
-                        txtTMName.Focus();
+                        GlobalVariable.MesseageInfo(lblMessage, "Component Marking  can't be blank!!!", 2);
+                        this.txtCompMarking.SelectAll();
+                        this.txtCompMarking.Focus();
+                        PlayValidationSound();
+                        ShowAccessScreen();
+                        return;
+                    }
+                    if (!txtPartNo.Text.Trim().Equals(txtCompMarking.Text.Trim()))
+                    {
+                        GlobalVariable.MesseageInfo(lblMessage, "Enter IC/BGA Part and Component Marking should be same!!!", 2);
+                        this.txtCompMarking.SelectAll();
+                        this.txtCompMarking.Focus();
+                        PlayValidationSound();
+                        ShowAccessScreen();
+                        return;
                     }
                     else
                     {
-                        GlobalVariable.MesseageInfo(lblMessage, "Wrong Feeder Selected!!!", 2);
+                        txtCompMarking.Enabled = false;
+                        chkSecondTrayStaus.Checked = true;
+                        txtLotNo.Enabled = true;
+                        txtLotNo.Focus();
+                    }
+
+
+
+                }
+                catch (Exception ex)
+                {
+
+                    lblShowMessage(ex.Message, 2);
+                }
+                finally
+                {
+
+                }
+            }
+        }
+        private void txtLotNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                try
+                {
+                    lblShowMessage();
+                    if (txtEmptyTray.Text.Length == 0)
+                    {
+                        GlobalVariable.MesseageInfo(lblMessage, "Empaty Tray can't be blank!!!", 2);
+                        this.txtEmptyTray.SelectAll();
+                        this.txtEmptyTray.Focus();
+                        PlayValidationSound();
+                        ShowAccessScreen();
+                        return;
+                    }
+                    if (txtPacketQR.Text.Length == 0)
+                    {
+                        GlobalVariable.MesseageInfo(lblMessage, "Packet QR Code can't be blank!!!", 2);
+                        this.txtPacketQR.SelectAll();
+                        this.txtPacketQR.Focus();
+                        PlayValidationSound();
+                        ShowAccessScreen();
+                        return;
+                    }
+                    if (txtFullTray.Text.Length == 0)
+                    {
+                        GlobalVariable.MesseageInfo(lblMessage, "Full Tray can't be blank!!!", 2);
+                        this.txtFullTray.SelectAll();
+                        this.txtFullTray.Focus();
+                        PlayValidationSound();
+                        ShowAccessScreen();
+                        return;
+                    }
+                    if (txtPartNo.Text.Length == 0)
+                    {
+                        GlobalVariable.MesseageInfo(lblMessage, "IC/BGA Part No can't be blank!!!", 2);
+                        this.txtPartNo.SelectAll();
+                        this.txtPartNo.Focus();
+                        PlayValidationSound();
+                        ShowAccessScreen();
+                        return;
+                    }
+
+                    if (!txtPartNo.Text.Trim().Equals(lblRunningPart.Text.Trim()))
+                    {
+                        GlobalVariable.MesseageInfo(lblMessage, "Enter IC/BGA Part and Running Part should be same!!!", 2);
+                        this.txtPartNo.SelectAll();
+                        this.txtPartNo.Focus();
+                        PlayValidationSound();
+                        ShowAccessScreen();
+                        return;
+                    }
+                    if (txtCompMarking.Text.Length == 0)
+                    {
+                        GlobalVariable.MesseageInfo(lblMessage, "Component Marking  can't be blank!!!", 2);
+                        this.txtCompMarking.SelectAll();
+                        this.txtCompMarking.Focus();
+                        PlayValidationSound();
+                        ShowAccessScreen();
+                        return;
+                    }
+                    if (txtLotNo.Text.Length == 0)
+                    {
+                        GlobalVariable.MesseageInfo(lblMessage, "Lot No.  can't be blank!!!", 2);
                         this.txtLotNo.SelectAll();
                         this.txtLotNo.Focus();
                         PlayValidationSound();
                         ShowAccessScreen();
                         return;
                     }
+                    if (!ValidatePartNoAndLot(txtLotNo.Text.Trim()))
+                    {
+                        this.txtLotNo.SelectAll();
+                        this.txtLotNo.Focus();
+                        return;
+                    }
+
+                    txtLotNo.Enabled = false;
+                    txtTMName.Enabled = true;
+                    txtTMName.Focus();
+
+
 
 
                 }
@@ -692,105 +805,55 @@ namespace DENSO_PRINTING_APP
                         ShowAccessScreen();
                         return;
                     }
-                    if (txtLotNo.Text.Length == 0)
-                    {
-                        GlobalVariable.MesseageInfo(lblMessage, "Feeder Part No can't be blank!!!", 2);
-                        this.txtLotNo.SelectAll();
-                        this.txtLotNo.Focus();
-                        PlayValidationSound();
-                        ShowAccessScreen();
-                        return;
-                    }
                     if (txtFullTray.Text.Length == 0)
                     {
-                        GlobalVariable.MesseageInfo(lblMessage, "Lot No can't be blank!!!", 2);
+                        GlobalVariable.MesseageInfo(lblMessage, "Full Tray can't be blank!!!", 2);
                         this.txtFullTray.SelectAll();
                         this.txtFullTray.Focus();
                         PlayValidationSound();
                         ShowAccessScreen();
                         return;
                     }
-                    if (txtTMName.Text.Length == 0)
+                    if (txtPartNo.Text.Length == 0)
                     {
-                        GlobalVariable.MesseageInfo(lblMessage, "TM can't be blank!!!", 2);
-                        this.txtTMName.SelectAll();
-                        this.txtTMName.Focus();
+                        GlobalVariable.MesseageInfo(lblMessage, "IC/BGA Part No can't be blank!!!", 2);
+                        this.txtPartNo.SelectAll();
+                        this.txtPartNo.Focus();
                         PlayValidationSound();
                         ShowAccessScreen();
                         return;
                     }
 
-                    txtTMName.Enabled = false;
-
-
-
-
-
-                }
-                catch (Exception ex)
-                {
-
-                    lblShowMessage(ex.Message, 2);
-                }
-                finally
-                {
-
-                }
-            }
-        }
-
-        private void txtFinalPart_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Control && (e.KeyCode == Keys.C | e.KeyCode == Keys.V))
-            {
-                e.SuppressKeyPress = true;
-                return;
-            }
-            if (e.KeyCode == Keys.Enter)
-            {
-                try
-                {
-                    lblShowMessage();
-                    if (txtEmptyTray.Text.Length == 0)
+                    if (!txtPartNo.Text.Trim().Equals(lblRunningPart.Text.Trim()))
                     {
-                        GlobalVariable.MesseageInfo(lblMessage, "Old Part No can't be blank!!!", 2);
-                        this.txtEmptyTray.SelectAll();
-                        this.txtEmptyTray.Focus();
+                        GlobalVariable.MesseageInfo(lblMessage, "Enter IC/BGA Part and Running Part should be same!!!", 2);
+                        this.txtPartNo.SelectAll();
+                        this.txtPartNo.Focus();
                         PlayValidationSound();
                         ShowAccessScreen();
                         return;
                     }
-                    if (txtPacketQR.Text.Length == 0)
+                    if (txtCompMarking.Text.Length == 0)
                     {
-                        GlobalVariable.MesseageInfo(lblMessage, "New Part No can't be blank!!!", 2);
-                        this.txtEmptyTray.SelectAll();
-                        this.txtEmptyTray.Focus();
+                        GlobalVariable.MesseageInfo(lblMessage, "Component Marking  can't be blank!!!", 2);
+                        this.txtCompMarking.SelectAll();
+                        this.txtCompMarking.Focus();
                         PlayValidationSound();
                         ShowAccessScreen();
                         return;
                     }
                     if (txtLotNo.Text.Length == 0)
                     {
-                        GlobalVariable.MesseageInfo(lblMessage, "Feeder Part No can't be blank!!!", 2);
+                        GlobalVariable.MesseageInfo(lblMessage, "Component Marking  can't be blank!!!", 2);
                         this.txtLotNo.SelectAll();
                         this.txtLotNo.Focus();
-
-                        PlayValidationSound();
-                        ShowAccessScreen();
-                        return;
-                    }
-                    if (txtFullTray.Text.Length == 0)
-                    {
-                        GlobalVariable.MesseageInfo(lblMessage, "Lot No can't be blank!!!", 2);
-                        this.txtFullTray.SelectAll();
-                        this.txtFullTray.Focus();
                         PlayValidationSound();
                         ShowAccessScreen();
                         return;
                     }
                     if (txtTMName.Text.Length == 0)
                     {
-                        GlobalVariable.MesseageInfo(lblMessage, "TM can't be blank!!!", 2);
+                        GlobalVariable.MesseageInfo(lblMessage, "TM Name can't be blank!!!", 2);
                         this.txtTMName.SelectAll();
                         this.txtTMName.Focus();
                         PlayValidationSound();
@@ -802,23 +865,18 @@ namespace DENSO_PRINTING_APP
                     _plObj = new PL_TRAY_LOADING();
                     _plObj.DbType = "SAVE";
                     _plObj.Line = GlobalVariable.mLine;
-                    //_plObj.OldPartNo = txtEmptyTray.Text.Trim();
-                    //_plObj.NewPartNo = txtPacketQR.Text.Trim();
-                    //_plObj.FeederPartNo = txtLotNo.Text.Trim();
-                    //_plObj.Lot = txtFullTray.Text.Trim();
-                    //_plObj.TMBarcode = txtTMName.Text.Trim();
-                    //_plObj.FinalPartNo = txtFinalPart.Text.Trim();
-                    //_plObj.CreatedBy = GlobalVariable.UserName;
-                    //_plObj.SpoolType = GlobalVariable.mSpoolType;
-                    //_plObj.Model = GlobalVariable.mModel;
-                    //_plObj.PartNo = GlobalVariable.mPart;
+                    _plObj.TrayEmp = txtEmptyTray.Text.Trim();
+                    _plObj.PacketQrCode = txtPacketQR.Text.Trim();
+                    _plObj.TrayFull = txtFullTray.Text.Trim();
+                    _plObj.PartNo = txtPartNo.Text.Trim();
+                    _plObj.CompMarking = txtCompMarking.Text.Trim();
+                    _plObj.LotNo = txtLotNo.Text.Trim();
+                    _plObj.TMName = txtTMName.Text.Trim();
                     DataTable dt = _blObj.BL_ExecuteTask(_plObj);
                     if (dt.Rows.Count > 0)
                     {
                         BindView();
                         txtTMName.Enabled = false;
-                        chkFirstTrayStaus.Checked = true;
-
                     }
 
 
@@ -838,16 +896,7 @@ namespace DENSO_PRINTING_APP
             }
         }
 
-
-
-
-
-
-
-
-
-
-
+    
 
 
         #endregion
@@ -866,5 +915,17 @@ namespace DENSO_PRINTING_APP
         }
 
         
+
+        private void chkSecondTrayStaus_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkSecondTrayStaus.Checked)
+            {
+                chkSecondTrayStaus.BackColor = Color.Green;
+            }
+            else
+            {
+                chkSecondTrayStaus.BackColor = Color.Yellow;
+            }
+        }
     }
 }

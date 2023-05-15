@@ -53,6 +53,7 @@
     <Compile Include="Master\PL_PART_MASTER.cs" />
     <Compile Include="Master\PL_USER_MASTER.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\PL_TRAY_LOADING_REPORT.cs" />
     <Compile Include="Report\PL_SPOOLING_REPORT.cs" />
     <Compile Include="Transcation\PL_TRAY_LOADING.cs" />
     <Compile Include="Transcation\PL_SPOOLING.cs" />

@@ -1,6 +1,6 @@
 ﻿namespace DENSO_PRINTING_APP
 {
-    partial class frmSpoolingReport
+    partial class frmTrayLoadingReport
     {
         /// <summary>
         /// Required designer variable.
@@ -28,23 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSpoolingReport));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTrayLoadingReport));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnMini = new System.Windows.Forms.Button();
             this.gbPrintingParameter = new System.Windows.Forms.GroupBox();
-            this.cbModel = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.cbSpoolType = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.cbTMUser = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cbLotNo = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.cbFeeder = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.cbPartNo = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbLine = new System.Windows.Forms.ComboBox();
@@ -60,19 +54,18 @@
             this.btnMinimize = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgv = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Line = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrayEmp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PacketQrCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrayFull = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PartNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OldPartBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NewPartBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Feeder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ComponentMarking = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lot = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TMUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SpoolerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbPrintingParameter.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -155,16 +148,10 @@
             // 
             this.gbPrintingParameter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbPrintingParameter.Controls.Add(this.cbModel);
-            this.gbPrintingParameter.Controls.Add(this.label10);
-            this.gbPrintingParameter.Controls.Add(this.cbSpoolType);
-            this.gbPrintingParameter.Controls.Add(this.label8);
             this.gbPrintingParameter.Controls.Add(this.cbTMUser);
             this.gbPrintingParameter.Controls.Add(this.label7);
             this.gbPrintingParameter.Controls.Add(this.cbLotNo);
             this.gbPrintingParameter.Controls.Add(this.label6);
-            this.gbPrintingParameter.Controls.Add(this.cbFeeder);
-            this.gbPrintingParameter.Controls.Add(this.label4);
             this.gbPrintingParameter.Controls.Add(this.cbPartNo);
             this.gbPrintingParameter.Controls.Add(this.label2);
             this.gbPrintingParameter.Controls.Add(this.cbLine);
@@ -178,59 +165,10 @@
             this.gbPrintingParameter.ForeColor = System.Drawing.Color.MidnightBlue;
             this.gbPrintingParameter.Location = new System.Drawing.Point(3, 3);
             this.gbPrintingParameter.Name = "gbPrintingParameter";
-            this.gbPrintingParameter.Size = new System.Drawing.Size(1184, 227);
+            this.gbPrintingParameter.Size = new System.Drawing.Size(1184, 177);
             this.gbPrintingParameter.TabIndex = 0;
             this.gbPrintingParameter.TabStop = false;
             this.gbPrintingParameter.Text = "Report";
-            // 
-            // cbModel
-            // 
-            this.cbModel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.cbModel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbModel.Font = new System.Drawing.Font("Calibri", 12F);
-            this.cbModel.FormattingEnabled = true;
-            this.cbModel.Location = new System.Drawing.Point(470, 67);
-            this.cbModel.Name = "cbModel";
-            this.cbModel.Size = new System.Drawing.Size(243, 27);
-            this.cbModel.TabIndex = 3;
-            this.cbModel.SelectedIndexChanged += new System.EventHandler(this.cbModel_SelectedIndexChanged);
-            // 
-            // label10
-            // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(402, 67);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(61, 19);
-            this.label10.TabIndex = 219;
-            this.label10.Text = "Model :";
-            // 
-            // cbSpoolType
-            // 
-            this.cbSpoolType.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.cbSpoolType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSpoolType.Font = new System.Drawing.Font("Calibri", 12F);
-            this.cbSpoolType.FormattingEnabled = true;
-            this.cbSpoolType.Items.AddRange(new object[] {
-            "--Select--",
-            "FRONT",
-            "BACK"});
-            this.cbSpoolType.Location = new System.Drawing.Point(115, 190);
-            this.cbSpoolType.Name = "cbSpoolType";
-            this.cbSpoolType.Size = new System.Drawing.Size(243, 27);
-            this.cbSpoolType.TabIndex = 8;
-            // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(6, 193);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(103, 19);
-            this.label8.TabIndex = 217;
-            this.label8.Text = "Spooler Type:";
             // 
             // cbTMUser
             // 
@@ -238,7 +176,7 @@
             this.cbTMUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTMUser.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbTMUser.FormattingEnabled = true;
-            this.cbTMUser.Location = new System.Drawing.Point(470, 150);
+            this.cbTMUser.Location = new System.Drawing.Point(470, 120);
             this.cbTMUser.Name = "cbTMUser";
             this.cbTMUser.Size = new System.Drawing.Size(243, 27);
             this.cbTMUser.TabIndex = 7;
@@ -249,7 +187,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(392, 150);
+            this.label7.Location = new System.Drawing.Point(392, 120);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(73, 19);
             this.label7.TabIndex = 215;
@@ -261,7 +199,7 @@
             this.cbLotNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLotNo.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbLotNo.FormattingEnabled = true;
-            this.cbLotNo.Location = new System.Drawing.Point(115, 150);
+            this.cbLotNo.Location = new System.Drawing.Point(115, 117);
             this.cbLotNo.Name = "cbLotNo";
             this.cbLotNo.Size = new System.Drawing.Size(243, 27);
             this.cbLotNo.TabIndex = 6;
@@ -272,34 +210,11 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(42, 153);
+            this.label6.Location = new System.Drawing.Point(42, 120);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 19);
             this.label6.TabIndex = 213;
             this.label6.Text = "Lot No. :";
-            // 
-            // cbFeeder
-            // 
-            this.cbFeeder.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.cbFeeder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFeeder.Font = new System.Drawing.Font("Calibri", 12F);
-            this.cbFeeder.FormattingEnabled = true;
-            this.cbFeeder.Location = new System.Drawing.Point(470, 108);
-            this.cbFeeder.Name = "cbFeeder";
-            this.cbFeeder.Size = new System.Drawing.Size(243, 27);
-            this.cbFeeder.TabIndex = 5;
-            this.cbFeeder.SelectedIndexChanged += new System.EventHandler(this.cbFeeder_SelectedIndexChanged);
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(402, 108);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 19);
-            this.label4.TabIndex = 211;
-            this.label4.Text = "Feeder :";
             // 
             // cbPartNo
             // 
@@ -307,7 +222,7 @@
             this.cbPartNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPartNo.Font = new System.Drawing.Font("Calibri", 12F);
             this.cbPartNo.FormattingEnabled = true;
-            this.cbPartNo.Location = new System.Drawing.Point(115, 109);
+            this.cbPartNo.Location = new System.Drawing.Point(470, 70);
             this.cbPartNo.Name = "cbPartNo";
             this.cbPartNo.Size = new System.Drawing.Size(243, 27);
             this.cbPartNo.TabIndex = 4;
@@ -318,7 +233,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(35, 111);
+            this.label2.Location = new System.Drawing.Point(390, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 19);
             this.label2.TabIndex = 209;
@@ -465,7 +380,7 @@
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(1204, 35);
             this.lblHeader.TabIndex = 212;
-            this.lblHeader.Text = "SPOOLING REPORT";
+            this.lblHeader.Text = "TRAY LOADING REPORT";
             this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnMinimize
@@ -525,20 +440,19 @@
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Line,
-            this.Model,
+            this.TrayEmp,
+            this.PacketQrCode,
+            this.TrayFull,
             this.PartNo,
-            this.OldPartBarcode,
-            this.NewPartBarcode,
-            this.Feeder,
+            this.ComponentMarking,
             this.Lot,
             this.TMUser,
             this.Date,
-            this.Time,
-            this.SpoolerType});
+            this.Time});
             this.dgv.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.dgv.EnableHeadersVisualStyles = false;
             this.dgv.GridColor = System.Drawing.Color.AliceBlue;
-            this.dgv.Location = new System.Drawing.Point(5, 236);
+            this.dgv.Location = new System.Drawing.Point(5, 186);
             this.dgv.MultiSelect = false;
             this.dgv.Name = "dgv";
             this.dgv.RowHeadersVisible = false;
@@ -547,10 +461,32 @@
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(1194, 269);
+            this.dgv.Size = new System.Drawing.Size(1194, 319);
             this.dgv.StandardTab = true;
             this.dgv.TabIndex = 194;
             this.dgv.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(1146, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 13);
+            this.label5.TabIndex = 214;
+            this.label5.Text = "Minimize";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(6, 1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(109, 38);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 262;
+            this.pictureBox1.TabStop = false;
             // 
             // Line
             // 
@@ -560,44 +496,45 @@
             this.Line.Name = "Line";
             this.Line.Width = 149;
             // 
-            // Model
+            // TrayEmp
             // 
-            this.Model.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Model.DataPropertyName = "Model";
-            this.Model.HeaderText = "Model";
-            this.Model.Name = "Model";
+            this.TrayEmp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TrayEmp.DataPropertyName = "TrayEmp";
+            this.TrayEmp.HeaderText = "Empty Tray";
+            this.TrayEmp.Name = "TrayEmp";
+            this.TrayEmp.Width = 200;
+            // 
+            // PacketQrCode
+            // 
+            this.PacketQrCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.PacketQrCode.DataPropertyName = "PacketQrCode";
+            this.PacketQrCode.HeaderText = "Packet QR Code";
+            this.PacketQrCode.Name = "PacketQrCode";
+            this.PacketQrCode.Width = 200;
+            // 
+            // TrayFull
+            // 
+            this.TrayFull.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TrayFull.DataPropertyName = "TrayFull";
+            this.TrayFull.HeaderText = "Tray Full";
+            this.TrayFull.Name = "TrayFull";
+            this.TrayFull.Width = 200;
             // 
             // PartNo
             // 
             this.PartNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.PartNo.DataPropertyName = "PartNo";
-            this.PartNo.HeaderText = "Part No.";
+            this.PartNo.HeaderText = "IC/BGA Part";
             this.PartNo.Name = "PartNo";
-            this.PartNo.Width = 149;
+            this.PartNo.Width = 200;
             // 
-            // OldPartBarcode
+            // ComponentMarking
             // 
-            this.OldPartBarcode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.OldPartBarcode.DataPropertyName = "OldPartNo";
-            this.OldPartBarcode.HeaderText = "Old Part Barcode";
-            this.OldPartBarcode.Name = "OldPartBarcode";
-            this.OldPartBarcode.Width = 200;
-            // 
-            // NewPartBarcode
-            // 
-            this.NewPartBarcode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.NewPartBarcode.DataPropertyName = "NewPartNo";
-            this.NewPartBarcode.HeaderText = "New Part Barcode";
-            this.NewPartBarcode.Name = "NewPartBarcode";
-            this.NewPartBarcode.Width = 200;
-            // 
-            // Feeder
-            // 
-            this.Feeder.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Feeder.DataPropertyName = "FeederPartNo";
-            this.Feeder.HeaderText = "Feeder Part No.";
-            this.Feeder.Name = "Feeder";
-            this.Feeder.Width = 149;
+            this.ComponentMarking.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ComponentMarking.DataPropertyName = "ComponentMarking";
+            this.ComponentMarking.HeaderText = "Component Marking";
+            this.ComponentMarking.Name = "ComponentMarking";
+            this.ComponentMarking.Width = 200;
             // 
             // Lot
             // 
@@ -631,37 +568,7 @@
             this.Time.Name = "Time";
             this.Time.Width = 180;
             // 
-            // SpoolerType
-            // 
-            this.SpoolerType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.SpoolerType.DataPropertyName = "SpoolType";
-            this.SpoolerType.HeaderText = "Spooler Type";
-            this.SpoolerType.Name = "SpoolerType";
-            this.SpoolerType.Width = 180;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(1146, 26);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 13);
-            this.label5.TabIndex = 214;
-            this.label5.Text = "Minimize";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(109, 38);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 262;
-            this.pictureBox1.TabStop = false;
-            // 
-            // frmSpoolingReport
+            // frmTrayLoadingReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -676,7 +583,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.Name = "frmSpoolingReport";
+            this.Name = "frmTrayLoadingReport";
             this.Text = "Spooling Report";
             this.Load += new System.EventHandler(this.frmReprinting_Load);
             this.gbPrintingParameter.ResumeLayout(false);
@@ -711,28 +618,21 @@
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.ComboBox cbLotNo;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cbFeeder;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbPartNo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbLine;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cbTMUser;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cbSpoolType;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox cbModel;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Line;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Model;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TrayEmp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PacketQrCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TrayFull;
         private System.Windows.Forms.DataGridViewTextBoxColumn PartNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OldPartBarcode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NewPartBarcode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Feeder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ComponentMarking;
         private System.Windows.Forms.DataGridViewTextBoxColumn Lot;
         private System.Windows.Forms.DataGridViewTextBoxColumn TMUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Time;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SpoolerType;
     }
 }
