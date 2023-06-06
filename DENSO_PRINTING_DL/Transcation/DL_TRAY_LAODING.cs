@@ -41,7 +41,7 @@ namespace DENSO_PRINTING_DL
                 param[4] = new SqlParameter("@PACKET_QR_CODE", SqlDbType.VarChar, 500);
                 param[4].Value = obj.PacketQrCode;
                 param[5] = new SqlParameter("@TRAY_FULL", SqlDbType.VarChar, 500);
-                param[5].Value = obj.PacketQrCode;
+                param[5].Value = obj.TrayFull;
                 param[6] = new SqlParameter("@COMP_MARKING", SqlDbType.VarChar, 500);
                 param[6].Value = obj.CompMarking;
                 param[7] = new SqlParameter("@LOT_NO", SqlDbType.VarChar, 500);

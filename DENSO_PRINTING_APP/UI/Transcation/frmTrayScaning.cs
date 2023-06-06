@@ -121,7 +121,7 @@ namespace DENSO_PRINTING_APP
                 lblMessage.Text = "";
 
 
-                txtEmptyTray.Text = txtPacketQR.Text = txtLotNo.Text = txtFullTray.Text = txtTMName.Text = "";
+                txtEmptyTray.Text = txtPacketQR.Text=txtPartNo.Text=txtCompMarking.Text = txtLotNo.Text = txtFullTray.Text = txtTMName.Text = "";
                 chkFirstTrayStaus.Checked = chkSecondTrayStaus.Checked = false;
                 chkFirstTrayStaus.BackColor = chkSecondTrayStaus.BackColor = Color.Yellow;
                 DisableFields();
@@ -295,6 +295,47 @@ namespace DENSO_PRINTING_APP
             return bReturn;
 
         }
+        bool ValidatePacketComponentMakring(string component)
+        {
+            bool bReturn = false;
+            try
+            {
+                _blObj = new BL_TRAY_LOADING();
+                _plObj = new PL_TRAY_LOADING();
+                _plObj.DbType = "VALIDATE_COMP_MARKING";
+                _plObj.TrayEmp = txtEmptyTray.Text.Trim();
+                _plObj.PartNo = txtPartNo.Text.Trim();
+                _plObj.PacketQrCode = txtPacketQR.Text.Trim();
+                _plObj.CompMarking = component;
+                DataTable dt = _blObj.BL_ExecuteTask(_plObj);
+                if (dt.Rows.Count > 0)
+                {
+                    if (dt.Columns[0].ColumnName == "RESULT")
+                    {
+                        lblShowMessage(dt.Rows[0]["RESULT"].ToString(), 2);
+                        PlayValidationSound();
+                        ShowAccessScreen();
+                        txtCompMarking.Text = "";
+                        bReturn = false;
+                    }
+                    else
+                    {
+                        
+                            bReturn = true;
+                        
+
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblShowMessage(ex.Message, 2);
+            }
+
+            return bReturn;
+
+        }
         void PlayValidationSound()
         {
             try
@@ -325,7 +366,7 @@ namespace DENSO_PRINTING_APP
         void DisableFields()
         {
             txtEmptyTray.Enabled = true;
-            txtPacketQR.Enabled = txtLotNo.Enabled = txtFullTray.Enabled = txtTMName.Enabled = false;
+            txtPacketQR.Enabled =txtCompMarking.Enabled=txtPartNo.Enabled= txtLotNo.Enabled = txtFullTray.Enabled = txtTMName.Enabled = false;
         }
 
 
@@ -649,16 +690,7 @@ namespace DENSO_PRINTING_APP
                         ShowAccessScreen();
                         return;
                     }
-                    if (!txtPartNo.Text.Trim().Equals(txtCompMarking.Text.Trim()))
-                    {
-                        GlobalVariable.MesseageInfo(lblMessage, "Enter IC/BGA Part and Component Marking should be same!!!", 2);
-                        this.txtCompMarking.SelectAll();
-                        this.txtCompMarking.Focus();
-                        PlayValidationSound();
-                        ShowAccessScreen();
-                        return;
-                    }
-                    else
+                    if (ValidatePacketComponentMakring(txtCompMarking.Text.Trim()))
                     {
                         txtCompMarking.Enabled = false;
                         chkSecondTrayStaus.Checked = true;

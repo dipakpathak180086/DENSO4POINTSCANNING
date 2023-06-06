@@ -108,6 +108,7 @@ namespace DENSO_PRINTING_APP
             return bNew;
 
         }
+
         private void GetLine()
         {
             try
@@ -118,7 +119,7 @@ namespace DENSO_PRINTING_APP
                 {
                     GlobalVariable.BindCombo(cmbLine, dt);
                 }
-               
+
             }
             catch (Exception ex)
             {
@@ -139,6 +140,18 @@ namespace DENSO_PRINTING_APP
 
                 txtUserId.Focus();
                 GetLine();
+
+                
+                DataTable dataTableVersion = common.GetVersion(Application.ProductVersion);
+                lnkNewUpdate.Visible = false;
+                if (dataTableVersion.Rows.Count > 0)
+                {
+                    if (dataTableVersion.Rows[0][0].ToString() != "OK")
+                    {
+                        lnkNewUpdate.Visible = true;
+                        
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -169,13 +182,15 @@ namespace DENSO_PRINTING_APP
                 lblMessage.Text = "";
                 Common common = new Common();
                 DataTable dataTableVersion = common.GetVersion(Application.ProductVersion);
-
+                lnkNewUpdate.Visible = false;
                 if (dataTableVersion.Rows.Count > 0)
                 {
                     if (dataTableVersion.Rows[0][0].ToString() != "OK")
                     {
                         GlobalVariable.mStoCustomFunction.setMessageBox(GlobalVariable.mSatoApps, dataTableVersion.Rows[0][0].ToString(), 3);
                         txtPassword.Focus();
+                        lnkNewUpdate.Visible = true;
+
                         return;
                     }
                 }
@@ -272,8 +287,26 @@ namespace DENSO_PRINTING_APP
             }
         }
 
+
         #endregion
 
+        private void lnkNewUpdate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
 
+
+            GlobalVariable.mStoCustomFunction.setMessageBox(GlobalVariable.mSatoApps, "Application new version is available, application will download the new update automatically", 2);
+            try
+            {
+                System.Diagnostics.Process.Start(System.AppDomain.CurrentDomain.BaseDirectory + "\\UpdateApp.exe");
+                Application.Exit();
+            }
+            catch (Exception ex)
+            {
+                GlobalVariable.mStoCustomFunction.setMessageBox(GlobalVariable.mSatoApps, ex.Message,3);
+            }
+
+
+
+        }
     }
 }

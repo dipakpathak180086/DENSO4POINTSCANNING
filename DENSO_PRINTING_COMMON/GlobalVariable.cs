@@ -12,7 +12,7 @@ using SatoLib;
 
 namespace DENSO_PRINTING_COMMON
 {
-   public class GlobalVariable
+    public class GlobalVariable
     {
         public static SatoCustomFunction mStoCustomFunction = new SatoCustomFunction();
         public static string mSatoApps = "SatoApps";
@@ -24,7 +24,7 @@ namespace DENSO_PRINTING_COMMON
         public static string mSatoAppsLoginUser = "";
         public static string mUserType = "";
         public static SatoLogger AppLog;
-        public static string UserName="";
+        public static string UserName = "";
         public static string UserGroup = "";
         public static string mAccessUser = "";
         public static string mLine = "";
@@ -33,7 +33,7 @@ namespace DENSO_PRINTING_COMMON
         public static string mModel = "";
         public static string mPart = "";
         public static string mSpoolType = string.Empty;
-        public static  void MesseageInfo(Label label,string sMessage, int icnt)
+        public static void MesseageInfo(Label label, string sMessage, int icnt)
         {
             if (icnt == 1)
             {
@@ -113,7 +113,7 @@ namespace DENSO_PRINTING_COMMON
         {
             return Regex.Match(email, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$").Success;
         }
-        public static string  DataTableToCsv(DataTable dt)
+        public static string DataTableToCsv(DataTable dt)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -126,7 +126,7 @@ namespace DENSO_PRINTING_COMMON
                 sb.AppendLine(string.Join(",", fields));
             }
 
-            return sb.ToString().Replace(""+'"'+"","");
+            return sb.ToString().Replace("" + '"' + "", "");
         }
         public static void ExportDataInCSV(DataTable _dt)
         {
@@ -200,7 +200,7 @@ namespace DENSO_PRINTING_COMMON
                         _sData = _sData + "," + _dg.Columns[i].HeaderText.ToString().ToUpper().Replace(",", "").Replace("\t", "").Replace("\n", "").Trim();
                 }
                 _sWriter.WriteLine(_sData);
-
+                int iout = 0;
                 for (int i = 0; i < _dg.Rows.Count; i++)
                 {
                     _sData = "";
@@ -210,9 +210,20 @@ namespace DENSO_PRINTING_COMMON
                         if (_dg.Rows[i].Cells[j].Value == null)
                             _dg.Rows[i].Cells[j].Value = "";
                         if (_sData == "")
-                            _sData = _dg.Rows[i].Cells[j].Value.ToString().ToUpper().Replace(",", "~").Replace("\t", "").Replace("\n", "").Trim();
+                        {
+                            if (int.TryParse(_dg.Rows[i].Cells[j].Value.ToString().ToUpper().Replace(",", "~").Replace("\t", "").Replace("\n", "").Trim(), out iout))
+                                _sData = "'" + _dg.Rows[i].Cells[j].Value.ToString().ToUpper().Replace(",", "~").Replace("\t", "").Replace("\n", "").Trim();
+                            else
+                                _sData = _dg.Rows[i].Cells[j].Value.ToString().ToUpper().Replace(",", "~").Replace("\t", "").Replace("\n", "").Trim();
+
+                        }
                         else
-                            _sData = _sData + "," + _dg.Rows[i].Cells[j].Value.ToString().ToUpper().Replace(",", "~").Replace("\t", "").Replace("\n", "").Trim();
+                        {
+                            if (int.TryParse(_dg.Rows[i].Cells[j].Value.ToString().ToUpper().Replace(",", "~").Replace("\t", "").Replace("\n", "").Trim(), out iout))
+                                _sData = _sData + ",'" + _dg.Rows[i].Cells[j].Value.ToString().ToUpper().Replace(",", "~").Replace("\t", "").Replace("\n", "").Trim();
+                            else
+                                _sData = _sData + "," + _dg.Rows[i].Cells[j].Value.ToString().ToUpper().Replace(",", "~").Replace("\t", "").Replace("\n", "").Trim();
+                        }
                     }
                     _sWriter.WriteLine(_sData);
                 }

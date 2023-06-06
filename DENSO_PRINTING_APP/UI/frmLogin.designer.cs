@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cmbLine = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.lblVersion = new System.Windows.Forms.Label();
@@ -41,19 +43,19 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUserId = new System.Windows.Forms.TextBox();
-            this.cmbLine = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lnkNewUpdate = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.lnkNewUpdate);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.cmbLine);
             this.panel1.Controls.Add(this.label2);
@@ -71,6 +73,27 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(518, 266);
             this.panel1.TabIndex = 8;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(242, 164);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(36, 27);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 199;
+            this.pictureBox1.TabStop = false;
+            // 
+            // cmbLine
+            // 
+            this.cmbLine.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cmbLine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbLine.Font = new System.Drawing.Font("Calibri", 12F);
+            this.cmbLine.FormattingEnabled = true;
+            this.cmbLine.Location = new System.Drawing.Point(284, 164);
+            this.cmbLine.Name = "cmbLine";
+            this.cmbLine.Size = new System.Drawing.Size(229, 27);
+            this.cmbLine.TabIndex = 198;
             // 
             // label2
             // 
@@ -212,26 +235,18 @@
             this.txtUserId.Size = new System.Drawing.Size(229, 27);
             this.txtUserId.TabIndex = 0;
             // 
-            // cmbLine
+            // lnkNewUpdate
             // 
-            this.cmbLine.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.cmbLine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbLine.Font = new System.Drawing.Font("Calibri", 12F);
-            this.cmbLine.FormattingEnabled = true;
-            this.cmbLine.Location = new System.Drawing.Point(284, 164);
-            this.cmbLine.Name = "cmbLine";
-            this.cmbLine.Size = new System.Drawing.Size(229, 27);
-            this.cmbLine.TabIndex = 198;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(242, 164);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(36, 27);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 199;
-            this.pictureBox1.TabStop = false;
+            this.lnkNewUpdate.AutoSize = true;
+            this.lnkNewUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkNewUpdate.Location = new System.Drawing.Point(242, 206);
+            this.lnkNewUpdate.Name = "lnkNewUpdate";
+            this.lnkNewUpdate.Size = new System.Drawing.Size(124, 24);
+            this.lnkNewUpdate.TabIndex = 200;
+            this.lnkNewUpdate.TabStop = true;
+            this.lnkNewUpdate.Text = "New Update";
+            this.lnkNewUpdate.Visible = false;
+            this.lnkNewUpdate.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkNewUpdate_LinkClicked);
             // 
             // frmLogin
             // 
@@ -248,10 +263,10 @@
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -271,5 +286,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox cmbLine;
+        private System.Windows.Forms.LinkLabel lnkNewUpdate;
     }
 }
