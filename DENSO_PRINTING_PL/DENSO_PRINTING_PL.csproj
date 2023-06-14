@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Master\PL_GROUP_MASTER.cs" />
     <Compile Include="Master\PL_GROUP_RIGHTS.cs" />
+    <Compile Include="Master\PL_IMPORT_LASER_MASTER.cs" />
     <Compile Include="Master\PL_IMPORT_TRAY_MASTER.cs" />
     <Compile Include="Master\PL_LINE_MASTER.cs" />
     <Compile Include="Master\PL_IMPORT_SPOOL_MASTER.cs" />

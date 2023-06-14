@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Master\BL_GROUP_MASTER.cs" />
+    <Compile Include="Master\BL_IMPORT_LASER_MASTER.cs" />
     <Compile Include="Master\BL_IMPORT_TRAY_MASTER.cs" />
     <Compile Include="Master\BL_IMPORT_SPOOL_MASTER.cs" />
     <Compile Include="Master\BL_LINE_MASTER.cs" />

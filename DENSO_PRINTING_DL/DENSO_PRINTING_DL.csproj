@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Master\DL_GROUP_MASTER.cs" />
+    <Compile Include="Master\DL_IMPORT_LASER_MASTER.cs" />
     <Compile Include="Master\DL_IMPORT_TRAY_MASTER.cs" />
     <Compile Include="Master\DL_LINE_MASTER.cs" />
     <Compile Include="Master\DL_IMPORT_SPOOL_MASTER.cs" />

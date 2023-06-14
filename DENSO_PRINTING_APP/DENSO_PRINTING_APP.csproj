@@ -119,6 +119,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="UI\clsODBC.cs" />
+    <Compile Include="UI\Master\frmImportLaserDataMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Master\frmImportLaserDataMaster.designer.cs">
+      <DependentUpon>frmImportLaserDataMaster.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Master\frmImportTrayDataMaster.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +211,9 @@
     </Compile>
     <Compile Include="AppsGetUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="UI\Master\frmImportLaserDataMaster.resx">
+      <DependentUpon>frmImportLaserDataMaster.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Master\frmImportTrayDataMaster.resx">
       <DependentUpon>frmImportTrayDataMaster.cs</DependentUpon>
     </EmbeddedResource>
