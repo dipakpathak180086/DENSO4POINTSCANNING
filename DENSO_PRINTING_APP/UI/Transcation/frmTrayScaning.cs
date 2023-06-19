@@ -119,8 +119,9 @@ namespace DENSO_PRINTING_APP
                 _runningOldPartNo = "";
                 lblMessage.BackColor = Color.Transparent;
                 lblMessage.Text = "";
-
-
+                lblReflectLabel.Location = new System.Drawing.Point(578, 206);
+                lblReflectLabel.Size = new System.Drawing.Size(10, 27);
+                lblRunningPart.Text = "XXXXXXXXXXXXX";
                 txtEmptyTray.Text = txtPacketQR.Text=txtPartNo.Text=txtCompMarking.Text = txtLotNo.Text = txtFullTray.Text = txtTMName.Text = "";
                 chkFirstTrayStaus.Checked = chkSecondTrayStaus.Checked = false;
                 chkFirstTrayStaus.BackColor = chkSecondTrayStaus.BackColor = Color.Yellow;
@@ -694,6 +695,8 @@ namespace DENSO_PRINTING_APP
                     {
                         txtCompMarking.Enabled = false;
                         chkSecondTrayStaus.Checked = true;
+                        lblReflectLabel.Location = new System.Drawing.Point(169, 206);
+                        lblReflectLabel.Size = new System.Drawing.Size(419, 27);
                         txtLotNo.Enabled = true;
                         txtLotNo.Focus();
                     }

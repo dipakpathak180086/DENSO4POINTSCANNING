@@ -309,11 +309,22 @@ namespace DENSO_PRINTING_APP
 
         private void picLaserScanning_Click(object sender, EventArgs e)
         {
-          
+            frmLaserScaning frm = new frmLaserScaning();
+            frm.Show();
+            frm.FormClosing += OFrm_FormClosing;
+            this.Hide();
         }
         private void picImportLaserMaster_Click(object sender, EventArgs e)
         {
             frmImportLaserDataMaster frm = new frmImportLaserDataMaster();
+            frm.Show();
+            frm.FormClosing += OFrm_FormClosing;
+            this.Hide();
+
+        }
+        private void picHardwareScanning_Click(object sender, EventArgs e)
+        {
+            frmHardwareScaning frm = new frmHardwareScaning();
             frm.Show();
             frm.FormClosing += OFrm_FormClosing;
             this.Hide();
@@ -382,6 +393,16 @@ namespace DENSO_PRINTING_APP
 
                             picTrayLoading.Enabled = true;
                             lblTrayLoading.Enabled = true;
+                            break;
+                        case "203":
+
+                            picLaserScanning.Enabled = true;
+                            lblLaserScanning.Enabled = true;
+                            break;
+                        case "204":
+
+                            picHardwareScanning.Enabled = true;
+                            lblHardwareScanning.Enabled = true;
                             break;
                         case "301":
 
@@ -493,6 +514,6 @@ namespace DENSO_PRINTING_APP
             pnlSpoolScanning.Visible = false;
         }
 
-       
+        
     }
 }

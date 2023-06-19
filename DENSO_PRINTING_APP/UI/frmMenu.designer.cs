@@ -32,6 +32,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tbReport = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.lblImportLaserMaster = new System.Windows.Forms.Label();
+            this.picImportLaserMaster = new System.Windows.Forms.PictureBox();
             this.lblImportTrayMaster = new System.Windows.Forms.Label();
             this.picImportTrayMaster = new System.Windows.Forms.PictureBox();
             this.lblNGMaster = new System.Windows.Forms.Label();
@@ -59,8 +61,8 @@
             this.picLaserScanning = new System.Windows.Forms.PictureBox();
             this.lblTrayLoading = new System.Windows.Forms.Label();
             this.picTrayLoading = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblHardwareScanning = new System.Windows.Forms.Label();
+            this.picHardwareScanning = new System.Windows.Forms.PictureBox();
             this.lblScanning = new System.Windows.Forms.Label();
             this.picScanning = new System.Windows.Forms.PictureBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -77,11 +79,10 @@
             this.btnMini = new System.Windows.Forms.Button();
             this.picChangePassword = new System.Windows.Forms.PictureBox();
             this.picLogOut = new System.Windows.Forms.PictureBox();
-            this.lblImportLaserMaster = new System.Windows.Forms.Label();
-            this.picImportLaserMaster = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.tbReport.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picImportLaserMaster)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picImportTrayMaster)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picNGMaster)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLineMaster)).BeginInit();
@@ -94,7 +95,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnFront)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLaserScanning)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTrayLoading)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHardwareScanning)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picScanning)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picTrayLoadingReport)).BeginInit();
@@ -102,7 +103,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picChangePassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogOut)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picImportLaserMaster)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -155,6 +155,30 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Master";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // lblImportLaserMaster
+            // 
+            this.lblImportLaserMaster.AutoSize = true;
+            this.lblImportLaserMaster.Enabled = false;
+            this.lblImportLaserMaster.Location = new System.Drawing.Point(392, 222);
+            this.lblImportLaserMaster.Name = "lblImportLaserMaster";
+            this.lblImportLaserMaster.Size = new System.Drawing.Size(140, 19);
+            this.lblImportLaserMaster.TabIndex = 15;
+            this.lblImportLaserMaster.Text = "Import Laser Master";
+            // 
+            // picImportLaserMaster
+            // 
+            this.picImportLaserMaster.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picImportLaserMaster.Enabled = false;
+            this.picImportLaserMaster.Image = ((System.Drawing.Image)(resources.GetObject("picImportLaserMaster.Image")));
+            this.picImportLaserMaster.Location = new System.Drawing.Point(409, 146);
+            this.picImportLaserMaster.Name = "picImportLaserMaster";
+            this.picImportLaserMaster.Size = new System.Drawing.Size(100, 73);
+            this.picImportLaserMaster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picImportLaserMaster.TabIndex = 14;
+            this.picImportLaserMaster.TabStop = false;
+            this.picImportLaserMaster.Tag = "101";
+            this.picImportLaserMaster.Click += new System.EventHandler(this.picImportLaserMaster_Click);
             // 
             // lblImportTrayMaster
             // 
@@ -308,8 +332,8 @@
             this.tabPage2.Controls.Add(this.picLaserScanning);
             this.tabPage2.Controls.Add(this.lblTrayLoading);
             this.tabPage2.Controls.Add(this.picTrayLoading);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.pictureBox2);
+            this.tabPage2.Controls.Add(this.lblHardwareScanning);
+            this.tabPage2.Controls.Add(this.picHardwareScanning);
             this.tabPage2.Controls.Add(this.lblScanning);
             this.tabPage2.Controls.Add(this.picScanning);
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
@@ -503,29 +527,30 @@
             this.picTrayLoading.Tag = "101";
             this.picTrayLoading.Click += new System.EventHandler(this.picTrayLoading_Click);
             // 
-            // label5
+            // lblHardwareScanning
             // 
-            this.label5.AutoSize = true;
-            this.label5.Enabled = false;
-            this.label5.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(580, 160);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(146, 29);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "PCB Scanning";
+            this.lblHardwareScanning.AutoSize = true;
+            this.lblHardwareScanning.Enabled = false;
+            this.lblHardwareScanning.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHardwareScanning.Location = new System.Drawing.Point(550, 155);
+            this.lblHardwareScanning.Name = "lblHardwareScanning";
+            this.lblHardwareScanning.Size = new System.Drawing.Size(207, 29);
+            this.lblHardwareScanning.TabIndex = 10;
+            this.lblHardwareScanning.Text = "Hardware Scanning";
             // 
-            // pictureBox2
+            // picHardwareScanning
             // 
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Enabled = false;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(555, 15);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(179, 132);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 9;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Tag = "101";
+            this.picHardwareScanning.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picHardwareScanning.Enabled = false;
+            this.picHardwareScanning.Image = ((System.Drawing.Image)(resources.GetObject("picHardwareScanning.Image")));
+            this.picHardwareScanning.Location = new System.Drawing.Point(555, 15);
+            this.picHardwareScanning.Name = "picHardwareScanning";
+            this.picHardwareScanning.Size = new System.Drawing.Size(179, 132);
+            this.picHardwareScanning.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picHardwareScanning.TabIndex = 9;
+            this.picHardwareScanning.TabStop = false;
+            this.picHardwareScanning.Tag = "101";
+            this.picHardwareScanning.Click += new System.EventHandler(this.picHardwareScanning_Click);
             // 
             // lblScanning
             // 
@@ -733,30 +758,6 @@
             this.picLogOut.TabStop = false;
             this.picLogOut.Click += new System.EventHandler(this.picLogOut_Click);
             // 
-            // lblImportLaserMaster
-            // 
-            this.lblImportLaserMaster.AutoSize = true;
-            this.lblImportLaserMaster.Enabled = false;
-            this.lblImportLaserMaster.Location = new System.Drawing.Point(392, 222);
-            this.lblImportLaserMaster.Name = "lblImportLaserMaster";
-            this.lblImportLaserMaster.Size = new System.Drawing.Size(140, 19);
-            this.lblImportLaserMaster.TabIndex = 15;
-            this.lblImportLaserMaster.Text = "Import Laser Master";
-            // 
-            // picImportLaserMaster
-            // 
-            this.picImportLaserMaster.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picImportLaserMaster.Enabled = false;
-            this.picImportLaserMaster.Image = ((System.Drawing.Image)(resources.GetObject("picImportLaserMaster.Image")));
-            this.picImportLaserMaster.Location = new System.Drawing.Point(409, 146);
-            this.picImportLaserMaster.Name = "picImportLaserMaster";
-            this.picImportLaserMaster.Size = new System.Drawing.Size(100, 73);
-            this.picImportLaserMaster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picImportLaserMaster.TabIndex = 14;
-            this.picImportLaserMaster.TabStop = false;
-            this.picImportLaserMaster.Tag = "101";
-            this.picImportLaserMaster.Click += new System.EventHandler(this.picImportLaserMaster_Click);
-            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
@@ -784,6 +785,7 @@
             this.tbReport.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picImportLaserMaster)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picImportTrayMaster)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picNGMaster)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLineMaster)).EndInit();
@@ -798,7 +800,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnFront)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLaserScanning)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTrayLoading)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHardwareScanning)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picScanning)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
@@ -807,7 +809,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picChangePassword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogOut)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picImportLaserMaster)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -837,8 +838,8 @@
         private System.Windows.Forms.PictureBox picScanning;
         private System.Windows.Forms.Label lblLineMaster;
         private System.Windows.Forms.PictureBox picLineMaster;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label lblHardwareScanning;
+        private System.Windows.Forms.PictureBox picHardwareScanning;
         private System.Windows.Forms.Label lblLaserScanning;
         private System.Windows.Forms.PictureBox picLaserScanning;
         private System.Windows.Forms.Label lblTrayLoading;

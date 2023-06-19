@@ -61,6 +61,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Report\DL_TRAY_LOADING_REPORT.cs" />
     <Compile Include="Report\DL_SPOOLING_REPORT.cs" />
+    <Compile Include="Transcation\DL_HARDWARE_LAODING.cs" />
+    <Compile Include="Transcation\DL_LASER_LAODING.cs" />
     <Compile Include="Transcation\DL_TRAY_LAODING.cs" />
     <Compile Include="Transcation\DL_SPOOLING.cs" />
   </ItemGroup>

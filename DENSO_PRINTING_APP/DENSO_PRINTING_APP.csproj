@@ -161,6 +161,18 @@
     <Compile Include="UI\Report\frmSpoolingReport.designer.cs">
       <DependentUpon>frmSpoolingReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Transcation\frmHardwareScaning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Transcation\frmHardwareScaning.designer.cs">
+      <DependentUpon>frmHardwareScaning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Transcation\frmLaserScaning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Transcation\frmLaserScaning.designer.cs">
+      <DependentUpon>frmLaserScaning.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Transcation\frmTrayScaning.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,6 +243,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Report\frmSpoolingReport.resx">
       <DependentUpon>frmSpoolingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Transcation\frmHardwareScaning.resx">
+      <DependentUpon>frmHardwareScaning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Transcation\frmLaserScaning.resx">
+      <DependentUpon>frmLaserScaning.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Transcation\frmTrayScaning.resx">
       <DependentUpon>frmTrayScaning.cs</DependentUpon>

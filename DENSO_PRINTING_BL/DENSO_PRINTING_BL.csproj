@@ -58,6 +58,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Report\BL_TRAY_LOADING_REPORT.cs" />
     <Compile Include="Report\BL_SPOOLING_REPORT.cs" />
+    <Compile Include="Transcation\BL_HARDWAR_LOADING.cs" />
+    <Compile Include="Transcation\BL_LASER_LOADING.cs" />
     <Compile Include="Transcation\BL_TRAY_LOADING.cs" />
     <Compile Include="Transcation\BL_SPOOLING.cs" />
   </ItemGroup>

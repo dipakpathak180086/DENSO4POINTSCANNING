@@ -1,6 +1,6 @@
 ﻿namespace DENSO_PRINTING_APP
 {
-    partial class frmTrayScaning
+    partial class frmLaserScaning
     {
         /// <summary>
         /// Required designer variable.
@@ -28,50 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTrayScaning));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLaserScaning));
             this.btnMinimize = new System.Windows.Forms.Button();
-            this.btnMini = new System.Windows.Forms.Button();
             this.lblHeader = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbPrintingParameter = new System.Windows.Forms.GroupBox();
             this.lblReflectLabel = new System.Windows.Forms.Label();
-            this.lblRunningPart = new System.Windows.Forms.Label();
+            this.lblPartCarryLocation = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblDesiccatorLoaction = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtCompMarking = new System.Windows.Forms.TextBox();
+            this.txtPCBPartNo = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtPartNo = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.chkSecondTrayStaus = new System.Windows.Forms.CheckBox();
-            this.chkFirstTrayStaus = new System.Windows.Forms.CheckBox();
-            this.txtLotNo = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.chkSecondStaus = new System.Windows.Forms.CheckBox();
+            this.chkFirstStaus = new System.Windows.Forms.CheckBox();
             this.txtTMName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtFullTray = new System.Windows.Forms.TextBox();
+            this.txtKanbanModel = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPacketQR = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtEmptyTray = new System.Windows.Forms.TextBox();
+            this.txtChangeOverSheet = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lblMessage = new System.Windows.Forms.Label();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.btnReset = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnMini = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
@@ -100,29 +96,6 @@
             this.btnMinimize.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnMinimize.UseVisualStyleBackColor = false;
             // 
-            // btnMini
-            // 
-            this.btnMini.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMini.BackColor = System.Drawing.Color.Transparent;
-            this.btnMini.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnMini.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMini.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
-            this.btnMini.FlatAppearance.BorderSize = 0;
-            this.btnMini.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnMini.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnMini.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnMini.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMini.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMini.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(72)))), ((int)(((byte)(146)))));
-            this.btnMini.Image = ((System.Drawing.Image)(resources.GetObject("btnMini.Image")));
-            this.btnMini.Location = new System.Drawing.Point(1180, 5);
-            this.btnMini.Name = "btnMini";
-            this.btnMini.Size = new System.Drawing.Size(33, 24);
-            this.btnMini.TabIndex = 0;
-            this.btnMini.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnMini.UseVisualStyleBackColor = false;
-            this.btnMini.Click += new System.EventHandler(this.btnMinimize_Click);
-            // 
             // lblHeader
             // 
             this.lblHeader.BackColor = System.Drawing.Color.Transparent;
@@ -133,7 +106,7 @@
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(1226, 43);
             this.lblHeader.TabIndex = 208;
-            this.lblHeader.Text = "TRAY LOADING SCANNING";
+            this.lblHeader.Text = "LASER LOADING SCANNING";
             this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
@@ -181,11 +154,9 @@
             this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
-            this.Column3,
             this.Column4,
+            this.Column3,
             this.Column5,
-            this.Column6,
-            this.Column7,
             this.Column8,
             this.Column10,
             this.Column11});
@@ -222,11 +193,20 @@
             // Column2
             // 
             this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column2.DataPropertyName = "TrayEmp";
-            this.Column2.HeaderText = "EMPTY TRAY";
+            this.Column2.DataPropertyName = "ChangeOverSheet";
+            this.Column2.HeaderText = "CHANGE OVER SHEET";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             this.Column2.Width = 200;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column4.DataPropertyName = "Kanban";
+            this.Column4.HeaderText = "KANBAN";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 130;
             // 
             // Column3
             // 
@@ -237,41 +217,14 @@
             this.Column3.ReadOnly = true;
             this.Column3.Width = 200;
             // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column4.DataPropertyName = "TrayFull";
-            this.Column4.HeaderText = "TRAY FULL";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 130;
-            // 
             // Column5
             // 
             this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column5.DataPropertyName = "PartNo";
-            this.Column5.HeaderText = "IC/BGA PART";
+            this.Column5.DataPropertyName = "PCBPartNo";
+            this.Column5.HeaderText = "PCB PART NO";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             this.Column5.Width = 180;
-            // 
-            // Column6
-            // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column6.DataPropertyName = "ComponentMarking";
-            this.Column6.HeaderText = "COMPONENT MARKING";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 260;
-            // 
-            // Column7
-            // 
-            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column7.DataPropertyName = "LotNo";
-            this.Column7.HeaderText = "LOT NO";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 350;
             // 
             // Column8
             // 
@@ -293,12 +246,11 @@
             // 
             // Column11
             // 
-            this.Column11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column11.DataPropertyName = "Time";
             this.Column11.HeaderText = "TIME";
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
-            this.Column11.Width = 130;
             // 
             // gbPrintingParameter
             // 
@@ -306,30 +258,28 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbPrintingParameter.Controls.Add(this.lblReflectLabel);
-            this.gbPrintingParameter.Controls.Add(this.lblRunningPart);
+            this.gbPrintingParameter.Controls.Add(this.lblPartCarryLocation);
+            this.gbPrintingParameter.Controls.Add(this.label7);
+            this.gbPrintingParameter.Controls.Add(this.lblDesiccatorLoaction);
             this.gbPrintingParameter.Controls.Add(this.label5);
-            this.gbPrintingParameter.Controls.Add(this.txtCompMarking);
+            this.gbPrintingParameter.Controls.Add(this.txtPCBPartNo);
             this.gbPrintingParameter.Controls.Add(this.label10);
-            this.gbPrintingParameter.Controls.Add(this.txtPartNo);
-            this.gbPrintingParameter.Controls.Add(this.label9);
-            this.gbPrintingParameter.Controls.Add(this.chkSecondTrayStaus);
-            this.gbPrintingParameter.Controls.Add(this.chkFirstTrayStaus);
-            this.gbPrintingParameter.Controls.Add(this.txtLotNo);
-            this.gbPrintingParameter.Controls.Add(this.label6);
+            this.gbPrintingParameter.Controls.Add(this.chkSecondStaus);
+            this.gbPrintingParameter.Controls.Add(this.chkFirstStaus);
             this.gbPrintingParameter.Controls.Add(this.txtTMName);
             this.gbPrintingParameter.Controls.Add(this.label3);
-            this.gbPrintingParameter.Controls.Add(this.txtFullTray);
+            this.gbPrintingParameter.Controls.Add(this.txtKanbanModel);
             this.gbPrintingParameter.Controls.Add(this.label2);
             this.gbPrintingParameter.Controls.Add(this.txtPacketQR);
             this.gbPrintingParameter.Controls.Add(this.label1);
-            this.gbPrintingParameter.Controls.Add(this.txtEmptyTray);
+            this.gbPrintingParameter.Controls.Add(this.txtChangeOverSheet);
             this.gbPrintingParameter.Controls.Add(this.label4);
             this.gbPrintingParameter.Font = new System.Drawing.Font("Calibri", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.gbPrintingParameter.ForeColor = System.Drawing.Color.MidnightBlue;
             this.gbPrintingParameter.Location = new System.Drawing.Point(3, 3);
             this.gbPrintingParameter.Name = "gbPrintingParameter";
             this.gbPrintingParameter.Size = new System.Drawing.Size(1202, 519);
-            this.gbPrintingParameter.TabIndex = 193;
+            this.gbPrintingParameter.TabIndex = 0;
             this.gbPrintingParameter.TabStop = false;
             // 
             // lblReflectLabel
@@ -337,212 +287,194 @@
             this.lblReflectLabel.BackColor = System.Drawing.Color.Yellow;
             this.lblReflectLabel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblReflectLabel.ForeColor = System.Drawing.Color.Yellow;
-            this.lblReflectLabel.Location = new System.Drawing.Point(578, 206);
+            this.lblReflectLabel.Location = new System.Drawing.Point(584, 161);
             this.lblReflectLabel.Name = "lblReflectLabel";
             this.lblReflectLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblReflectLabel.Size = new System.Drawing.Size(10, 27);
-            this.lblReflectLabel.TabIndex = 226;
+            this.lblReflectLabel.Size = new System.Drawing.Size(10, 28);
+            this.lblReflectLabel.TabIndex = 228;
             this.lblReflectLabel.Text = "Full Tray *:";
             // 
-            // lblRunningPart
+            // lblPartCarryLocation
             // 
-            this.lblRunningPart.AutoSize = true;
-            this.lblRunningPart.BackColor = System.Drawing.Color.MidnightBlue;
-            this.lblRunningPart.Font = new System.Drawing.Font("Calibri", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRunningPart.ForeColor = System.Drawing.Color.AliceBlue;
-            this.lblRunningPart.Location = new System.Drawing.Point(746, 170);
-            this.lblRunningPart.Name = "lblRunningPart";
-            this.lblRunningPart.Size = new System.Drawing.Size(363, 59);
-            this.lblRunningPart.TabIndex = 225;
-            this.lblRunningPart.Text = "XXXXXXXXXXXXX";
+            this.lblPartCarryLocation.AutoSize = true;
+            this.lblPartCarryLocation.BackColor = System.Drawing.Color.MidnightBlue;
+            this.lblPartCarryLocation.Font = new System.Drawing.Font("Calibri", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblPartCarryLocation.ForeColor = System.Drawing.Color.AliceBlue;
+            this.lblPartCarryLocation.Location = new System.Drawing.Point(936, 124);
+            this.lblPartCarryLocation.Name = "lblPartCarryLocation";
+            this.lblPartCarryLocation.Size = new System.Drawing.Size(223, 36);
+            this.lblPartCarryLocation.TabIndex = 227;
+            this.lblPartCarryLocation.Text = "XXXXXXXXXXXXX";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.label7.Font = new System.Drawing.Font("Calibri", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label7.Location = new System.Drawing.Point(628, 124);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(297, 36);
+            this.label7.TabIndex = 226;
+            this.label7.Text = "PART CARRY LOCATION:";
+            // 
+            // lblDesiccatorLoaction
+            // 
+            this.lblDesiccatorLoaction.AutoSize = true;
+            this.lblDesiccatorLoaction.BackColor = System.Drawing.Color.MidnightBlue;
+            this.lblDesiccatorLoaction.Font = new System.Drawing.Font("Calibri", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblDesiccatorLoaction.ForeColor = System.Drawing.Color.AliceBlue;
+            this.lblDesiccatorLoaction.Location = new System.Drawing.Point(936, 65);
+            this.lblDesiccatorLoaction.Name = "lblDesiccatorLoaction";
+            this.lblDesiccatorLoaction.Size = new System.Drawing.Size(223, 36);
+            this.lblDesiccatorLoaction.TabIndex = 225;
+            this.lblDesiccatorLoaction.Text = "XXXXXXXXXXXXX";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.label5.Font = new System.Drawing.Font("Calibri", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Calibri", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label5.Location = new System.Drawing.Point(715, 113);
+            this.label5.Location = new System.Drawing.Point(628, 65);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(434, 45);
+            this.label5.Size = new System.Drawing.Size(299, 36);
             this.label5.TabIndex = 224;
-            this.label5.Text = "IC/BGA RUNNING PART NO";
+            this.label5.Text = "DESICCATOR LOCATION:";
             // 
-            // txtCompMarking
+            // txtPCBPartNo
             // 
-            this.txtCompMarking.BackColor = System.Drawing.Color.Yellow;
-            this.txtCompMarking.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCompMarking.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCompMarking.ForeColor = System.Drawing.Color.Yellow;
-            this.txtCompMarking.Location = new System.Drawing.Point(168, 203);
-            this.txtCompMarking.Name = "txtCompMarking";
-            this.txtCompMarking.Size = new System.Drawing.Size(421, 33);
-            this.txtCompMarking.TabIndex = 4;
-            this.txtCompMarking.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCompMarking_KeyDown);
+            this.txtPCBPartNo.BackColor = System.Drawing.Color.Yellow;
+            this.txtPCBPartNo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPCBPartNo.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPCBPartNo.ForeColor = System.Drawing.Color.Yellow;
+            this.txtPCBPartNo.Location = new System.Drawing.Point(201, 159);
+            this.txtPCBPartNo.Name = "txtPCBPartNo";
+            this.txtPCBPartNo.Size = new System.Drawing.Size(394, 33);
+            this.txtPCBPartNo.TabIndex = 3;
+            this.txtPCBPartNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPCBPartNo_KeyDown);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(2, 203);
+            this.label10.Location = new System.Drawing.Point(58, 159);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(165, 26);
+            this.label10.Size = new System.Drawing.Size(143, 26);
             this.label10.TabIndex = 223;
-            this.label10.Text = "Comp. Marking *:";
+            this.label10.Text = "PCB Part No. *:";
             // 
-            // txtPartNo
+            // chkSecondStaus
             // 
-            this.txtPartNo.BackColor = System.Drawing.Color.White;
-            this.txtPartNo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPartNo.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPartNo.Location = new System.Drawing.Point(168, 157);
-            this.txtPartNo.Name = "txtPartNo";
-            this.txtPartNo.Size = new System.Drawing.Size(421, 33);
-            this.txtPartNo.TabIndex = 3;
-            this.txtPartNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPartNo_KeyDown);
+            this.chkSecondStaus.BackColor = System.Drawing.Color.Yellow;
+            this.chkSecondStaus.Enabled = false;
+            this.chkSecondStaus.Font = new System.Drawing.Font("Calibri", 72F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkSecondStaus.Location = new System.Drawing.Point(20, 361);
+            this.chkSecondStaus.Name = "chkSecondStaus";
+            this.chkSecondStaus.Size = new System.Drawing.Size(1159, 121);
+            this.chkSecondStaus.TabIndex = 217;
+            this.chkSecondStaus.Text = "STATUS-2";
+            this.chkSecondStaus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkSecondStaus.UseVisualStyleBackColor = false;
+            this.chkSecondStaus.CheckedChanged += new System.EventHandler(this.chkSecondTrayStaus_CheckedChanged);
             // 
-            // label9
+            // chkFirstStaus
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(30, 158);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(137, 26);
-            this.label9.TabIndex = 220;
-            this.label9.Text = "IC/BGA Part *:";
-            // 
-            // chkSecondTrayStaus
-            // 
-            this.chkSecondTrayStaus.BackColor = System.Drawing.Color.Yellow;
-            this.chkSecondTrayStaus.Enabled = false;
-            this.chkSecondTrayStaus.Font = new System.Drawing.Font("Calibri", 72F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkSecondTrayStaus.Location = new System.Drawing.Point(37, 385);
-            this.chkSecondTrayStaus.Name = "chkSecondTrayStaus";
-            this.chkSecondTrayStaus.Size = new System.Drawing.Size(1159, 121);
-            this.chkSecondTrayStaus.TabIndex = 217;
-            this.chkSecondTrayStaus.Text = "ACTUAL PART OK";
-            this.chkSecondTrayStaus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkSecondTrayStaus.UseVisualStyleBackColor = false;
-            this.chkSecondTrayStaus.CheckedChanged += new System.EventHandler(this.chkSecondTrayStaus_CheckedChanged);
-            // 
-            // chkFirstTrayStaus
-            // 
-            this.chkFirstTrayStaus.BackColor = System.Drawing.Color.Yellow;
-            this.chkFirstTrayStaus.Enabled = false;
-            this.chkFirstTrayStaus.Font = new System.Drawing.Font("Calibri", 72F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkFirstTrayStaus.Location = new System.Drawing.Point(37, 254);
-            this.chkFirstTrayStaus.Name = "chkFirstTrayStaus";
-            this.chkFirstTrayStaus.Size = new System.Drawing.Size(1159, 121);
-            this.chkFirstTrayStaus.TabIndex = 216;
-            this.chkFirstTrayStaus.Text = "PACKET SELECTION OK";
-            this.chkFirstTrayStaus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkFirstTrayStaus.UseVisualStyleBackColor = false;
-            this.chkFirstTrayStaus.CheckedChanged += new System.EventHandler(this.chkFirstTrayStaus_CheckedChanged);
-            // 
-            // txtLotNo
-            // 
-            this.txtLotNo.BackColor = System.Drawing.Color.White;
-            this.txtLotNo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtLotNo.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLotNo.Location = new System.Drawing.Point(740, 21);
-            this.txtLotNo.Name = "txtLotNo";
-            this.txtLotNo.Size = new System.Drawing.Size(421, 33);
-            this.txtLotNo.TabIndex = 5;
-            this.txtLotNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLotNo_KeyDown);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(638, 23);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(96, 26);
-            this.label6.TabIndex = 210;
-            this.label6.Text = "Lot No. *:";
+            this.chkFirstStaus.BackColor = System.Drawing.Color.Yellow;
+            this.chkFirstStaus.Enabled = false;
+            this.chkFirstStaus.Font = new System.Drawing.Font("Calibri", 72F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkFirstStaus.Location = new System.Drawing.Point(20, 214);
+            this.chkFirstStaus.Name = "chkFirstStaus";
+            this.chkFirstStaus.Size = new System.Drawing.Size(1159, 121);
+            this.chkFirstStaus.TabIndex = 216;
+            this.chkFirstStaus.Text = "STATUS-1";
+            this.chkFirstStaus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkFirstStaus.UseVisualStyleBackColor = false;
+            this.chkFirstStaus.CheckedChanged += new System.EventHandler(this.chkFirstTrayStaus_CheckedChanged);
             // 
             // txtTMName
             // 
             this.txtTMName.BackColor = System.Drawing.Color.White;
             this.txtTMName.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtTMName.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTMName.Location = new System.Drawing.Point(740, 66);
+            this.txtTMName.Location = new System.Drawing.Point(738, 19);
             this.txtTMName.Name = "txtTMName";
             this.txtTMName.Size = new System.Drawing.Size(421, 33);
-            this.txtTMName.TabIndex = 6;
+            this.txtTMName.TabIndex = 4;
             this.txtTMName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTMName_KeyDown);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(616, 68);
+            this.label3.Location = new System.Drawing.Point(614, 21);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(118, 26);
             this.label3.TabIndex = 208;
             this.label3.Text = "TM Name *:";
             // 
-            // txtFullTray
+            // txtKanbanModel
             // 
-            this.txtFullTray.BackColor = System.Drawing.Color.White;
-            this.txtFullTray.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtFullTray.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFullTray.Location = new System.Drawing.Point(168, 111);
-            this.txtFullTray.Name = "txtFullTray";
-            this.txtFullTray.Size = new System.Drawing.Size(421, 33);
-            this.txtFullTray.TabIndex = 2;
-            this.txtFullTray.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFullTray_KeyDown);
+            this.txtKanbanModel.BackColor = System.Drawing.Color.White;
+            this.txtKanbanModel.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtKanbanModel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtKanbanModel.Location = new System.Drawing.Point(201, 65);
+            this.txtKanbanModel.Name = "txtKanbanModel";
+            this.txtKanbanModel.Size = new System.Drawing.Size(394, 33);
+            this.txtKanbanModel.TabIndex = 1;
+            this.txtKanbanModel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtKanbanModel_KeyDown);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(62, 113);
+            this.label2.Location = new System.Drawing.Point(96, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 26);
+            this.label2.Size = new System.Drawing.Size(97, 26);
             this.label2.TabIndex = 206;
-            this.label2.Text = "Full Tray *:";
+            this.label2.Text = "Kanban *:";
             // 
             // txtPacketQR
             // 
             this.txtPacketQR.BackColor = System.Drawing.Color.White;
             this.txtPacketQR.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPacketQR.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPacketQR.Location = new System.Drawing.Point(168, 65);
+            this.txtPacketQR.Location = new System.Drawing.Point(201, 111);
             this.txtPacketQR.Name = "txtPacketQR";
-            this.txtPacketQR.Size = new System.Drawing.Size(421, 33);
-            this.txtPacketQR.TabIndex = 1;
+            this.txtPacketQR.Size = new System.Drawing.Size(394, 33);
+            this.txtPacketQR.TabIndex = 2;
             this.txtPacketQR.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPacketQR_KeyDown);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(41, 68);
+            this.label1.Location = new System.Drawing.Point(75, 111);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(126, 26);
             this.label1.TabIndex = 204;
             this.label1.Text = "Packet QR  *:";
             // 
-            // txtEmptyTray
+            // txtChangeOverSheet
             // 
-            this.txtEmptyTray.BackColor = System.Drawing.Color.White;
-            this.txtEmptyTray.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtEmptyTray.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmptyTray.Location = new System.Drawing.Point(168, 19);
-            this.txtEmptyTray.Name = "txtEmptyTray";
-            this.txtEmptyTray.Size = new System.Drawing.Size(421, 33);
-            this.txtEmptyTray.TabIndex = 0;
-            this.txtEmptyTray.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEmptyTray_KeyDown);
+            this.txtChangeOverSheet.BackColor = System.Drawing.Color.White;
+            this.txtChangeOverSheet.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtChangeOverSheet.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChangeOverSheet.Location = new System.Drawing.Point(201, 19);
+            this.txtChangeOverSheet.Name = "txtChangeOverSheet";
+            this.txtChangeOverSheet.Size = new System.Drawing.Size(394, 33);
+            this.txtChangeOverSheet.TabIndex = 0;
+            this.txtChangeOverSheet.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtChangeOverSheet_KeyDown);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(38, 19);
+            this.label4.Location = new System.Drawing.Point(2, 19);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(129, 26);
+            this.label4.Size = new System.Drawing.Size(199, 26);
             this.label4.TabIndex = 187;
-            this.label4.Text = "Empty Tray *:";
+            this.label4.Text = "Change Over Sheet *:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblMessage
@@ -556,6 +488,18 @@
             this.lblMessage.Size = new System.Drawing.Size(1212, 73);
             this.lblMessage.TabIndex = 195;
             this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(1168, 28);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(51, 13);
+            this.label8.TabIndex = 211;
+            this.label8.Text = "Minimize";
             // 
             // btnReset
             // 
@@ -582,6 +526,16 @@
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(7, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 43);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 212;
+            this.pictureBox1.TabStop = false;
+            // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -607,29 +561,30 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // label8
+            // btnMini
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(1168, 28);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 13);
-            this.label8.TabIndex = 211;
-            this.label8.Text = "Minimize";
+            this.btnMini.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMini.BackColor = System.Drawing.Color.Transparent;
+            this.btnMini.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMini.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMini.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btnMini.FlatAppearance.BorderSize = 0;
+            this.btnMini.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnMini.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnMini.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnMini.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMini.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMini.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(72)))), ((int)(((byte)(146)))));
+            this.btnMini.Image = ((System.Drawing.Image)(resources.GetObject("btnMini.Image")));
+            this.btnMini.Location = new System.Drawing.Point(1180, 5);
+            this.btnMini.Name = "btnMini";
+            this.btnMini.Size = new System.Drawing.Size(33, 24);
+            this.btnMini.TabIndex = 0;
+            this.btnMini.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnMini.UseVisualStyleBackColor = false;
+            this.btnMini.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(7, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 43);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 212;
-            this.pictureBox1.TabStop = false;
-            // 
-            // frmTrayScaning
+            // frmLaserScaning
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(58)))), ((int)(((byte)(86)))));
@@ -645,8 +600,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.Name = "frmTrayScaning";
-            this.Text = "Try Scanning";
+            this.Name = "frmLaserScaning";
+            this.Text = "Laser Scanning";
             this.Load += new System.EventHandler(this.frmModelMaster_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -669,38 +624,34 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.DataGridView dgv;
-        private System.Windows.Forms.TextBox txtEmptyTray;
+        private System.Windows.Forms.TextBox txtChangeOverSheet;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.TextBox txtTMName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtFullTray;
+        private System.Windows.Forms.TextBox txtKanbanModel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPacketQR;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtLotNo;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckBox chkFirstTrayStaus;
+        private System.Windows.Forms.CheckBox chkFirstStaus;
         private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.CheckBox chkSecondTrayStaus;
-        private System.Windows.Forms.TextBox txtCompMarking;
+        private System.Windows.Forms.CheckBox chkSecondStaus;
+        private System.Windows.Forms.TextBox txtPCBPartNo;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtPartNo;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblRunningPart;
+        private System.Windows.Forms.Label lblDesiccatorLoaction;
+        private System.Windows.Forms.Label lblPartCarryLocation;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblReflectLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.Label lblReflectLabel;
     }
 }
