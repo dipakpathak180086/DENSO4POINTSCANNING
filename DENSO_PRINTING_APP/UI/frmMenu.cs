@@ -330,6 +330,24 @@ namespace DENSO_PRINTING_APP
             this.Hide();
 
         }
+        private void picLaserLoadingReport_Click(object sender, EventArgs e)
+        {
+            frmLaserReport frm = new frmLaserReport();
+            frm.Show();
+            frm.FormClosing += OFrm_FormClosing;
+            this.Hide();
+
+        }
+
+        private void picHarwareLoadingReport_Click(object sender, EventArgs e)
+        {
+            frmHardwareReport frm = new frmHardwareReport();
+            frm.Show();
+            frm.FormClosing += OFrm_FormClosing;
+            this.Hide();
+
+
+        }
         #endregion
 
         #region Method
@@ -413,6 +431,16 @@ namespace DENSO_PRINTING_APP
 
                             picTrayLoadingReport.Enabled = true;
                             lblTrayLoadingReport.Enabled = true;
+                            break;
+                        case "303":
+
+                            picLaserLoadingReport.Enabled = true;
+                            lblLaserLoadingReport.Enabled = true;
+                            break;
+                        case "304":
+
+                            picHarwareLoadingReport.Enabled = true;
+                            lblHardwareLoadingReport.Enabled = true;
                             break;
                         default:
                             break;

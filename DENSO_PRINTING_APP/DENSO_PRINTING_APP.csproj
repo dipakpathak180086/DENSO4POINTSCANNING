@@ -149,6 +149,18 @@
     <Compile Include="UI\Master\frmLineMaster.designer.cs">
       <DependentUpon>frmLineMaster.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Report\frmHardwareReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Report\frmHardwareReport.designer.cs">
+      <DependentUpon>frmHardwareReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Report\frmLaserReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Report\frmLaserReport.designer.cs">
+      <DependentUpon>frmLaserReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Report\frmTrayLoadingReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -237,6 +249,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Master\frmLineMaster.resx">
       <DependentUpon>frmLineMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Report\frmHardwareReport.resx">
+      <DependentUpon>frmHardwareReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Report\frmLaserReport.resx">
+      <DependentUpon>frmLaserReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Report\frmTrayLoadingReport.resx">
       <DependentUpon>frmTrayLoadingReport.cs</DependentUpon>
