@@ -201,6 +201,7 @@ namespace DENSO_PRINTING_APP
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            GlobalVariable.mIsDispose = false;
             this.Close();
         }
         private void btnExport_Click(object sender, EventArgs e)

@@ -117,10 +117,24 @@ namespace DENSO_PRINTING_APP
 
             }
         }
+        public bool CheckIfFormIsOpen(string formname)
+        {
 
+
+
+            bool formOpen = Application.OpenForms.Cast<Form>().Any(form => form.Name == formname);
+
+            return formOpen;
+        }
         private void OFrm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Show();
+            var frm = Application.OpenForms.Cast<Form>().Where(x => x.Name == "frmMenu").FirstOrDefault();
+            if (!GlobalVariable.mIsDispose)
+            {
+                this.Show();
+                GlobalVariable.mIsDispose = false;
+            }
+           
         }
 
         #endregion
@@ -176,7 +190,7 @@ namespace DENSO_PRINTING_APP
             frm.FormClosing += OFrm_FormClosing;
             this.Hide();
         }
-        private void picLine4Scanning_Click(object sender, EventArgs e)
+        public void ShowSpoolloading()
         {
             try
             {
@@ -196,6 +210,10 @@ namespace DENSO_PRINTING_APP
                 GlobalVariable.mStoCustomFunction.setMessageBox(GlobalVariable.mSatoApps, ex.Message, 3);
             }
 
+        }
+        private void picLine4Scanning_Click(object sender, EventArgs e)
+        {
+            ShowSpoolloading();
         }
         private void picLineMaster_Click(object sender, EventArgs e)
         {
@@ -542,6 +560,6 @@ namespace DENSO_PRINTING_APP
             pnlSpoolScanning.Visible = false;
         }
 
-        
+
     }
 }

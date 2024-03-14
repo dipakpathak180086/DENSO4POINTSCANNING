@@ -27,6 +27,7 @@ namespace DENSO_PRINTING_APP
         private string _runningNewPartNo = string.Empty;
         private string _runingPart = string.Empty;
         private DataTable dtBindGrid = new DataTable();
+        private bool IsCloseButtonFire = true;
         #endregion
 
         #region Form Methods
@@ -96,7 +97,15 @@ namespace DENSO_PRINTING_APP
                 lblShowMessage(ex.Message, 2);
             }
         }
+        public bool CheckIfFormIsOpen(string formname)
+        {
 
+
+
+            bool formOpen = Application.OpenForms.Cast<Form>().Any(form => form.Name == formname);
+
+            return formOpen;
+        }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -105,6 +114,19 @@ namespace DENSO_PRINTING_APP
             {
                 return;
             }
+            IsCloseButtonFire = true;
+
+            var frm = Application.OpenForms.Cast<Form>().Where(x => x.Name == "frmMenu").FirstOrDefault();
+            if (null != frm)
+            {
+                frm.Close();
+                frm = null;
+            }
+            GlobalVariable.mIsDispose = true;
+            frmMenu oFrm = new frmMenu();
+            oFrm.Show();
+            oFrm.FormClosing += OFrm_FormClosing;
+
             this.Close();
         }
 
@@ -122,7 +144,7 @@ namespace DENSO_PRINTING_APP
                 lblReflectLabel.Location = new System.Drawing.Point(578, 206);
                 lblReflectLabel.Size = new System.Drawing.Size(10, 27);
                 lblRunningPart.Text = "XXXXXXXXXXXXX";
-                txtEmptyTray.Text = txtPacketQR.Text=txtPartNo.Text=txtCompMarking.Text = txtLotNo.Text = txtFullTray.Text = txtTMName.Text = "";
+                txtEmptyTray.Text = txtPacketQR.Text = txtPartNo.Text = txtCompMarking.Text = txtLotNo.Text = txtFullTray.Text = txtTMName.Text = "";
                 chkFirstTrayStaus.Checked = chkSecondTrayStaus.Checked = false;
                 chkFirstTrayStaus.BackColor = chkSecondTrayStaus.BackColor = Color.Yellow;
                 DisableFields();
@@ -149,7 +171,7 @@ namespace DENSO_PRINTING_APP
                     for (int i = 0; i < dgv.ColumnCount; i++)
                     {
                         this.dgv.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                        
+
                     }
                 }
             }
@@ -321,9 +343,9 @@ namespace DENSO_PRINTING_APP
                     }
                     else
                     {
-                        
-                            bReturn = true;
-                        
+
+                        bReturn = true;
+
 
 
                     }
@@ -367,7 +389,7 @@ namespace DENSO_PRINTING_APP
         void DisableFields()
         {
             txtEmptyTray.Enabled = true;
-            txtPacketQR.Enabled =txtCompMarking.Enabled=txtPartNo.Enabled= txtLotNo.Enabled = txtFullTray.Enabled = txtTMName.Enabled = false;
+            txtPacketQR.Enabled = txtCompMarking.Enabled = txtPartNo.Enabled = txtLotNo.Enabled = txtFullTray.Enabled = txtTMName.Enabled = false;
         }
 
 
@@ -931,7 +953,7 @@ namespace DENSO_PRINTING_APP
             }
         }
 
-    
+
 
 
         #endregion
@@ -949,7 +971,7 @@ namespace DENSO_PRINTING_APP
             }
         }
 
-        
+
 
         private void chkSecondTrayStaus_CheckedChanged(object sender, EventArgs e)
         {
@@ -961,6 +983,124 @@ namespace DENSO_PRINTING_APP
             {
                 chkSecondTrayStaus.BackColor = Color.Yellow;
             }
+        }
+
+        private void btnSpoolLoading_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Common common = new Common();
+                DataTable dt = common.GetModel();
+                if (dt.Rows.Count > 0)
+                {
+                    GlobalVariable.BindCombo(cbSelectModel, dt);
+                }
+                if (cbSelectModel.SelectedIndex > 0) { cbSelectModel.SelectedIndex = 0; }
+                if (cbPartNo.SelectedIndex > 0) { cbPartNo.SelectedIndex = 0; }
+                pnlSpoolScanning.Visible = true;
+                lblBack.ForeColor = lblFront.ForeColor = Color.WhiteSmoke;
+            }
+            catch (Exception ex)
+            {
+                GlobalVariable.mStoCustomFunction.setMessageBox(GlobalVariable.mSatoApps, ex.Message, 3);
+            }
+        }
+        private void OFrm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!IsCloseButtonFire)
+                this.Show();
+        }
+        private void lblFront_Click(object sender, EventArgs e)
+        {
+            btnFront_Click(sender, e);
+        }
+
+        private void lblBack_Click(object sender, EventArgs e)
+        {
+            btnBack_Click(sender, e);
+        }
+        private void cbSelectModel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbSelectModel.SelectedIndex > 0)
+                {
+                    Common common = new Common();
+                    DataTable dt = common.GetPart(cbSelectModel.SelectedValue.ToString());
+                    if (dt.Rows.Count > 0)
+                    {
+                        GlobalVariable.BindCombo(cbPartNo, dt);
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                GlobalVariable.mStoCustomFunction.setMessageBox(GlobalVariable.mSatoApps, ex.Message, 3);
+            }
+        }
+        private void btnFront_Click(object sender, EventArgs e)
+        {
+            if (cbSelectModel.SelectedIndex <= 0)
+            {
+
+                GlobalVariable.mStoCustomFunction.setMessageBox("Model Selection Failed!!!", "Select Model!!!", 2);
+                this.cbSelectModel.Focus();
+                return;
+            }
+            if (cbPartNo.SelectedIndex <= 0)
+            {
+
+                GlobalVariable.mStoCustomFunction.setMessageBox("Part Selection Failed!!!", "Select Part!!!", 2);
+                this.cbPartNo.Focus();
+                return;
+            }
+            GlobalVariable.mSpoolType = "FRONT";
+            GlobalVariable.mModel = cbSelectModel.Text.Trim();
+            GlobalVariable.mPart = cbPartNo.Text.Trim();
+            pnlSpoolScanning.Visible = false;
+            if (cbSelectModel.SelectedIndex > 0) { cbSelectModel.SelectedIndex = 0; }
+            if (cbPartNo.SelectedIndex > 0) { cbPartNo.SelectedIndex = 0; }
+            frmSpoolingScaning frm = new frmSpoolingScaning();
+            frm.Show();
+            frm.FormClosing += OFrm_FormClosing;
+            this.Hide();
+
+
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            if (cbSelectModel.SelectedIndex <= 0)
+            {
+
+                GlobalVariable.mStoCustomFunction.setMessageBox("Model Selection Failed!!!", "Select Model!!!", 2);
+                this.cbSelectModel.Focus();
+                return;
+            }
+            if (cbPartNo.SelectedIndex <= 0)
+            {
+
+                GlobalVariable.mStoCustomFunction.setMessageBox("Part Selection Failed!!!", "Select Part!!!", 2);
+                this.cbPartNo.Focus();
+                return;
+            }
+            GlobalVariable.mSpoolType = "BACK";
+            GlobalVariable.mModel = cbSelectModel.Text.Trim();
+            GlobalVariable.mPart = cbPartNo.Text.Trim();
+            pnlSpoolScanning.Visible = false;
+            if (cbSelectModel.SelectedIndex > 0) { cbSelectModel.SelectedIndex = 0; }
+            if (cbPartNo.SelectedIndex > 0) { cbPartNo.SelectedIndex = 0; }
+            frmSpoolingScaning frm = new frmSpoolingScaning();
+            frm.Show();
+            frm.FormClosing += OFrm_FormClosing;
+            this.Hide();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            pnlSpoolScanning.Visible = false;
         }
     }
 }

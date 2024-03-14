@@ -72,11 +72,25 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnSpoolLoading = new System.Windows.Forms.Button();
+            this.pnlSpoolScanning = new System.Windows.Forms.Panel();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.cbPartNo = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cbSelectModel = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblFront = new System.Windows.Forms.Label();
+            this.lblBack = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.PictureBox();
+            this.btnFront = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.gbPrintingParameter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlSpoolScanning.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFront)).BeginInit();
             this.SuspendLayout();
             // 
             // btnMinimize
@@ -629,11 +643,168 @@
             this.pictureBox1.TabIndex = 212;
             this.pictureBox1.TabStop = false;
             // 
+            // btnSpoolLoading
+            // 
+            this.btnSpoolLoading.BackColor = System.Drawing.Color.Transparent;
+            this.btnSpoolLoading.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSpoolLoading.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btnSpoolLoading.FlatAppearance.BorderSize = 0;
+            this.btnSpoolLoading.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnSpoolLoading.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSpoolLoading.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnSpoolLoading.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSpoolLoading.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSpoolLoading.ForeColor = System.Drawing.Color.White;
+            this.btnSpoolLoading.Image = ((System.Drawing.Image)(resources.GetObject("btnSpoolLoading.Image")));
+            this.btnSpoolLoading.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSpoolLoading.Location = new System.Drawing.Point(165, 0);
+            this.btnSpoolLoading.Margin = new System.Windows.Forms.Padding(5);
+            this.btnSpoolLoading.Name = "btnSpoolLoading";
+            this.btnSpoolLoading.Size = new System.Drawing.Size(159, 46);
+            this.btnSpoolLoading.TabIndex = 213;
+            this.btnSpoolLoading.Text = "&Spool Loading";
+            this.btnSpoolLoading.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSpoolLoading.UseVisualStyleBackColor = false;
+            this.btnSpoolLoading.Click += new System.EventHandler(this.btnSpoolLoading_Click);
+            // 
+            // pnlSpoolScanning
+            // 
+            this.pnlSpoolScanning.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pnlSpoolScanning.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(58)))), ((int)(((byte)(86)))));
+            this.pnlSpoolScanning.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlSpoolScanning.Controls.Add(this.btnExit);
+            this.pnlSpoolScanning.Controls.Add(this.cbPartNo);
+            this.pnlSpoolScanning.Controls.Add(this.label7);
+            this.pnlSpoolScanning.Controls.Add(this.cbSelectModel);
+            this.pnlSpoolScanning.Controls.Add(this.label11);
+            this.pnlSpoolScanning.Controls.Add(this.lblFront);
+            this.pnlSpoolScanning.Controls.Add(this.lblBack);
+            this.pnlSpoolScanning.Controls.Add(this.btnBack);
+            this.pnlSpoolScanning.Controls.Add(this.btnFront);
+            this.pnlSpoolScanning.Location = new System.Drawing.Point(426, 275);
+            this.pnlSpoolScanning.Name = "pnlSpoolScanning";
+            this.pnlSpoolScanning.Size = new System.Drawing.Size(375, 239);
+            this.pnlSpoolScanning.TabIndex = 214;
+            this.pnlSpoolScanning.Visible = false;
+            // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.BackColor = System.Drawing.Color.Tomato;
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Location = new System.Drawing.Point(323, 1);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(46, 27);
+            this.btnExit.TabIndex = 23;
+            this.btnExit.Text = "X";
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // cbPartNo
+            // 
+            this.cbPartNo.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.cbPartNo.FormattingEnabled = true;
+            this.cbPartNo.Location = new System.Drawing.Point(98, 82);
+            this.cbPartNo.Name = "cbPartNo";
+            this.cbPartNo.Size = new System.Drawing.Size(219, 37);
+            this.cbPartNo.TabIndex = 22;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.Snow;
+            this.label7.Location = new System.Drawing.Point(23, 86);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(71, 29);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "PART:";
+            // 
+            // cbSelectModel
+            // 
+            this.cbSelectModel.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.cbSelectModel.FormattingEnabled = true;
+            this.cbSelectModel.Location = new System.Drawing.Point(98, 22);
+            this.cbSelectModel.Name = "cbSelectModel";
+            this.cbSelectModel.Size = new System.Drawing.Size(219, 37);
+            this.cbSelectModel.TabIndex = 20;
+            this.cbSelectModel.SelectedIndexChanged += new System.EventHandler(this.cbSelectModel_SelectedIndexChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.label11.ForeColor = System.Drawing.Color.Snow;
+            this.label11.Location = new System.Drawing.Point(0, 26);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(94, 29);
+            this.label11.TabIndex = 19;
+            this.label11.Text = "MODEL:";
+            // 
+            // lblFront
+            // 
+            this.lblFront.AutoSize = true;
+            this.lblFront.BackColor = System.Drawing.Color.SlateGray;
+            this.lblFront.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblFront.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFront.ForeColor = System.Drawing.Color.White;
+            this.lblFront.Location = new System.Drawing.Point(58, 161);
+            this.lblFront.Name = "lblFront";
+            this.lblFront.Size = new System.Drawing.Size(82, 29);
+            this.lblFront.TabIndex = 18;
+            this.lblFront.Text = "FRONT";
+            this.lblFront.Click += new System.EventHandler(this.lblFront_Click);
+            // 
+            // lblBack
+            // 
+            this.lblBack.AutoSize = true;
+            this.lblBack.BackColor = System.Drawing.Color.SlateGray;
+            this.lblBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblBack.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBack.ForeColor = System.Drawing.Color.White;
+            this.lblBack.Location = new System.Drawing.Point(253, 161);
+            this.lblBack.Name = "lblBack";
+            this.lblBack.Size = new System.Drawing.Size(67, 29);
+            this.lblBack.TabIndex = 17;
+            this.lblBack.Text = "BACK";
+            this.lblBack.Click += new System.EventHandler(this.lblBack_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBack.Location = new System.Drawing.Point(217, 131);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(134, 83);
+            this.btnBack.TabIndex = 1;
+            this.btnBack.TabStop = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // btnFront
+            // 
+            this.btnFront.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.btnFront.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFront.Location = new System.Drawing.Point(31, 131);
+            this.btnFront.Name = "btnFront";
+            this.btnFront.Size = new System.Drawing.Size(134, 83);
+            this.btnFront.TabIndex = 0;
+            this.btnFront.TabStop = false;
+            this.btnFront.Click += new System.EventHandler(this.btnFront_Click);
+            // 
             // frmTrayScaning
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(58)))), ((int)(((byte)(86)))));
             this.ClientSize = new System.Drawing.Size(1226, 788);
+            this.Controls.Add(this.pnlSpoolScanning);
+            this.Controls.Add(this.btnSpoolLoading);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnClose);
@@ -654,6 +825,10 @@
             this.gbPrintingParameter.ResumeLayout(false);
             this.gbPrintingParameter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlSpoolScanning.ResumeLayout(false);
+            this.pnlSpoolScanning.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFront)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -702,5 +877,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.Label lblReflectLabel;
+        private System.Windows.Forms.Button btnSpoolLoading;
+        private System.Windows.Forms.Panel pnlSpoolScanning;
+        public System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.ComboBox cbPartNo;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cbSelectModel;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblFront;
+        private System.Windows.Forms.Label lblBack;
+        private System.Windows.Forms.PictureBox btnBack;
+        private System.Windows.Forms.PictureBox btnFront;
     }
 }

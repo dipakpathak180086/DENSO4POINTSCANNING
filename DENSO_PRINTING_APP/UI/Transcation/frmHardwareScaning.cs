@@ -99,6 +99,7 @@ namespace DENSO_PRINTING_APP
             {
                 return;
             }
+            GlobalVariable.mIsDispose = false;
             this.Close();
         }
 

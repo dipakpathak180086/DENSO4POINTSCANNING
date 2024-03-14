@@ -114,6 +114,25 @@ namespace DENSO_PRINTING_COMMON
             }
 
         }
+        public DataTable DeleteImportedData()
+        {
+
+            _SqlHelper = new SqlHelper();
+            try
+            {
+                SqlParameter[] param = new SqlParameter[10];
+
+                param[0] = new SqlParameter("@TYPE", SqlDbType.VarChar, 100);
+                param[0].Value = DbType;
+
+                return _SqlHelper.ExecuteDataset(GlobalVariable.mMainSqlConString, CommandType.StoredProcedure, "[PRC_DELETE_IMPORTED_DATA]", param).Tables[0];
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
         public string GetSystemDate()
         {
 

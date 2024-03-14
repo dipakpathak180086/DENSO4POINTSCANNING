@@ -74,6 +74,16 @@ namespace DENSO_PRINTING_APP
             {
                 if (ValidateInput())
                 {
+                    DialogResult dresDelete = MessageBox.Show("All pervious imported data will be deleted", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dresDelete == DialogResult.No)
+                    { return; }
+                    else
+                    {
+                        Common common = new Common();
+                        common.DbType = "LASSER";
+                        common.DeleteImportedData();
+
+                    }
                     DialogResult dre = MessageBox.Show("Are you sure want to save", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dre == DialogResult.No)
                     { return; }
@@ -188,6 +198,7 @@ namespace DENSO_PRINTING_APP
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            GlobalVariable.mIsDispose = false;
             this.Close();
         }
         private void btnExport_Click(object sender, EventArgs e)

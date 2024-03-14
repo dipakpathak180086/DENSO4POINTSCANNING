@@ -66,6 +66,10 @@
             this.lblScanning = new System.Windows.Forms.Label();
             this.picScanning = new System.Windows.Forms.PictureBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.lblHardwareLoadingReport = new System.Windows.Forms.Label();
+            this.picHarwareLoadingReport = new System.Windows.Forms.PictureBox();
+            this.lblLaserLoadingReport = new System.Windows.Forms.Label();
+            this.picLaserLoadingReport = new System.Windows.Forms.PictureBox();
             this.lblTrayLoadingReport = new System.Windows.Forms.Label();
             this.picTrayLoadingReport = new System.Windows.Forms.PictureBox();
             this.lblSpoolingReport = new System.Windows.Forms.Label();
@@ -79,10 +83,6 @@
             this.btnMini = new System.Windows.Forms.Button();
             this.picChangePassword = new System.Windows.Forms.PictureBox();
             this.picLogOut = new System.Windows.Forms.PictureBox();
-            this.lblLaserLoadingReport = new System.Windows.Forms.Label();
-            this.picLaserLoadingReport = new System.Windows.Forms.PictureBox();
-            this.lblHardwareLoadingReport = new System.Windows.Forms.Label();
-            this.picHarwareLoadingReport = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.tbReport.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -102,13 +102,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.picHardwareScanning)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picScanning)).BeginInit();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picHarwareLoadingReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLaserLoadingReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTrayLoadingReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSpoolingReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picChangePassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogOut)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLaserLoadingReport)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHarwareLoadingReport)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -601,6 +601,54 @@
             this.tabPage3.Text = "Report";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // lblHardwareLoadingReport
+            // 
+            this.lblHardwareLoadingReport.AutoSize = true;
+            this.lblHardwareLoadingReport.Enabled = false;
+            this.lblHardwareLoadingReport.Location = new System.Drawing.Point(598, 100);
+            this.lblHardwareLoadingReport.Name = "lblHardwareLoadingReport";
+            this.lblHardwareLoadingReport.Size = new System.Drawing.Size(127, 19);
+            this.lblHardwareLoadingReport.TabIndex = 19;
+            this.lblHardwareLoadingReport.Text = "Hardware Loading";
+            // 
+            // picHarwareLoadingReport
+            // 
+            this.picHarwareLoadingReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picHarwareLoadingReport.Enabled = false;
+            this.picHarwareLoadingReport.Image = ((System.Drawing.Image)(resources.GetObject("picHarwareLoadingReport.Image")));
+            this.picHarwareLoadingReport.Location = new System.Drawing.Point(614, 24);
+            this.picHarwareLoadingReport.Name = "picHarwareLoadingReport";
+            this.picHarwareLoadingReport.Size = new System.Drawing.Size(100, 73);
+            this.picHarwareLoadingReport.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picHarwareLoadingReport.TabIndex = 18;
+            this.picHarwareLoadingReport.TabStop = false;
+            this.picHarwareLoadingReport.Tag = "101";
+            this.picHarwareLoadingReport.Click += new System.EventHandler(this.picHarwareLoadingReport_Click);
+            // 
+            // lblLaserLoadingReport
+            // 
+            this.lblLaserLoadingReport.AutoSize = true;
+            this.lblLaserLoadingReport.Enabled = false;
+            this.lblLaserLoadingReport.Location = new System.Drawing.Point(403, 100);
+            this.lblLaserLoadingReport.Name = "lblLaserLoadingReport";
+            this.lblLaserLoadingReport.Size = new System.Drawing.Size(99, 19);
+            this.lblLaserLoadingReport.TabIndex = 17;
+            this.lblLaserLoadingReport.Text = "Laser Loading";
+            // 
+            // picLaserLoadingReport
+            // 
+            this.picLaserLoadingReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picLaserLoadingReport.Enabled = false;
+            this.picLaserLoadingReport.Image = ((System.Drawing.Image)(resources.GetObject("picLaserLoadingReport.Image")));
+            this.picLaserLoadingReport.Location = new System.Drawing.Point(399, 24);
+            this.picLaserLoadingReport.Name = "picLaserLoadingReport";
+            this.picLaserLoadingReport.Size = new System.Drawing.Size(100, 73);
+            this.picLaserLoadingReport.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLaserLoadingReport.TabIndex = 16;
+            this.picLaserLoadingReport.TabStop = false;
+            this.picLaserLoadingReport.Tag = "101";
+            this.picLaserLoadingReport.Click += new System.EventHandler(this.picLaserLoadingReport_Click);
+            // 
             // lblTrayLoadingReport
             // 
             this.lblTrayLoadingReport.AutoSize = true;
@@ -768,54 +816,6 @@
             this.picLogOut.TabStop = false;
             this.picLogOut.Click += new System.EventHandler(this.picLogOut_Click);
             // 
-            // lblLaserLoadingReport
-            // 
-            this.lblLaserLoadingReport.AutoSize = true;
-            this.lblLaserLoadingReport.Enabled = false;
-            this.lblLaserLoadingReport.Location = new System.Drawing.Point(403, 100);
-            this.lblLaserLoadingReport.Name = "lblLaserLoadingReport";
-            this.lblLaserLoadingReport.Size = new System.Drawing.Size(99, 19);
-            this.lblLaserLoadingReport.TabIndex = 17;
-            this.lblLaserLoadingReport.Text = "Laser Loading";
-            // 
-            // picLaserLoadingReport
-            // 
-            this.picLaserLoadingReport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picLaserLoadingReport.Enabled = false;
-            this.picLaserLoadingReport.Image = ((System.Drawing.Image)(resources.GetObject("picLaserLoadingReport.Image")));
-            this.picLaserLoadingReport.Location = new System.Drawing.Point(399, 24);
-            this.picLaserLoadingReport.Name = "picLaserLoadingReport";
-            this.picLaserLoadingReport.Size = new System.Drawing.Size(100, 73);
-            this.picLaserLoadingReport.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picLaserLoadingReport.TabIndex = 16;
-            this.picLaserLoadingReport.TabStop = false;
-            this.picLaserLoadingReport.Tag = "101";
-            this.picLaserLoadingReport.Click += new System.EventHandler(this.picLaserLoadingReport_Click);
-            // 
-            // lblHardwareLoadingReport
-            // 
-            this.lblHardwareLoadingReport.AutoSize = true;
-            this.lblHardwareLoadingReport.Enabled = false;
-            this.lblHardwareLoadingReport.Location = new System.Drawing.Point(598, 100);
-            this.lblHardwareLoadingReport.Name = "lblHardwareLoadingReport";
-            this.lblHardwareLoadingReport.Size = new System.Drawing.Size(127, 19);
-            this.lblHardwareLoadingReport.TabIndex = 19;
-            this.lblHardwareLoadingReport.Text = "Hardware Loading";
-            // 
-            // picHarwareLoadingReport
-            // 
-            this.picHarwareLoadingReport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picHarwareLoadingReport.Enabled = false;
-            this.picHarwareLoadingReport.Image = ((System.Drawing.Image)(resources.GetObject("picHarwareLoadingReport.Image")));
-            this.picHarwareLoadingReport.Location = new System.Drawing.Point(614, 24);
-            this.picHarwareLoadingReport.Name = "picHarwareLoadingReport";
-            this.picHarwareLoadingReport.Size = new System.Drawing.Size(100, 73);
-            this.picHarwareLoadingReport.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picHarwareLoadingReport.TabIndex = 18;
-            this.picHarwareLoadingReport.TabStop = false;
-            this.picHarwareLoadingReport.Tag = "101";
-            this.picHarwareLoadingReport.Click += new System.EventHandler(this.picHarwareLoadingReport_Click);
-            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
@@ -862,13 +862,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.picScanning)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picHarwareLoadingReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLaserLoadingReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTrayLoadingReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSpoolingReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picChangePassword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogOut)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLaserLoadingReport)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHarwareLoadingReport)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -895,7 +895,6 @@
         private System.Windows.Forms.Label lblImportMaster;
         private System.Windows.Forms.PictureBox picImportMaster;
         private System.Windows.Forms.Label lblScanning;
-        private System.Windows.Forms.PictureBox picScanning;
         private System.Windows.Forms.Label lblLineMaster;
         private System.Windows.Forms.PictureBox picLineMaster;
         private System.Windows.Forms.Label lblHardwareScanning;
@@ -903,7 +902,6 @@
         private System.Windows.Forms.Label lblLaserScanning;
         private System.Windows.Forms.PictureBox picLaserScanning;
         private System.Windows.Forms.Label lblTrayLoading;
-        private System.Windows.Forms.PictureBox picTrayLoading;
         private System.Windows.Forms.Panel pnlSpoolScanning;
         private System.Windows.Forms.Label lblFront;
         private System.Windows.Forms.Label lblBack;
@@ -929,5 +927,7 @@
         private System.Windows.Forms.PictureBox picHarwareLoadingReport;
         private System.Windows.Forms.Label lblLaserLoadingReport;
         private System.Windows.Forms.PictureBox picLaserLoadingReport;
+        public System.Windows.Forms.PictureBox picScanning;
+        public System.Windows.Forms.PictureBox picTrayLoading;
     }
 }

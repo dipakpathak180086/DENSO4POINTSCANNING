@@ -72,6 +72,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnSpoolLoading = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
@@ -638,11 +639,36 @@
             this.pictureBox1.TabIndex = 212;
             this.pictureBox1.TabStop = false;
             // 
+            // btnSpoolLoading
+            // 
+            this.btnSpoolLoading.BackColor = System.Drawing.Color.Transparent;
+            this.btnSpoolLoading.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSpoolLoading.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btnSpoolLoading.FlatAppearance.BorderSize = 0;
+            this.btnSpoolLoading.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnSpoolLoading.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSpoolLoading.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnSpoolLoading.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSpoolLoading.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSpoolLoading.ForeColor = System.Drawing.Color.White;
+            this.btnSpoolLoading.Image = ((System.Drawing.Image)(resources.GetObject("btnSpoolLoading.Image")));
+            this.btnSpoolLoading.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSpoolLoading.Location = new System.Drawing.Point(235, 1);
+            this.btnSpoolLoading.Margin = new System.Windows.Forms.Padding(5);
+            this.btnSpoolLoading.Name = "btnSpoolLoading";
+            this.btnSpoolLoading.Size = new System.Drawing.Size(159, 46);
+            this.btnSpoolLoading.TabIndex = 214;
+            this.btnSpoolLoading.Text = "&Tray Loading";
+            this.btnSpoolLoading.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSpoolLoading.UseVisualStyleBackColor = false;
+            this.btnSpoolLoading.Click += new System.EventHandler(this.btnSpoolLoading_Click);
+            // 
             // frmSpoolingScaning
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(58)))), ((int)(((byte)(86)))));
             this.ClientSize = new System.Drawing.Size(1226, 788);
+            this.Controls.Add(this.btnSpoolLoading);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnClose);
@@ -711,5 +737,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Location1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Location2;
+        private System.Windows.Forms.Button btnSpoolLoading;
     }
 }

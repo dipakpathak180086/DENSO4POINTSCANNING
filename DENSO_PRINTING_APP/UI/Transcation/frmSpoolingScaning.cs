@@ -26,6 +26,7 @@ namespace DENSO_PRINTING_APP
         private string _runningOldPartNo = string.Empty;
         private string _runningNewPartNo = string.Empty;
         private DataTable dtBindGrid = new DataTable();
+        private bool IsCloseButtonFire = true;
         #endregion
 
         #region Form Methods
@@ -53,8 +54,8 @@ namespace DENSO_PRINTING_APP
                 this.WindowState = FormWindowState.Maximized;
                 DisableFields();
                 BindView();
-                
-                
+
+
 
                 txtOldPartNo.Focus();
                 //dgv.Rows.Add(new object[] { "Line-04","3N1HA949532-4410 500","A949528-9860","A949528-9860","DIPAK PATHAK","A949528-9860"
@@ -96,7 +97,15 @@ namespace DENSO_PRINTING_APP
                 lblShowMessage(ex.Message, 2);
             }
         }
+        public bool CheckIfFormIsOpen(string formname)
+        {
 
+
+
+            bool formOpen = Application.OpenForms.Cast<Form>().Any(form => form.Name == formname);
+
+            return formOpen;
+        }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -105,6 +114,16 @@ namespace DENSO_PRINTING_APP
             {
                 return;
             }
+            var frm = Application.OpenForms.Cast<Form>().Where(x => x.Name == "frmMenu").FirstOrDefault();
+            if (null != frm)
+            {
+                frm.Close();
+                frm = null;
+            }
+            GlobalVariable.mIsDispose = true;
+            frmMenu oFrm = new frmMenu();
+            oFrm.Show();
+            oFrm.FormClosing += OFrm_FormClosing;
             this.Close();
         }
 
@@ -943,6 +962,18 @@ namespace DENSO_PRINTING_APP
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+        private void OFrm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!IsCloseButtonFire)
+                this.Show();
+        }
+        private void btnSpoolLoading_Click(object sender, EventArgs e)
+        {
+            frmTrayScaning frm = new frmTrayScaning();
+            frm.Show();
+            frm.FormClosing += OFrm_FormClosing;
+            this.Hide();
         }
     }
 }
