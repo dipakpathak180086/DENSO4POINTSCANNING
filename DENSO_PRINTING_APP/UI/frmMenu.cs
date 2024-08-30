@@ -229,6 +229,14 @@ namespace DENSO_PRINTING_APP
             frm.FormClosing += OFrm_FormClosing;
             this.Hide();
         }
+        private void picImportModelMaster_Click(object sender, EventArgs e)
+        {
+            frmImportModelDataMaster frm = new frmImportModelDataMaster();
+            frm.Show();
+            frm.FormClosing += OFrm_FormClosing;
+            this.Hide();
+
+        }
         private void btnFront_Click(object sender, EventArgs e)
         {
             if (cbSelectModel.SelectedIndex <= 0)
@@ -420,6 +428,10 @@ namespace DENSO_PRINTING_APP
                             picImportLaserMaster.Enabled = true;
                             lblImportLaserMaster.Enabled = true;
                             break;
+                        case "108":
+                            picImportModelMaster.Enabled = true;
+                            lblImportModelMaster.Enabled = true;
+                            break;
                         case "201":
 
                             picScanning.Enabled = true;
@@ -560,6 +572,6 @@ namespace DENSO_PRINTING_APP
             pnlSpoolScanning.Visible = false;
         }
 
-
+        
     }
 }

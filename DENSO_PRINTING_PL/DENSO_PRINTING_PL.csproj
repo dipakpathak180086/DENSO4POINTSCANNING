@@ -50,6 +50,7 @@
     <Compile Include="Master\PL_IMPORT_TRAY_MASTER.cs" />
     <Compile Include="Master\PL_LINE_MASTER.cs" />
     <Compile Include="Master\PL_IMPORT_SPOOL_MASTER.cs" />
+    <Compile Include="Master\PL_MODEL_MASTER.cs" />
     <Compile Include="Master\PL_NG_MASTER.cs" />
     <Compile Include="Master\PL_PART_MASTER.cs" />
     <Compile Include="Master\PL_USER_MASTER.cs" />

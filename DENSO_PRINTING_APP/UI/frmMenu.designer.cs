@@ -83,6 +83,8 @@
             this.btnMini = new System.Windows.Forms.Button();
             this.picChangePassword = new System.Windows.Forms.PictureBox();
             this.picLogOut = new System.Windows.Forms.PictureBox();
+            this.lblImportModelMaster = new System.Windows.Forms.Label();
+            this.picImportModelMaster = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.tbReport.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -109,6 +111,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picChangePassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogOut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImportModelMaster)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -140,6 +143,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.lblImportModelMaster);
+            this.tabPage1.Controls.Add(this.picImportModelMaster);
             this.tabPage1.Controls.Add(this.lblImportLaserMaster);
             this.tabPage1.Controls.Add(this.picImportLaserMaster);
             this.tabPage1.Controls.Add(this.lblImportTrayMaster);
@@ -816,6 +821,30 @@
             this.picLogOut.TabStop = false;
             this.picLogOut.Click += new System.EventHandler(this.picLogOut_Click);
             // 
+            // lblImportModelMaster
+            // 
+            this.lblImportModelMaster.AutoSize = true;
+            this.lblImportModelMaster.Enabled = false;
+            this.lblImportModelMaster.Location = new System.Drawing.Point(576, 222);
+            this.lblImportModelMaster.Name = "lblImportModelMaster";
+            this.lblImportModelMaster.Size = new System.Drawing.Size(146, 19);
+            this.lblImportModelMaster.TabIndex = 17;
+            this.lblImportModelMaster.Text = "Import Model Master";
+            // 
+            // picImportModelMaster
+            // 
+            this.picImportModelMaster.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picImportModelMaster.Enabled = false;
+            this.picImportModelMaster.Image = ((System.Drawing.Image)(resources.GetObject("picImportModelMaster.Image")));
+            this.picImportModelMaster.Location = new System.Drawing.Point(593, 146);
+            this.picImportModelMaster.Name = "picImportModelMaster";
+            this.picImportModelMaster.Size = new System.Drawing.Size(100, 73);
+            this.picImportModelMaster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picImportModelMaster.TabIndex = 16;
+            this.picImportModelMaster.TabStop = false;
+            this.picImportModelMaster.Tag = "101";
+            this.picImportModelMaster.Click += new System.EventHandler(this.picImportModelMaster_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
@@ -869,6 +898,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picChangePassword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogOut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImportModelMaster)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -929,5 +959,7 @@
         private System.Windows.Forms.PictureBox picLaserLoadingReport;
         public System.Windows.Forms.PictureBox picScanning;
         public System.Windows.Forms.PictureBox picTrayLoading;
+        private System.Windows.Forms.Label lblImportModelMaster;
+        private System.Windows.Forms.PictureBox picImportModelMaster;
     }
 }
